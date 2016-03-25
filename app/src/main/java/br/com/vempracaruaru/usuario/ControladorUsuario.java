@@ -10,9 +10,9 @@ import br.com.vempracaruaru.exception.UsuarioJaCadastradoException;
 import br.com.vempracaruaru.exception.UsuarioNaoCadastradoException;
 
 public class ControladorUsuario {
-	
+
 	private IRepositorioUsuario repositorio;
-	
+
 	public ControladorUsuario()throws Exception{
 		this.repositorio = new RepositorioUsuarioBDR();
 	}

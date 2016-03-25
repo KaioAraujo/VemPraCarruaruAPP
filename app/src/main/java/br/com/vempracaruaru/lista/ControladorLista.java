@@ -11,11 +11,11 @@ import br.com.vempracaruaru.exception.NaoFoiPossivelDeletarListaException;
 public class ControladorLista {
 
 private IRepositorioLista repositorio;
-	
+
 	public ControladorLista() throws Exception{
 		this.repositorio = new RepositorioListaBDR();
 	}
-	
+
 	public void cadastrar(Lista lista) throws SQLException, ListaJaCadastradoException, Exception{
 		System.out.println("passando pela controladora - concluido com sucesso -");
 		if (lista != null) {
@@ -33,7 +33,7 @@ private IRepositorioLista repositorio;
 		return repositorio.listarPorUsuarioPonto(idUsuario, idPonto, visitado);
 	}
 	public void alterar(Lista lista) throws SQLException, NaoFoiPossivelCadastrarListaException, ListaNaoCadastradoException, Exception{
-		repositorio.alterar(lista);	
+		repositorio.alterar(lista);
 	}
 	public void deletar(int idUsuario, int idPontoTuristico) throws SQLException, NaoFoiPossivelDeletarListaException, Exception{
 		repositorio.deletar(idUsuario, idPontoTuristico);

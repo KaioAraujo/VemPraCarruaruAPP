@@ -15,6 +15,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="br.com.vempracaruaru.Activitys.PerfilObraActivity" />
+        <activity android:name="br.com.vempracaruaru.Activitys.ListaObrasActivity" />
+        <activity android:name="br.com.vempracaruaru.Activitys.FotosObrasActivity"></activity>
     </application>
 
 </manifest>

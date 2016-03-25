@@ -8,4 +8,38 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="button">
+        <item name="android:background">@color/cor_button</item>
+        <item name="android:textColor">@color/cor_texto_button</item>
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">15dp</item>
+    </style>
+
+    <style name="imagem">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">100dp</item>
+    </style>
+
+    <style name="titulo">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:paddingLeft">20dp</item>
+    </style>
+
+    <style name="sub_titulo">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">#888888</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
+    <style name="texto">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
 </resources>

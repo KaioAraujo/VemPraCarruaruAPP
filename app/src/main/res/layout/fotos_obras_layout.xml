@@ -7,12 +7,24 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="br.com.vempracaruaru.Activitys.LoginActivity">
+    tools:context="br.com.vempracaruaru.Activitys.FotosObrasActivity">
 
-    <Button
-        android:id="@+id/btn_teste"
+    <TextView
+        android:id="@+id/txv_titulo_galeria_obra"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="teste"
+        android:text="teste"
+        android:textSize="30dp"
+        android:drawableLeft="@android:drawable/ic_menu_camera"
         />
+
+    <GridView
+        android:id="@+id/gdv_galeria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txv_titulo_galeria_obra"
+        android:numColumns="4"
+        >
+    </GridView>
+
 </RelativeLayout>

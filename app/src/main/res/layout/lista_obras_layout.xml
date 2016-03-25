@@ -7,12 +7,22 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="br.com.vempracaruaru.Activitys.LoginActivity">
+    tools:context="br.com.vempracaruaru.Activitys.ListaObrasActivity">
 
-    <Button
-        android:id="@+id/btn_teste"
+    <ImageView
+        android:id="@+id/imv_imagem_obra"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:src="@drawable/teste"
+        />
+    <TextView
+        android:id="@+id/txv_obra_lista_titulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/imv_imagem_obra"
+        android:layout_marginLeft="5dp"
         android:hint="teste"
         />
+
 </RelativeLayout>
