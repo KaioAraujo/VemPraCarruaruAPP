@@ -1,0 +1,15 @@
+package br.com.vempracaruaru.exception;
+
+public class ArtistaNaoCadastradoException extends Exception{
+	
+	private static final long serialVersionUID = -2849294837831479260L;
+
+	public ArtistaNaoCadastradoException(){
+		super("Artista não cadastrado!");
+	}
+	
+	public ArtistaNaoCadastradoException(String msg){
+		super(msg);
+	}
+
+}
