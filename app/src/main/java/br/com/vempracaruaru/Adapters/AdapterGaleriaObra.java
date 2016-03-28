@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.GridView;
 import android.widget.ImageView;
 
 import com.example.joao.vempracaruaruapp.R;
@@ -19,22 +20,22 @@ import br.com.vempracaruaru.obra.Obra;
  */
 public class AdapterGaleriaObra extends BaseAdapter {
 
-    Context ctx;
-    ArrayList<Foto> lista;
+    private Context ctx;
+    private Obra obra;
 
-    public AdapterGaleriaObra(ArrayList<Foto> lista, Context ctx) {
-        this.lista = lista;
+    public AdapterGaleriaObra(Obra obra, Context ctx) {
+        this.obra = obra;
         this.ctx = ctx;
     }
 
     @Override
     public int getCount() {
-        return lista.size();
+        return obra.getListaFotos().size();
     }
 
     @Override
     public Object getItem(int position) {
-        return lista.get(position);
+        return obra.getListaFotos().get(position);
     }
 
     @Override
@@ -44,25 +45,20 @@ public class AdapterGaleriaObra extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Foto foto = lista.get(position);
+        ImageView imageView;
+        if (convertView == null) {
 
-        ViewHolder holder = null;
+            imageView = new ImageView(ctx);
+            imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
+            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            imageView.setPadding(8, 8, 8, 8);
 
-        if(convertView == null){
-            convertView = LayoutInflater.from(ctx).inflate(R.layout.itens_galeria_obra,null);
-            holder = new ViewHolder();
-
-            holder.imgItem = (ImageView) convertView.findViewById(R.id.imv_item_galeria);
-            //set imagem
-            convertView.setTag(holder);
-        }else{
-            holder = (ViewHolder) convertView.getTag();
+        } else {
+            imageView = (ImageView) convertView;
         }
 
-        return convertView;
-    }
+        imageView.setImageResource(R.drawable.teste);
 
-    static class ViewHolder{
-        ImageView imgItem;
+        return imageView;
     }
 }

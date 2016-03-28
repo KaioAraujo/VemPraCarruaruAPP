@@ -14,6 +14,8 @@ import br.com.vempracaruaru.obra.Obra;
 
 public class PerfilObraActivity extends AppCompatActivity {
 
+    private Obra obra;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +23,7 @@ public class PerfilObraActivity extends AppCompatActivity {
 
         Intent it = getIntent();
 
-        Obra obra = (Obra)  it.getSerializableExtra("obra");
+        obra = (Obra)  it.getSerializableExtra("obra");
 
         ImageView img = (ImageView) findViewById(R.id.imv_imagem_obra);
         //aqui eu passo a imagem para o imagem view
@@ -45,6 +47,9 @@ public class PerfilObraActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //aqui vamos chamar a proxima tela...
+                Intent its = new Intent(getApplicationContext(),GaleriaObrasActivity.class);
+                its.putExtra("obra",obra);
+                startActivity(its);
             }
         });
     }
