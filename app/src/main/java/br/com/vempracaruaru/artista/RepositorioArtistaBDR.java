@@ -77,7 +77,7 @@ public class RepositorioArtistaBDR  implements IRepositorioArtista{
 			ps.close();
 			rs.close();
 		} else {
-			throw new NaoFoiPossivelCadastrarArtistaException("Não foi possível efetuar o cadastro, pois o Artista já está cadastrado no sistema.");
+			throw new NaoFoiPossivelCadastrarArtistaException("Nï¿½o foi possï¿½vel efetuar o cadastro, pois o Artista jï¿½ estï¿½ cadastrado no sistema.");
 		}
 		
 		return artista;

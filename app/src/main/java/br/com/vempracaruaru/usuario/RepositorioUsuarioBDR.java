@@ -10,7 +10,6 @@ import java.util.ArrayList;
 
 
 import br.com.vempracaruaru.conexao.Conexao;
-import br.com.vempracaruaru.conexao.DataBase;
 import br.com.vempracaruaru.exception.BusinessException;
 import br.com.vempracaruaru.exception.NaoFoiPossivelAlterarUsuarioException;
 import br.com.vempracaruaru.exception.NaoFoiPossivelCadastrarUsuarioException;
@@ -74,7 +73,7 @@ public class RepositorioUsuarioBDR implements IRepositorioUsuario{
 			ps.close();
 			rs.close();	
 		} else {
-			throw new NaoFoiPossivelCadastrarUsuarioException("Email já cadastrado no sistema!!!");
+			throw new NaoFoiPossivelCadastrarUsuarioException("Email jï¿½ cadastrado no sistema!!!");
 		}
 		
 	}
@@ -128,7 +127,7 @@ public class RepositorioUsuarioBDR implements IRepositorioUsuario{
 						rs.getString("user_facebook"),rs.getString("link_facebook"), rs.getInt("pontos"), rs.getString("ativo").charAt(0));
 			}
 			if (qtdLinhas == 0) {
-				throw new BusinessException("Login inválido!");
+				throw new BusinessException("Login invï¿½lido!");
 			}
 		}
 		ps.close();
@@ -232,7 +231,7 @@ public class RepositorioUsuarioBDR implements IRepositorioUsuario{
 		if (existeId(usuario.getId()) == false){
 			PreparedStatement ps = null;
 			String sql = "";
-			// instrução de update do usuario
+			// instruï¿½ï¿½o de update do usuario
 			sql = "UPDATE " + NOME_TABELA + " SET ativo=? WHERE id=?;";
 			ps = this.connection.prepareStatement(sql);
 			ps.setString(1, String.valueOf(usuario.getAtivo()));
@@ -253,7 +252,7 @@ public class RepositorioUsuarioBDR implements IRepositorioUsuario{
 		if (existeId(usuario.getId()) == false){
 			PreparedStatement ps = null;
 			String sql = "";
-			// instrução de update do usuario
+			// instruï¿½ï¿½o de update do usuario
 			sql = "UPDATE " + NOME_TABELA + " SET ativo=? WHERE id=?;";
 			ps = this.connection.prepareStatement(sql);
 			ps.setString(1, String.valueOf(usuario.getAtivo()));
