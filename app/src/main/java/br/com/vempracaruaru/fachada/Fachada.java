@@ -3,14 +3,10 @@ package br.com.vempracaruaru.fachada;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import br.com.vempracaruaru.administrador.Administrador;
-import br.com.vempracaruaru.administrador.ControladorAdministrador;
+
 import br.com.vempracaruaru.artista.Artista;
 import br.com.vempracaruaru.artista.ControladorArtista;
-import br.com.vempracaruaru.contato.Contato;
-import br.com.vempracaruaru.contato.ControladorContato;
-import br.com.vempracaruaru.destaque.ControladorDestaque;
-import br.com.vempracaruaru.destaque.Destaque;
+
 import br.com.vempracaruaru.exception.AdministradorJaCadastradoException;
 import br.com.vempracaruaru.exception.AdministradorNaoCadastradoException;
 import br.com.vempracaruaru.exception.ArtistaJaCadastradoException;
@@ -58,26 +54,20 @@ public class Fachada {
 
 	private static Fachada instance = null;
 
-	private ControladorAdministrador controladorAdministrador;
 	private ControladorArtista controladorArtista;
 	private ControladorUsuario controladorUsuario;
 	private ControladorPontoTuristico controladorPontoTuristico;
 	private ControladorObra controladorObra;
 	private ControladorLista controladorLista;
 	private ControladorFoto controladorFoto;
-	private ControladorDestaque controladorDestaque;
-	private ControladorContato controladorContato;
 
 	public Fachada() throws Exception {
-		this.controladorAdministrador = new ControladorAdministrador();
 		this.controladorArtista = new ControladorArtista();
 		this.controladorUsuario = new ControladorUsuario();
 		this.controladorPontoTuristico = new ControladorPontoTuristico();
 		this.controladorObra = new ControladorObra();
 		this.controladorLista = new ControladorLista();
 		this.controladorFoto = new ControladorFoto();
-		this.controladorDestaque = new ControladorDestaque();
-		this.controladorContato = new ControladorContato();
 	}
 
 	public static Fachada getInstance() throws Exception {
@@ -87,59 +77,59 @@ public class Fachada {
 		return Fachada.instance;
 	}
 
-	// MÉTODOS DO ADMINISTRADOR
+//	// Mï¿½TODOS DO ADMINISTRADOR
+//
+//	public void administradorCadastrar(Administrador administrador) throws SQLException,
+//			NaoFoiPossivelCadastrarAdministradorException, AdministradorJaCadastradoException, Exception {
+//		System.out.println("Passando pela fachada - concluido com sucesso -");
+//		controladorAdministrador.cadastrar(administrador);
+//	}
+//
+//	public ArrayList<Administrador> administradorListarTodos(String complemento)
+//			throws SQLException, AdministradorNaoCadastradoException, Exception {
+//		System.out.println("Passando pela fachada - concluido com sucesso -");
+//		return controladorAdministrador.listarTodos(complemento);
+//	}
+//
+//	public Administrador administradorListarPorId(int id)
+//			throws SQLException, AdministradorNaoCadastradoException, Exception {
+//		System.out.println("Passando pela fachada - concluido com sucesso -");
+//		return controladorAdministrador.listarPorId(id);
+//	}
+//
+//	public ArrayList<Administrador> administradorListarPorNome(String nome)
+//			throws SQLException, AdministradorNaoCadastradoException, Exception {
+//		System.out.println("Passando pela fachada - concluido com sucesso -");
+//		return controladorAdministrador.listarPorNome(nome);
+//	}
+//
+//	public Administrador administradorListarPorCpf(String cpf)
+//			throws SQLException, AdministradorNaoCadastradoException, Exception {
+//		System.out.println("Passando pela fachada - concluido com sucesso -");
+//		return controladorAdministrador.listarPorCpf(cpf);
+//	}
+//
+//	public void administradorAlterar(Administrador administrador) throws SQLException,
+//			NaoFoiPossivelCadastrarAdministradorException, AdministradorNaoCadastradoException, Exception {
+//		System.out.println("Passando pela fachada - concluido com sucesso -");
+//		controladorAdministrador.alterar(administrador);
+//	}
+//
+//	public void administradorDeletar(int id) throws SQLException, AdministradorNaoCadastradoException, Exception {
+//		System.out.println("Passando pela fachada - concluido com sucesso -");
+//		controladorAdministrador.deletar(id);
+//	}
+//
+//	public void administradorAtivar(int id) throws SQLException, AdministradorNaoCadastradoException, Exception {
+//		System.out.println("Passando pela fachada - concluido com sucesso -");
+//		controladorAdministrador.ativar(id);
+//	}
+//
+//	public Administrador administradorLogin(String usuario, String senha) throws SQLException, BusinessException, Exception{
+//		return controladorAdministrador.login(usuario, senha);
+//	}
 
-	public void administradorCadastrar(Administrador administrador) throws SQLException,
-			NaoFoiPossivelCadastrarAdministradorException, AdministradorJaCadastradoException, Exception {
-		System.out.println("Passando pela fachada - concluido com sucesso -");
-		controladorAdministrador.cadastrar(administrador);
-	}
-
-	public ArrayList<Administrador> administradorListarTodos(String complemento)
-			throws SQLException, AdministradorNaoCadastradoException, Exception {
-		System.out.println("Passando pela fachada - concluido com sucesso -");
-		return controladorAdministrador.listarTodos(complemento);
-	}
-
-	public Administrador administradorListarPorId(int id)
-			throws SQLException, AdministradorNaoCadastradoException, Exception {
-		System.out.println("Passando pela fachada - concluido com sucesso -");
-		return controladorAdministrador.listarPorId(id);
-	}
-
-	public ArrayList<Administrador> administradorListarPorNome(String nome)
-			throws SQLException, AdministradorNaoCadastradoException, Exception {
-		System.out.println("Passando pela fachada - concluido com sucesso -");
-		return controladorAdministrador.listarPorNome(nome);
-	}
-
-	public Administrador administradorListarPorCpf(String cpf)
-			throws SQLException, AdministradorNaoCadastradoException, Exception {
-		System.out.println("Passando pela fachada - concluido com sucesso -");
-		return controladorAdministrador.listarPorCpf(cpf);
-	}
-
-	public void administradorAlterar(Administrador administrador) throws SQLException,
-			NaoFoiPossivelCadastrarAdministradorException, AdministradorNaoCadastradoException, Exception {
-		System.out.println("Passando pela fachada - concluido com sucesso -");
-		controladorAdministrador.alterar(administrador);
-	}
-
-	public void administradorDeletar(int id) throws SQLException, AdministradorNaoCadastradoException, Exception {
-		System.out.println("Passando pela fachada - concluido com sucesso -");
-		controladorAdministrador.deletar(id);
-	}
-	
-	public void administradorAtivar(int id) throws SQLException, AdministradorNaoCadastradoException, Exception {
-		System.out.println("Passando pela fachada - concluido com sucesso -");
-		controladorAdministrador.ativar(id);
-	}
-	
-	public Administrador administradorLogin(String usuario, String senha) throws SQLException, BusinessException, Exception{
-		return controladorAdministrador.login(usuario, senha);
-	}
-
-	// MÉTODOS DO ARTISTA
+	// Mï¿½TODOS DO ARTISTA
 	public Artista artistaCadastrar(Artista artista)
 			throws SQLException, NaoFoiPossivelCadastrarArtistaException, ArtistaJaCadastradoException, Exception {
 		System.out.println("Passando pela fachada - concluido com sucesso -");
@@ -168,7 +158,7 @@ public class Fachada {
 		System.out.println("Passando pela fachada - concluido com sucesso -");
 		controladorArtista.alterar(artista);
 	}
-	
+
 	public void artistaDefinirImagemPrincipal(int id, String imagem) throws SQLException, ArtistaNaoCadastradoException, NaoFoiPossivelAlterarArtistaException, Exception {
 		System.out.println("Passando pela fachada - concluido com sucesso -");
 		controladorArtista.definirImagemPrincipal(id, imagem);
@@ -178,13 +168,13 @@ public class Fachada {
 		System.out.println("Passando pela fachada - concluido com sucesso -");
 		controladorArtista.deletar(id);
 	}
-	
+
 	public void artistaAtivar(int id) throws SQLException, ArtistaNaoCadastradoException, Exception {
 		System.out.println("Passando pela fachada - concluido com sucesso -");
 		controladorArtista.ativar(id);
 	}
 
-	// MÉTODOS DO USUÁRIO
+	// Mï¿½TODOS DO USUï¿½RIO
 
 	public void usuarioCadastrar(Usuario usuario)
 			throws SQLException, NaoFoiPossivelCadastrarUsuarioException, UsuarioJaCadastradoException, Exception {
@@ -202,12 +192,12 @@ public class Fachada {
 		System.out.println("Passando pela fachada - concluido com sucesso -");
 		return controladorUsuario.listarPorId(id);
 	}
-	
+
 	public Usuario usuarioListarPorIdFacebook(String idFacebook, String email) throws SQLException, UsuarioNaoCadastradoException, Exception {
 		System.out.println("Passando pela fachada - concluido com sucesso -");
 		return controladorUsuario.listarPorIdFacebook(idFacebook, email);
 	}
-	
+
 	public Usuario usuarioListarPorEmail(String email) throws SQLException, UsuarioNaoCadastradoException, Exception {
 		System.out.println("Passando pela fachada - concluido com sucesso -");
 		return controladorUsuario.listarPorEmail(email);
@@ -218,7 +208,7 @@ public class Fachada {
 		System.out.println("Passando pela fachada - concluido com sucesso -");
 		return controladorUsuario.listarPorNome(nome);
 	}
-	
+
 	public Usuario usuarioLoginSite(String email, String senha) throws SQLException, BusinessException, Exception{
 		return controladorUsuario.loginSite(email, senha);
 	}
@@ -228,12 +218,12 @@ public class Fachada {
 		System.out.println("Passando pela fachada - concluido com sucesso -");
 		controladorUsuario.alterar(usuario);
 	}
-	
+
 	public void usuarioAlterarIdFacebook(String idFacebook, String email) throws SQLException, NaoFoiPossivelAlterarUsuarioException, UsuarioNaoCadastradoException, Exception{
 		System.out.println("Passando pela fachada - concluido com sucesso -");
 		controladorUsuario.alterarIdFacebook(idFacebook, email);
 	}
-	
+
 	public void usuarioAlterarSenha(Usuario usuario)
 			throws SQLException, NaoFoiPossivelAlterarUsuarioException, UsuarioNaoCadastradoException, Exception {
 		System.out.println("Passando pela fachada - concluido com sucesso -");
@@ -244,18 +234,18 @@ public class Fachada {
 		System.out.println("Passando pela fachada - concluido com sucesso -");
 		controladorUsuario.deletar(id);
 	}
-	
+
 	public void usuarioAtivar(int id) throws SQLException, UsuarioNaoCadastradoException, Exception {
 		System.out.println("Passando pela fachada - concluido com sucesso -");
 		controladorUsuario.ativar(id);
 	}
-	
+
 	public boolean usuarioExisteEmail(String email) throws SQLException, Exception {
 		System.out.println("Passando pela fachada - concluido com sucesso -");
 		return controladorUsuario.existeEmail(email);
 	}
 
-	// MÉTODOS DO PONTO_TURISTICOS
+	// Mï¿½TODOS DO PONTO_TURISTICOS
 
 	public PontoTuristico pontoTuristicoCadastrar(PontoTuristico pontoTurustico) throws SQLException,
 			NaoFoiPossivelCadastrarPontoTuristicoException, PontoTuristicoJaCadastradoException, Exception {
@@ -286,7 +276,7 @@ public class Fachada {
 		System.out.println("Passando pela fachada - concluido com sucesso -");
 		controladorPontoTuristico.alterar(pontoTurustico);
 	}
-	
+
 	public void pontoTuristicoDefinirImagemPrincipal(int id, String imagem) throws SQLException, PontoTuristicoNaoCadastradoException, NaoFoiPossivelAlterarPontoTuristicoException, Exception {
 		System.out.println("Passando pela fachada - concluido com sucesso -");
 		controladorPontoTuristico.definirImagemPrincipal(id, imagem);
@@ -296,7 +286,7 @@ public class Fachada {
 		System.out.println("Passando pela fachada - concluido com sucesso -");
 		controladorPontoTuristico.deletar(id);
 	}
-	
+
 	public void pontoTuristicoAtivar(int id) throws SQLException, PontoTuristicoNaoCadastradoException, Exception {
 		System.out.println("Passando pela fachada - concluido com sucesso -");
 		controladorPontoTuristico.ativar(id);
@@ -331,7 +321,7 @@ public class Fachada {
 		System.out.println("Passando pela fachada - concluido com sucesso -");
 		controladorObra.alterar(obra);
 	}
-	
+
 	public void obraDefinirImagemPrincipal(int id, String imagem) throws SQLException, ArtistaNaoCadastradoException, NaoFoiPossivelCadastrarArtistaException, Exception {
 		System.out.println("Passando pela fachada - concluido com sucesso -");
 		controladorObra.definirImagemPrincipal(id, imagem);
@@ -341,7 +331,7 @@ public class Fachada {
 		System.out.println("Passando pela fachada - concluido com sucesso -");
 		controladorObra.deletar(id);
 	}
-	
+
 	public void obraAtivar(int id) throws SQLException, ObraNaoCadastradaException, Exception {
 		System.out.println("Passando pela fachada - concluido com sucesso -");
 		controladorObra.ativar(id);
@@ -365,7 +355,7 @@ public class Fachada {
 		System.out.println("Passando pela fachada - concluido com sucesso -");
 		return controladorLista.listarPorUsuario(idUsuario, visitado);
 	}
-	
+
 	public Lista listarPorUsuarioPonto(int idUsuario, int idPonto, char visitado) throws SQLException, ListaNaoCadastradoException, Exception {
 		System.out.println("Passando pela fachada - concluido com sucesso -");
 		return controladorLista.listarPorUsuarioPonto(idUsuario, idPonto, visitado);
@@ -418,71 +408,71 @@ public class Fachada {
 		controladorFoto.deletar(id);
 	}
 
-	// Metodos Destaque
-	public Destaque destaqueCadastrar(Destaque destaque)
-			throws SQLException, NaoFoiPossivelCadastrarDestaqueException, DestaqueJaCadastradoException, Exception {
-		System.out.println("Passando pela fachada - concluido com sucesso -");
-		return controladorDestaque.cadastrar(destaque);
-	}
-
-	public ArrayList<Destaque> destaqueListarTodos(String complemento)
-			throws SQLException, DestaqueNaoCadastradoException, Exception {
-		System.out.println("Passando pela fachada - concluido com sucesso -");
-		return controladorDestaque.listarTodos(complemento);
-	}
-
-	public Destaque destaqueListarPorId(int id) throws SQLException, DestaqueNaoCadastradoException, Exception {
-		System.out.println("Passando pela fachada - concluido com sucesso -");
-		return controladorDestaque.listarPorId(id);
-	}
-
-	public ArrayList<Destaque> destaqueListarPorTitulo(String titulo)
-			throws SQLException, DestaqueNaoCadastradoException, Exception {
-		System.out.println("Passando pela fachada - concluido com sucesso -");
-		return controladorDestaque.listarPorTitulo(titulo);
-	}
-
-	public void destaqueAlterar(Destaque destaque)
-			throws SQLException, NaoFoiPossivelCadastrarDestaqueException, DestaqueNaoCadastradoException, Exception {
-		System.out.println("Passando pela fachada - concluido com sucesso -");
-		controladorDestaque.alterar(destaque);
-
-	}
-
-	public void destaqueDeletar(int id) throws SQLException, DestaqueNaoCadastradoException, Exception {
-		System.out.println("Passando pela fachada - concluido com sucesso -");
-		controladorDestaque.deletar(id);
-	}
-
-	// Metodos Contato
-
-	public void contatoCadastrar(Contato contato)
-			throws SQLException, NaoFoiPossivelCadastrarContatoException, ContatoJaCadastradoException, Exception {
-		System.out.println("Passando pela fachada - concluido com sucesso -");
-		controladorContato.cadastrar(contato);
-
-	}
-
-	public ArrayList<Contato> contatoListarTodos(String complemento)
-			throws SQLException, ContatoNaoCadastradoException, Exception {
-		System.out.println("Passando pela fachada - concluido com sucesso -");
-		return controladorContato.listarTodos(complemento);
-	}
-	
-	public Contato contatoListarPorId(int id)
-			throws SQLException, ContatoNaoCadastradoException, Exception {
-		System.out.println("Passando pela fachada - concluido com sucesso -");
-		return controladorContato.listarPorId(id);
-	}
-
-	public void contatoAlterar(Contato contato)
-			throws SQLException, NaoFoiPossivelCadastrarContatoException, ContatoNaoCadastradoException, Exception {
-		System.out.println("Passando pela fachada - concluido com sucesso -");
-		controladorContato.alterar(contato);
-	}
-
-	public void contatoDeletar(int id) throws SQLException, ContatoNaoCadastradoException, Exception {
-		System.out.println("Passando pela fachada - concluido com sucesso -");
-		controladorContato.deletar(id);
-	}
+//	// Metodos Destaque
+//	public Destaque destaqueCadastrar(Destaque destaque)
+//			throws SQLException, NaoFoiPossivelCadastrarDestaqueException, DestaqueJaCadastradoException, Exception {
+//		System.out.println("Passando pela fachada - concluido com sucesso -");
+//		return controladorDestaque.cadastrar(destaque);
+//	}
+//
+//	public ArrayList<Destaque> destaqueListarTodos(String complemento)
+//			throws SQLException, DestaqueNaoCadastradoException, Exception {
+//		System.out.println("Passando pela fachada - concluido com sucesso -");
+//		return controladorDestaque.listarTodos(complemento);
+//	}
+//
+//	public Destaque destaqueListarPorId(int id) throws SQLException, DestaqueNaoCadastradoException, Exception {
+//		System.out.println("Passando pela fachada - concluido com sucesso -");
+//		return controladorDestaque.listarPorId(id);
+//	}
+//
+//	public ArrayList<Destaque> destaqueListarPorTitulo(String titulo)
+//			throws SQLException, DestaqueNaoCadastradoException, Exception {
+//		System.out.println("Passando pela fachada - concluido com sucesso -");
+//		return controladorDestaque.listarPorTitulo(titulo);
+//	}
+//
+//	public void destaqueAlterar(Destaque destaque)
+//			throws SQLException, NaoFoiPossivelCadastrarDestaqueException, DestaqueNaoCadastradoException, Exception {
+//		System.out.println("Passando pela fachada - concluido com sucesso -");
+//		controladorDestaque.alterar(destaque);
+//
+//	}
+//
+//	public void destaqueDeletar(int id) throws SQLException, DestaqueNaoCadastradoException, Exception {
+//		System.out.println("Passando pela fachada - concluido com sucesso -");
+//		controladorDestaque.deletar(id);
+//	}
+//
+//	// Metodos Contato
+//
+//	public void contatoCadastrar(Contato contato)
+//			throws SQLException, NaoFoiPossivelCadastrarContatoException, ContatoJaCadastradoException, Exception {
+//		System.out.println("Passando pela fachada - concluido com sucesso -");
+//		controladorContato.cadastrar(contato);
+//
+//	}
+//
+//	public ArrayList<Contato> contatoListarTodos(String complemento)
+//			throws SQLException, ContatoNaoCadastradoException, Exception {
+//		System.out.println("Passando pela fachada - concluido com sucesso -");
+//		return controladorContato.listarTodos(complemento);
+//	}
+//
+//	public Contato contatoListarPorId(int id)
+//			throws SQLException, ContatoNaoCadastradoException, Exception {
+//		System.out.println("Passando pela fachada - concluido com sucesso -");
+//		return controladorContato.listarPorId(id);
+//	}
+//
+//	public void contatoAlterar(Contato contato)
+//			throws SQLException, NaoFoiPossivelCadastrarContatoException, ContatoNaoCadastradoException, Exception {
+//		System.out.println("Passando pela fachada - concluido com sucesso -");
+//		controladorContato.alterar(contato);
+//	}
+//
+//	public void contatoDeletar(int id) throws SQLException, ContatoNaoCadastradoException, Exception {
+//		System.out.println("Passando pela fachada - concluido com sucesso -");
+//		controladorContato.deletar(id);
+//	}
 }

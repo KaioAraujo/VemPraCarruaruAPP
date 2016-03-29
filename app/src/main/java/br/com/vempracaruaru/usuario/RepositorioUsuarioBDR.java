@@ -22,19 +22,19 @@ public class RepositorioUsuarioBDR implements IRepositorioUsuario{
 	public static final String NOME_TABELA = "usuario";
 	private Connection connection;
 	private int dataBase = DataBase.MYSQL;
-	
+
 	public static RepositorioUsuarioBDR getInstace() throws Exception{
 		if(instance != null){
 			instance = new RepositorioUsuarioBDR();
 		}
 		return instance;
 	}
-	
+
 	public RepositorioUsuarioBDR() throws Exception{
 		this.connection = Conexao.getConexao(dataBase);
-		
+
 	}
-	
+
 	@Override
 	public void cadastrar(Usuario usuario)
 			throws SQLException, NaoFoiPossivelCadastrarUsuarioException, UsuarioJaCadastradoException, Exception {
@@ -43,7 +43,7 @@ public class RepositorioUsuarioBDR implements IRepositorioUsuario{
 			PreparedStatement ps = null;
 			ResultSet rs = null;
 			String sql = "";
-		
+
 				sql = "INSERT INTO " + NOME_TABELA + " (email, nome, localizacao, senha, user_facebook, link_facebook, ativo) VALUES (?,?,?,password(?),?,?,?);";
 				if (this.dataBase == DataBase.ORACLE) {
 					ps = this.connection.prepareStatement(sql, new String[] { "id" });
@@ -69,13 +69,13 @@ public class RepositorioUsuarioBDR implements IRepositorioUsuario{
 				} else {
 					throw new NaoFoiPossivelCadastrarUsuarioException();
 				}
-						
+
 			ps.close();
-			rs.close();	
+			rs.close();
 		} else {
 			throw new NaoFoiPossivelCadastrarUsuarioException("Email j� cadastrado no sistema!!!");
 		}
-		
+
 	}
 
 	@Override
@@ -105,7 +105,7 @@ public class RepositorioUsuarioBDR implements IRepositorioUsuario{
 		rs.close();
 		return usuarios;
 	}
-	
+
 	@Override
 	public Usuario loginSite(String email, String senha) throws SQLException, BusinessException, Exception {
 
@@ -134,12 +134,12 @@ public class RepositorioUsuarioBDR implements IRepositorioUsuario{
 		rs.close();
 		return usuario;
 	}
-	
+
 	@Override
 	public Usuario listarPorId(int id) throws SQLException, UsuarioNaoCadastradoException, Exception {
 		return listarTodos("AND id=" + id).get(0);
 	}
-	
+
 	@Override
 	public Usuario listarPorIdFacebook(String idFacebook, String email) throws SQLException, UsuarioNaoCadastradoException, Exception {
 		ArrayList<Usuario> usuarios = listarTodos("AND email='" + email + "' AND user_facebook='" + idFacebook + "'");
@@ -149,7 +149,7 @@ public class RepositorioUsuarioBDR implements IRepositorioUsuario{
 		}
 		return usuario;
 	}
-	
+
 	@Override
 	public Usuario listarPorEmail(String email) throws SQLException, UsuarioNaoCadastradoException, Exception {
 		ArrayList<Usuario> usuarios = listarTodos("AND email=" + email);
@@ -168,7 +168,7 @@ public class RepositorioUsuarioBDR implements IRepositorioUsuario{
 	@Override
 	public void alterar(Usuario usuario)
 			throws SQLException, NaoFoiPossivelAlterarUsuarioException, UsuarioNaoCadastradoException, Exception {
-		
+
 		if (existeId(usuario.getId()) == false){
 				PreparedStatement ps = null;
 				String sql = "";
@@ -188,12 +188,12 @@ public class RepositorioUsuarioBDR implements IRepositorioUsuario{
 			}else{
 				throw new NaoFoiPossivelAlterarUsuarioException();
 			}
-		
+
 	}
-	
+
 	@Override
 	public void alterarIdFacebook(String idFacebook, String email) throws SQLException, NaoFoiPossivelAlterarUsuarioException, UsuarioNaoCadastradoException, Exception {
-		
+
 		PreparedStatement ps = null;
 		String sql = "";
 		sql = "UPDATE " + NOME_TABELA + " SET user_facebook=? WHERE email=?;";
@@ -204,11 +204,11 @@ public class RepositorioUsuarioBDR implements IRepositorioUsuario{
 		if (resultado == 0) throw new NaoFoiPossivelAlterarUsuarioException();
 		ps.close();
 	}
-	
+
 	@Override
 	public void alterarSenha(Usuario usuario)
 			throws SQLException, NaoFoiPossivelAlterarUsuarioException, UsuarioNaoCadastradoException, Exception {
-		
+
 		if (existeId(usuario.getId()) == false){
 			PreparedStatement ps = null;
 			String sql = "";
@@ -226,7 +226,7 @@ public class RepositorioUsuarioBDR implements IRepositorioUsuario{
 
 	@Override
 	public void deletar(int id) throws SQLException, UsuarioNaoCadastradoException, Exception {
-		
+
 		Usuario usuario = new Usuario(id, "", "", "", "", "", "", 0,'N');
 		if (existeId(usuario.getId()) == false){
 			PreparedStatement ps = null;
@@ -242,12 +242,12 @@ public class RepositorioUsuarioBDR implements IRepositorioUsuario{
 		}else{
 			throw new UsuarioNaoCadastradoException();
 		}
-		
+
 	}
-	
+
 	@Override
 	public void ativar(int id) throws SQLException, UsuarioNaoCadastradoException, Exception {
-		
+
 		Usuario usuario = new Usuario(id, "", "", "", "", "", "", 0,'S');
 		if (existeId(usuario.getId()) == false){
 			PreparedStatement ps = null;
@@ -263,15 +263,15 @@ public class RepositorioUsuarioBDR implements IRepositorioUsuario{
 		}else{
 			throw new UsuarioNaoCadastradoException();
 		}
-		
+
 	}
 
 	@Override
-	public boolean existeId(int id) throws SQLException, UsuarioJaCadastradoException, Exception {		
+	public boolean existeId(int id) throws SQLException, UsuarioJaCadastradoException, Exception {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		String sql = "SELECT * FROM " + NOME_TABELA + " WHERE id=?";
-		boolean resposta = true;		
+		boolean resposta = true;
 		ps = connection.prepareStatement(sql);
 		ps.setInt(1, id);
 		rs = ps.executeQuery();
@@ -280,15 +280,15 @@ public class RepositorioUsuarioBDR implements IRepositorioUsuario{
 		}
 		ps.close();
 		rs.close();
-		return resposta;		
+		return resposta;
 	}
-	
+
 	@Override
-	public boolean existeEmail(String email) throws SQLException, Exception {		
+	public boolean existeEmail(String email) throws SQLException, Exception {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		String sql = "SELECT * FROM " + NOME_TABELA + " WHERE email=?";
-		boolean resposta = false;		
+		boolean resposta = false;
 		ps = connection.prepareStatement(sql);
 		ps.setString(1, email);
 		rs = ps.executeQuery();
@@ -297,7 +297,7 @@ public class RepositorioUsuarioBDR implements IRepositorioUsuario{
 		}
 		ps.close();
 		rs.close();
-		return resposta;		
+		return resposta;
 	}
 
 }

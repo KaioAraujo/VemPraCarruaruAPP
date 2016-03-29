@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Vem Pra Caruaru App</string>
+    <string name="ver_fotos">Ver Fotos</string>
+<<<<<<< HEAD
+    <string name="texto">Texto</string>
+=======
+    <string name="title_activity_menu_principal">MenuPrincipalActivity</string>
+
+    <string name="action_settings">Settings</string>
+>>>>>>> 47ee95602f0d722d2bf86101369d63946a8463a9
 </resources>

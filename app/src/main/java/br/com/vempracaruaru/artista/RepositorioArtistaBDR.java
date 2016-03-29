@@ -15,14 +15,14 @@ import br.com.vempracaruaru.exception.NaoFoiPossivelAlterarArtistaException;
 import br.com.vempracaruaru.exception.NaoFoiPossivelCadastrarArtistaException;
 
 public class RepositorioArtistaBDR  implements IRepositorioArtista{
-	
+
 	private static RepositorioArtistaBDR instance;
 	public static final String NOME_TABELA = "artista";
 	private Connection connection;
 	private int dataBase = DataBase.MYSQL;
-	
+
 	public static RepositorioArtistaBDR getInstance() throws Exception{
-		
+
 		if(instance == null){
 			instance = new RepositorioArtistaBDR();
 		}
@@ -32,16 +32,16 @@ public class RepositorioArtistaBDR  implements IRepositorioArtista{
 	public RepositorioArtistaBDR()throws Exception{
 		this.connection = Conexao.getConexao(dataBase);
 	}
-	
+
 	@Override
 	public Artista cadastrar(Artista artista) throws SQLException, NaoFoiPossivelCadastrarArtistaException, ArtistaJaCadastradoException, Exception {
 		System.out.println("Chegando ao repositorio");
-		
+
 		if (existeNome(artista.getNome())){
 			PreparedStatement ps = null;
 			ResultSet rs = null;
 			String sql = "";
-		
+
 				sql = "INSERT INTO " + NOME_TABELA + " (id_administrador, nome, historico,imagem_principal,"
 						+ " telefone, email, twitter, instagram, facebook, tipo, ativo"
 						+ ") VALUES (?,?,?,?,?,?,?,?,?,?,?);";
@@ -52,13 +52,13 @@ public class RepositorioArtistaBDR  implements IRepositorioArtista{
 				}
 				ps.setInt(1, artista.getIdAdministrador());
 				ps.setString(2, artista.getNome());
-				ps.setString(3, artista.getHistorico());	
+				ps.setString(3, artista.getHistorico());
 				ps.setString(4, artista.getFoto());
 				ps.setString(5, artista.getTelefone());
 				ps.setString(6, artista.getEmail());
 				ps.setString(7, artista.getTwitter());
 				ps.setString(8, artista.getInstagram());
-				ps.setString(9, artista.getFacebook());			
+				ps.setString(9, artista.getFacebook());
 				ps.setString(10, artista.getTipo());
 				ps.setString(11, String.valueOf(artista.getAtivo()));
 				ps.execute();
@@ -73,15 +73,15 @@ public class RepositorioArtistaBDR  implements IRepositorioArtista{
 					throw new NaoFoiPossivelCadastrarArtistaException();
 				}
 				System.out.println("Cadastro concluido com sucesso");
-			
+
 			ps.close();
 			rs.close();
 		} else {
 			throw new NaoFoiPossivelCadastrarArtistaException("N�o foi poss�vel efetuar o cadastro, pois o Artista j� est� cadastrado no sistema.");
 		}
-		
+
 		return artista;
-		
+
 	}
 
 	@Override
@@ -100,12 +100,12 @@ public class RepositorioArtistaBDR  implements IRepositorioArtista{
 		rs = ps.executeQuery();
 		if (rs != null) {
 			while (rs.next()) {
-				Artista artista = new Artista(	rs.getInt("id"), rs.getString("nome_artista"), 
+				Artista artista = new Artista(	rs.getInt("id"), rs.getString("nome_artista"),
 						rs.getInt("id_administrador"), rs.getString("nome_administrador"),
 						 rs.getString("historico"), rs.getString("tipo"), rs.getString("imagem_principal"),
 						  rs.getString("telefone"), rs.getString("email"), rs.getString("twitter"), rs.getString("instagram"),
 						  rs.getString("facebook"),rs.getString("ativo").charAt(0));
-				
+
 				artistas.add(artista);
 			}
 		}else{
@@ -115,7 +115,7 @@ public class RepositorioArtistaBDR  implements IRepositorioArtista{
 		ps.close();
 		rs.close();
 		return artistas;
-	
+
 	}
 
 	@Override
@@ -132,7 +132,7 @@ public class RepositorioArtistaBDR  implements IRepositorioArtista{
 	@Override
 	public void alterar(Artista artista)
 			throws SQLException, NaoFoiPossivelCadastrarArtistaException, ArtistaNaoCadastradoException, Exception {
-		
+
 		if (existeId(artista) == false){
 			PreparedStatement ps = null;
 			String sql = "";
@@ -153,11 +153,11 @@ public class RepositorioArtistaBDR  implements IRepositorioArtista{
 		}else{
 			throw new NaoFoiPossivelAlterarArtistaException();
 		}
-				
+
 	}
-	
+
 	@Override
-	public void definirImagemPrincipal(int id, String imagem) throws SQLException, ArtistaNaoCadastradoException, NaoFoiPossivelCadastrarArtistaException, Exception {			
+	public void definirImagemPrincipal(int id, String imagem) throws SQLException, ArtistaNaoCadastradoException, NaoFoiPossivelCadastrarArtistaException, Exception {
 		PreparedStatement ps = null;
 		String sql = "";
 		sql = "UPDATE " + NOME_TABELA + " SET imagem_principal=? WHERE id=?;";
@@ -170,9 +170,9 @@ public class RepositorioArtistaBDR  implements IRepositorioArtista{
 	}
 
 	@Override
-	public void deletar(int id) throws SQLException, ArtistaNaoCadastradoException, Exception {		
+	public void deletar(int id) throws SQLException, ArtistaNaoCadastradoException, Exception {
 			Artista artista = new Artista(id, "", 0, "", "", "", "", "", "", "", "", "", 'N');
-		
+
 			PreparedStatement ps = null;
 			String sql = "";
 			sql = "UPDATE " + NOME_TABELA + " SET ativo=? WHERE id=?;";
@@ -183,11 +183,11 @@ public class RepositorioArtistaBDR  implements IRepositorioArtista{
 			if (resultado == 0) throw new NaoFoiPossivelAlterarArtistaException();
 			ps.close();
 	}
-	
+
 	@Override
-	public void ativar(int id) throws SQLException, ArtistaNaoCadastradoException, Exception {		
+	public void ativar(int id) throws SQLException, ArtistaNaoCadastradoException, Exception {
 			Artista artista = new Artista(id, "", 0, "", "", "", "", "", "", "", "", "", 'S');
-		
+
 			PreparedStatement ps = null;
 			String sql = "";
 			sql = "UPDATE " + NOME_TABELA + " SET ativo=? WHERE id=?;";
@@ -201,11 +201,11 @@ public class RepositorioArtistaBDR  implements IRepositorioArtista{
 
 	@Override
 	public boolean existeId(Artista artista) throws SQLException, ArtistaJaCadastradoException, Exception {
-		
+
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		String sql = "SELECT * FROM " + NOME_TABELA + " WHERE id=?";
-		boolean resposta = true;		
+		boolean resposta = true;
 		ps = connection.prepareStatement(sql);
 		ps.setInt(1, artista.getId());
 		rs = ps.executeQuery();
@@ -215,16 +215,16 @@ public class RepositorioArtistaBDR  implements IRepositorioArtista{
 		ps.close();
 		rs.close();
 		return resposta;
-		
+
 	}
-	
+
 
 	private boolean existeNome(String nome) throws SQLException, ArtistaJaCadastradoException, Exception {
-		
+
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		String sql = "SELECT * FROM " + NOME_TABELA + " WHERE nome=?";
-		boolean resposta = true;		
+		boolean resposta = true;
 		ps = connection.prepareStatement(sql);
 		ps.setString(1, nome);
 		rs = ps.executeQuery();
@@ -234,7 +234,7 @@ public class RepositorioArtistaBDR  implements IRepositorioArtista{
 		ps.close();
 		rs.close();
 		return resposta;
-		
+
 	}
 
 }

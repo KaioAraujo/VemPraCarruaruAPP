@@ -7,12 +7,16 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="br.com.vempracaruaru.Activitys.LoginActivity">
+    tools:context="br.com.vempracaruaru.Activitys.GaleriaObrasActivity">
 
-    <Button
-        android:id="@+id/btn_teste"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="teste"
+    <TextView
+        android:id="@+id/txt_titulo_galeria"
+        style="@style/texto_galeria"
         />
+
+    <GridView
+        android:id="@+id/gdv_galeria_obras"
+        style="@style/galeria"
+        />
+
 </RelativeLayout>
