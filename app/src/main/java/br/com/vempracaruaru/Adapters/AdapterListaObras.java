@@ -20,21 +20,21 @@ import br.com.vempracaruaru.obra.Obra;
 public class AdapterListaObras extends BaseAdapter {
 
     private Context ctx;
-    private ArrayList<Obra> listaObras;
+    private ArrayList<Obra> lista;
 
-    public AdapterListaObras(ArrayList<Obra> listaObras, Context ctx) {
-        this.listaObras = listaObras;
+    public AdapterListaObras(Context ctx, ArrayList<Obra> lista) {
         this.ctx = ctx;
+        this.lista = lista;
     }
 
     @Override
     public int getCount() {
-        return listaObras.size();
+        return lista.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return listaObras.get(position);
+        return lista.get(position);
     }
 
     @Override
@@ -45,30 +45,36 @@ public class AdapterListaObras extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        Obra obra = listaObras.get(position);
+        //aqui eu pego o item da minha lista
+        Obra obra = lista.get(position);
 
         ViewHolder holder = null;
-        if(convertView == null) {
-            convertView = LayoutInflater.from(ctx).inflate(R.layout.lista_obras_layout, null);
+        if(convertView == null){//View novo temos que criala
+            convertView = LayoutInflater.from(ctx).inflate(R.layout.itens_lista_obras_layout,null);
             holder = new ViewHolder();
-
             holder.imgObra = (ImageView) convertView.findViewById(R.id.imv_imagem_obra);
-            holder.txvNomeObra = (TextView) convertView.findViewById(R.id.txv_obra_lista_titulo);
-
+            holder.txtObra = (TextView) convertView.findViewById(R.id.txv_obra_lista_titulo);
             convertView.setTag(holder);
         }else{
             holder = (ViewHolder) convertView.getTag();
         }
 
-        //retornar uma imagem
-        holder.imgObra.setImageResource(obra.getFoto().charAt(0));
-        holder.txvNomeObra.setText(obra.getNome());
+//        File image = new File("/storage/emulated/0/01.jpeg");
+//
+//        if(image.exists() == true) {
+//            Bitmap bitmapImage = BitmapFactory.decodeFile(image.getAbsolutePath());
+//            holder.imgObra.setImageBitmap(bitmapImage);
+//        }else {
+//            holder.imgObra.setImageResource(R.drawable.teste);
+//        }
+
+        holder.imgObra.setImageResource(R.drawable.teste);
+        holder.txtObra.setText(obra.getNome()+"");
 
         return convertView;
     }
-
     static class ViewHolder{
         ImageView imgObra;
-        TextView txvNomeObra;
+        TextView txtObra;
     }
 }

@@ -2,6 +2,7 @@ package br.com.vempracaruaru.obra;
 
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Obra implements Serializable {
 
@@ -16,7 +17,27 @@ public class Obra implements Serializable {
 	private char 			ativo;
 	private String			foto;
 	private String			descricao;
-	
+
+	//inicio teste
+	private ArrayList<Integer> listaFotos;
+	public Obra(int id, String nomeArtista, String nome, String nomePontoTuristico, String descricao, ArrayList<Integer> listaFotos) {
+		this.id = id;
+		this.nomeArtista = nomeArtista;
+		this.nome = nome;
+		this.nomePontoTuristico = nomePontoTuristico;
+		this.descricao = descricao;
+		this.listaFotos = listaFotos;
+	}
+
+	public ArrayList<Integer> getListaFotos() {
+		return listaFotos;
+	}
+
+	public void setListaFotos(ArrayList<Integer> listaFotos) {
+		this.listaFotos = listaFotos;
+	}
+
+	//fim teste
 	public Obra(int id, int idArtista, String nomeArtista, int idAdministrador,
 			String nomeAdministrador, int idPontoTuristico,
 			String nomePontoTuristico, String nome, char ativo, String foto,

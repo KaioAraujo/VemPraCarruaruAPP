@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import br.com.vempracaruaru.conexao.Conexao;
-import br.com.vempracaruaru.conexao.DataBase;
 import br.com.vempracaruaru.exception.ListaJaCadastradoException;
 import br.com.vempracaruaru.exception.ListaNaoCadastradoException;
 import br.com.vempracaruaru.exception.NaoFoiPossivelCadastrarListaException;

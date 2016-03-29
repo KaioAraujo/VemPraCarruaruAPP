@@ -10,7 +10,6 @@ import java.util.ArrayList;
 
 
 import br.com.vempracaruaru.conexao.Conexao;
-import br.com.vempracaruaru.conexao.DataBase;
 import br.com.vempracaruaru.exception.BusinessException;
 import br.com.vempracaruaru.exception.NaoFoiPossivelAlterarUsuarioException;
 import br.com.vempracaruaru.exception.NaoFoiPossivelCadastrarUsuarioException;

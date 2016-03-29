@@ -11,18 +11,11 @@
 
     <ImageView
         android:id="@+id/imv_imagem_obra"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:src="@drawable/teste"
+        style="@style/imagem_lista"
         />
     <TextView
         android:id="@+id/txv_obra_lista_titulo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@id/imv_imagem_obra"
-        android:layout_marginLeft="5dp"
-        android:hint="teste"
+        style="@style/texto_lista"
         />
 
 </RelativeLayout>

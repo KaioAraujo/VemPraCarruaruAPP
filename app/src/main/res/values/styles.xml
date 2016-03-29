@@ -42,4 +42,35 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
     </style>
+
+    <style name="imagem_lista">
+        <item name="android:layout_width">72dp</item>
+        <item name="android:layout_height">72dp</item>
+        <item name="android:src">@drawable/teste</item>
+    </style>
+
+    <style name="texto_lista">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:layout_toRightOf">@id/imv_imagem_obra</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:hint">teste</item>
+    </style>
+
+    <style name="texto_galeria">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">20dp</item>
+        <item name="android:text">@string/texto</item>
+        <item name="android:textSize">30dp</item>
+        <item name="android:drawableLeft">@android:drawable/ic_menu_camera</item>
+    </style>
+
+    <style name="galeria">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_below">@id/txt_titulo_galeria</item>
+        <item name="android:numColumns">4</item>
+    </style>
 </resources>
