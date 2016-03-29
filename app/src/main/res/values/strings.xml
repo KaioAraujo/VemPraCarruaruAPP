@@ -5,5 +5,6 @@
     <string name="ver_obras_ponto">Ver Obras</string>
     <string name="ver_gps_ponto">Abrir no GPS</string>
     <string name="add_lista">Adicionar a Lista</string>
+    <string name="title_activity_localizacao__ponto__turistico">Map</string>
 
 </resources>

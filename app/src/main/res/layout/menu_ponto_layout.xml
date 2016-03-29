@@ -14,6 +14,7 @@
         android:layout_width="72dp"
         android:layout_height="72dp"
         android:src="@drawable/pontoteste"
+        style="@style/imagem"
 
         />
 
@@ -21,7 +22,9 @@
         android:id="@+id/txv_ponto_lista_titulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="pontoteste"
+        android:hint="Ponto Teste"
+        style="@style/texto"
+        android:layout_marginLeft="6dp"
         android:layout_alignTop="@+id/imv_imagem_ponto"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
@@ -34,6 +37,7 @@
         android:id="@+id/txv_menu_descricao_ponto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/texto"
         android:text="Testando"
         android:textColor="#eeeeee"
         android:background="#888888"
@@ -42,7 +46,14 @@
         android:layout_alignParentStart="true"
         />
 
+    <LinearLayout
+        android:id="@+id/lnl_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/txv_menu_descricao_ponto"
 
+        >
 
     <Button
         android:id="@+id/btn_ver_fotos_ponto"
@@ -50,6 +61,8 @@
         android:textSize="10dp"
         android:textAllCaps="false"
         style="@style/button"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="-3dp"
         android:layout_weight="19"
         android:layout_width="80dp"
         android:layout_below="@+id/txv_menu_descricao_ponto"
@@ -64,14 +77,12 @@
     <Button
         android:id="@+id/btn_ver_obras_ponto"
         android:text="@string/ver_obras_ponto"
-        android:textSize="10sp"
+        android:textSize="10dp"
         android:textAllCaps="false"
         style="@style/button"
-        android:layout_weight="19"
+        android:layout_height="19dp"
         android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="9dp"
-        android:layout_marginStart="9dp"
+        android:layout_marginLeft="6dp"
         android:layout_alignLeft="@+id/txv_ponto_lista_titulo"
         android:layout_alignStart="@+id/txv_ponto_lista_titulo"
         android:layout_above="@+id/btn_ver_gps_ponto"
@@ -86,6 +97,7 @@
         style="@style/button"
         android:layout_weight="19"
         android:layout_width="80dp"
+        android:layout_marginLeft="4dp"
         android:layout_below="@+id/btn_ver_fotos_ponto"
         android:layout_toRightOf="@+id/btn_ver_obras_ponto"
         android:layout_toEndOf="@+id/btn_ver_obras_ponto" />
@@ -96,23 +108,24 @@
         android:textSize="10dp"
         android:textAllCaps="false"
         style="@style/button"
+        android:layout_marginLeft="6dp"
         android:layout_weight="19"
         android:layout_width="80dp"
         android:layout_below="@+id/txv_menu_descricao_ponto"
         android:layout_alignRight="@+id/txv_ponto_lista_titulo"
-        android:layout_alignEnd="@+id/txv_ponto_lista_titulo" />
+        android:layout_alignEnd="@+id/txv_ponto_lista_titulo"
+        />
+
+     </LinearLayout>
 
     <TextView
         android:id="@+id/txv_descricao_ponto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Descricao do texto do ponto"
-        android:layout_below="@+id/btn_ver_fotos_ponto"
-        android:layout_alignRight="@+id/btn_add_lista"
-        android:layout_alignEnd="@+id/btn_add_lista" />
-
-
-
+        android:text="Informações sobre o ponto Turistico"
+        android:layout_below="@+id/lnl_btn"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 
 </RelativeLayout>
