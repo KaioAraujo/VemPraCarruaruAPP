@@ -22,6 +22,18 @@
             android:name="br.com.vempracaruaru.Activitys.MenuPrincipalActivity"
             android:label="@string/title_activity_menu_principal" >
         </activity>
+        <activity
+            android:name="br.com.vempracaruaru.Activitys.HomeActivity"
+            android:label="@string/title_activity_home" >
+        </activity>
+        <activity
+            android:name="br.com.vempracaruaru.Activitys.MinhaContaActivity"
+            android:label="@string/title_activity_minha_conta" >
+        </activity>
+        <activity
+            android:name="br.com.vempracaruaru.Activitys.AlterarActivity"
+            android:label="@string/title_activity_alterar" >
+        </activity>
     </application>
 
 </manifest>
