@@ -5,7 +5,7 @@ public class UsuarioJaCadastradoException extends Exception{
 	private static final long serialVersionUID = -5953376500993574711L;
 
 	public UsuarioJaCadastradoException(){
-		super("Usuario j· cadastrado!");
+		super("Usuario j√° cadastrado!");
 	}
 	
 	public UsuarioJaCadastradoException(String msg){

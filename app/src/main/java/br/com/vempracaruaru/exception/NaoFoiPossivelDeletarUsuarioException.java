@@ -5,7 +5,7 @@ public class NaoFoiPossivelDeletarUsuarioException extends Exception{
 	private static final long serialVersionUID = -5953376500993574711L;
 
 	public NaoFoiPossivelDeletarUsuarioException(){
-		super("Não foi possível inativar o usuario!");
+		super("NÃ£o foi possÃ­vel inativar o usuario!");
 	}
 	
 	public NaoFoiPossivelDeletarUsuarioException(String msg){

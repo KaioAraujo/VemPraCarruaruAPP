@@ -5,7 +5,7 @@ public class NaoFoiPossivelDeletarAdministradorException extends Exception{
 	private static final long serialVersionUID = -5953376500993574711L;
 
 	public NaoFoiPossivelDeletarAdministradorException(){
-		super("Não foi possível inativar o administrador!");
+		super("NÃ£o foi possÃ­vel inativar o administrador!");
 	}
 	
 	public NaoFoiPossivelDeletarAdministradorException(String msg){

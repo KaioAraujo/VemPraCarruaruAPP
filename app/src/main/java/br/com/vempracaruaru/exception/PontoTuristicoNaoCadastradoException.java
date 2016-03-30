@@ -5,7 +5,7 @@ public class PontoTuristicoNaoCadastradoException extends Exception{
 	private static final long serialVersionUID = -2849294837831479260L;
 
 	public PontoTuristicoNaoCadastradoException(){
-		super("Ponto turisitico n„o cadastrado!");
+		super("Ponto turisitico n√£o cadastrado!");
 	}
 	
 	public PontoTuristicoNaoCadastradoException(String msg){
