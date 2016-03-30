@@ -1,0 +1,32 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.com.vempracaruaru.fragments.lista_ponto_layout">
+
+    <ImageView
+        android:id="@+id/imv_imagem_ponto"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginLeft="2dp"
+        style="@style/imagem"
+        android:src="@drawable/pontoteste"
+
+        />
+
+    <TextView
+        android:id="@+id/txv_ponto_lista_titulo"
+        android:layout_width="234dp"
+        android:layout_height="wrap_content"
+        style="@style/texto"
+        android:layout_marginLeft="4dp"
+        android:hint="Ponto Turistico Teste"
+        android:layout_alignTop="@+id/imv_imagem_ponto"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="24dp"
+        android:layout_toEndOf="@+id/imv_imagem_ponto"
+        tools:ignore="RtlCompat"
+        android:layout_gravity="center_horizontal|top" />
+
+</FrameLayout>

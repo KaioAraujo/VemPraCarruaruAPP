@@ -1,14 +1,14 @@
 <resources>
     <string name="app_name">Vem Pra Caruaru App</string>
     <string name="ver_fotos">Ver Fotos</string>
-<<<<<<< HEAD
+
     <string name="ver_fotos_ponto">Ver Fotos</string>
     <string name="ver_obras_ponto">Ver Obras</string>
     <string name="ver_gps_ponto">Abrir no GPS</string>
     <string name="add_lista">Adicionar a Lista</string>
     <string name="title_activity_localizacao__ponto__turistico">Map</string>
 
-=======
+    =======
     <string name="texto">Texto</string>
 
     <string name="title_activity_menu_principal">MenuPrincipalActivity</string>
@@ -17,5 +17,8 @@
 
     <string name="title_activity_minha_conta">Minha Conta</string>
     <string name="title_activity_alterar">Alterar</string>
->>>>>>> 6bd3a3fa7f1ae0ec5e52ac60fff87f8ecfa230aa
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    >>>>>>> 6bd3a3fa7f1ae0ec5e52ac60fff87f8ecfa230aa
 </resources>

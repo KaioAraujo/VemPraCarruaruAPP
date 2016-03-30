@@ -5,4 +5,4 @@
     android:name="com.google.android.gms.maps.SupportMapFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.com.vempracaruaru.Activitys.Localizacao_Ponto_Turistico" />
+    tools:context="br.com.vempracaruaru.Activitys.LocalizacaoPontoTuristicoActivity" />

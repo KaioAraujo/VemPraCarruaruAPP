@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--suppress ALL -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.joao.vempracaruaruapp" >
 
@@ -25,10 +26,10 @@
         <activity android:name="br.com.vempracaruaru.Activitys.PerfilObraActivity" />
         <activity android:name="br.com.vempracaruaru.Activitys.ListaObrasActivity" />
         <activity android:name="br.com.vempracaruaru.Activitys.FotosObrasActivity" />
-<<<<<<< HEAD
+
         <activity android:name="br.com.vempracaruaru.Activitys.ListaPontoActivity" />
-        <activity android:name="br.com.vempracaruaru.Activitys.MenuPonto" />
-        <activity android:name="br.com.vempracaruaru.Activitys.FotosPontos" />
+        <activity android:name="br.com.vempracaruaru.Activitys.MenuPontoActivity" />
+        <activity android:name="br.com.vempracaruaru.Activitys.FotosPontosActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -42,7 +43,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name="br.com.vempracaruaru.Activitys.Localizacao_Ponto_Turistico"
+            android:name="br.com.vempracaruaru.Activitys.LocalizacaoPontoTuristicoActivity"
             android:label="@string/title_activity_localizacao__ponto__turistico"></activity>
 =======
         <activity
