@@ -5,7 +5,7 @@ public class NaoFoiPossivelAlterarArtistaException extends Exception{
 	private static final long serialVersionUID = -5953376500993574711L;
 
 	public NaoFoiPossivelAlterarArtistaException(){
-		super("Não foi possível efetuar a alteração");
+		super("NÃ£o foi possÃ­vel efetuar a alteraÃ§Ã£o");
 	}
 	
 	public NaoFoiPossivelAlterarArtistaException(String msg){

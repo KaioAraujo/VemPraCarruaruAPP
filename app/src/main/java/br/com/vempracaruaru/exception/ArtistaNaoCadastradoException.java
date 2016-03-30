@@ -5,7 +5,7 @@ public class ArtistaNaoCadastradoException extends Exception{
 	private static final long serialVersionUID = -2849294837831479260L;
 
 	public ArtistaNaoCadastradoException(){
-		super("Artista n?o cadastrado!");
+		super("Artista não cadastrado!");
 	}
 	
 	public ArtistaNaoCadastradoException(String msg){

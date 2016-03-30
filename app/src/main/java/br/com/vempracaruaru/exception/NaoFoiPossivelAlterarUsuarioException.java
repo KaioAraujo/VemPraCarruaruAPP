@@ -5,7 +5,7 @@ public class NaoFoiPossivelAlterarUsuarioException extends Exception{
 	private static final long serialVersionUID = -5953376500993574711L;
 
 	public NaoFoiPossivelAlterarUsuarioException(){
-		super("Não foi possível efetuar a alteração");
+		super("NÃ£o foi possÃ­vel efetuar a alteraÃ§Ã£o");
 	}
 	
 	public NaoFoiPossivelAlterarUsuarioException(String msg){
