@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.joao.vempracaruaruapp.R;
@@ -27,11 +28,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         senhaEdt =(EditText) findViewById(R.id.edt_campo_senha);
         Button btnEntrar = (Button) findViewById(R.id.btn_entrar);
         ImageButton btnFacebook = (ImageButton) findViewById(R.id.ibt_facebook);
-        //EditText cadastre = (EditText) findViewById(R.id.txv_cadastrese);
+        TextView cadastre = (TextView) findViewById(R.id.txv_cadastrese);
 
         btnEntrar.setOnClickListener(this);
         btnFacebook.setOnClickListener(this);
-        //cadastre.setOnClickListener(this);
+        cadastre.setOnClickListener(this);
     }
 
     @Override
@@ -46,7 +47,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(its);
                 break;
             case R.id.txv_cadastrese:
-                Toast.makeText(this,"Teste foi...",Toast.LENGTH_LONG).show();
+                Intent itsCadastro = new Intent(this,CadastroActivity.class);
+                startActivity(itsCadastro);
                 break;
         }
     }

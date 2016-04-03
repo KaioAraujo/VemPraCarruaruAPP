@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/fundo"
+    tools:context="br.com.vempracaruaru.Activitys.CadastroActivity">
+
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:src="@drawable/logo"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:id="@+id/txt_cadastro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_logo"
+        android:text="Cadastro de Usuarios"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"
+        android:textColor="@color/cor_texto_button"
+        android:shadowColor="#000000"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="20"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"
+        />
+
+    <EditText
+        android:id="@+id/edt_nome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cor_texto_button"
+        android:hint="Digite seu nome"
+        android:inputType="text"
+        android:layout_below="@id/txt_cadastro"
+        android:padding="15dp"
+        android:layout_marginBottom="5dp"
+        />
+
+    <EditText
+        android:id="@+id/edt_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cor_texto_button"
+        android:hint="Digite seu email"
+        android:inputType="textEmailAddress"
+        android:layout_below="@id/edt_nome"
+        android:padding="15dp"
+        android:layout_marginBottom="5dp"
+        />
+
+
+    <EditText
+        android:id="@+id/edt_senha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cor_texto_button"
+        android:hint="Digite sua senha"
+        android:inputType="textPassword"
+        android:layout_below="@id/edt_email"
+        android:padding="15dp"
+        android:layout_marginBottom="5dp"
+        />
+
+
+    <EditText
+        android:id="@+id/edt_confirmar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cor_texto_button"
+        android:hint="Repita sua senha"
+        android:inputType="textPassword"
+        android:layout_below="@id/edt_senha"
+        android:padding="15dp"
+        android:layout_marginBottom="5dp"
+        />
+
+    <Button
+        android:id="@+id/btn_cadastro"
+        style="@style/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edt_confirmar"
+        android:text="Cadastrar"
+        />
+</RelativeLayout>

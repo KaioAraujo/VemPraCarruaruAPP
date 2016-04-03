@@ -13,7 +13,16 @@ public class Usuario extends Pessoa implements Serializable {
 	private String		linkfacebook;
 	private int 		pontos;
 	private char		ativo;
-	
+
+	//teste
+
+
+	public Usuario(int id, String nome, String email, String senha) {
+		super(id, nome);
+		this.email = email;
+		this.senha = senha;
+	}
+
 	public Usuario(int id, String nome, String email, String localizacao, String senha, String userFacebook,
 			String link_facebook, int pontos, char ativo) {
 		super(id, nome);
