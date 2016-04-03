@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".Activitys.Perfil_Artista">
+
+
+        <ImageView
+            android:id="@+id/img_artista"
+            style="@style/imagem_lista"
+            />
+
+        <TextView
+            android:id="@+id/txt_titulo_artista"
+            style="@style/texto_item_lista"
+            android:layout_toRightOf="@id/img_artista"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/txt_sub_titulo_artista"
+            android:textColor="@android:color/holo_orange_light"
+            android:layout_below="@+id/txt_titulo_artista"
+            android:layout_alignLeft="@+id/txt_titulo_artista"
+            android:layout_alignStart="@+id/txt_titulo_artista" />
+
+        <ImageView
+            android:id="@+id/img_email"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/email_icon"
+            android:layout_below="@+id/txt_sub_titulo_artista"
+            android:layout_alignLeft="@+id/txt_sub_titulo_artista"/>
+
+        <ImageView
+            android:id="@+id/img_fone"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/fone_icon"
+            android:layout_alignTop="@+id/img_email"
+            android:layout_toRightOf="@+id/img_email"
+            android:layout_toEndOf="@+id/img_email" />
+
+        <ImageView
+            android:id="@+id/img_twitter"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/twitter_icon"
+            android:layout_alignTop="@+id/img_fone"
+            android:layout_toRightOf="@+id/img_fone"
+            android:layout_toEndOf="@+id/img_fone" />
+
+        <ImageView
+            android:id="@+id/img_instagram"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/instagram_icon"
+            android:layout_alignTop="@+id/img_twitter"
+            android:layout_toRightOf="@+id/img_twitter"
+            android:layout_toEndOf="@+id/img_twitter" />
+
+        <ImageView
+            android:id="@+id/img_facebook"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/facebook_icon"
+            android:layout_alignTop="@+id/img_instagram"
+            android:layout_toRightOf="@+id/img_instagram"
+            android:layout_toEndOf="@+id/img_instagram" />
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/txt_texto_principal_artista"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/img_artista"
+            android:text="Teste Artista"
+            android:textSize="15dp"
+            />
+
+</RelativeLayout>

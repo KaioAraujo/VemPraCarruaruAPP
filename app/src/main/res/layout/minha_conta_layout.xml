@@ -1,0 +1,103 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="br.com.vempracaruaru.Activitys.MinhaContaActivity">
+
+    <FrameLayout
+        android:id="@+id/idshadow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:layout_margin="0.1dp"
+            >
+
+            <TextView
+                android:id="@+id/txv_info_nome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:text="AQUI VEM O NOME DO CARA"
+                android:textColor="@android:color/black"
+                android:textSize="16dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/txv_info_pontuacao"
+                android:layout_below="@id/txv_info_nome"
+                android:layout_width="match_parent"
+                android:layout_height="27dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:text="PONTUAÇAO"
+                android:textColor="@android:color/black"
+                android:textSize="12dp"
+                />
+
+            <Button
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_width="100dp"
+                android:layout_height="25dp"
+                android:text="Alterar Senha"
+                android:id="@+id/btn_alterar_senha"
+                style="@style/button"
+                android:textSize="11sp"
+                android:layout_below="@+id/txv_info_nome"
+                android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+    </FrameLayout>
+
+
+
+    <TextView
+        android:paddingTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Listapontosturisticosjv"
+        android:id="@+id/txv_lista_pontos_turisticos_a_visitar"
+        android:textColor="#0600ff"
+        android:textStyle="bold"
+        android:layout_below="@id/idshadow"/>
+
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ltv_a_visitar"
+        android:layout_below="@id/txv_lista_pontos_turisticos_a_visitar"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Listapontosturisticosav"
+        android:id="@+id/txv_lista_pontos_turisticos_ja_visitados"
+        android:layout_below="@id/ltv_a_visitar"
+        android:textColor="#ff7049"
+        android:textStyle="bold"
+        />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ltv_visitados"
+        android:layout_below="@id/txv_lista_pontos_turisticos_ja_visitados"
+        />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView" />
+
+</RelativeLayout>
