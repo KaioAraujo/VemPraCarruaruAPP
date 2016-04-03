@@ -5,4 +5,6 @@
     <color name="colorAccent">#FF4081</color>
     <color name="cor_button">#a40809</color>
     <color name="cor_texto_button">#ffffff</color>
+
+    <color name="black_overlay">#66000000</color>
 </resources>

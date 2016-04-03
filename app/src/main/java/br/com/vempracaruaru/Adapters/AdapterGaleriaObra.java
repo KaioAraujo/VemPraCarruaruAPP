@@ -10,13 +10,11 @@ import android.widget.ImageView;
 
 import com.example.joao.vempracaruaruapp.R;
 
-import java.util.ArrayList;
-
-import br.com.vempracaruaru.foto.Foto;
 import br.com.vempracaruaru.obra.Obra;
 
+
 /**
- * Created by joao on 25/03/16.
+ * Created by joao on 26/03/16.
  */
 public class AdapterGaleriaObra extends BaseAdapter {
 
@@ -30,7 +28,7 @@ public class AdapterGaleriaObra extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return obra.getListaFotos().size();
+       return obra.getListaFotos().size();
     }
 
     @Override
@@ -49,9 +47,9 @@ public class AdapterGaleriaObra extends BaseAdapter {
         if (convertView == null) {
 
             imageView = new ImageView(ctx);
-            imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
+            imageView.setLayoutParams(new GridView.LayoutParams(120, 120));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            imageView.setPadding(8, 8, 8, 8);
+            imageView.setPadding(5, 5, 5, 5);
 
         } else {
             imageView = (ImageView) convertView;

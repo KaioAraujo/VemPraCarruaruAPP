@@ -1,24 +1,19 @@
 <resources>
     <string name="app_name">Vem Pra Caruaru App</string>
     <string name="ver_fotos">Ver Fotos</string>
-
-    <string name="ver_fotos_ponto">Ver Fotos</string>
-    <string name="ver_obras_ponto">Ver Obras</string>
-    <string name="ver_gps_ponto">Abrir no GPS</string>
-    <string name="add_lista">Adicionar a Lista</string>
-    <string name="title_activity_localizacao__ponto__turistico">Map</string>
-
-    =======
     <string name="texto">Texto</string>
 
-    <string name="title_activity_menu_principal">MenuPrincipalActivity</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_home">Vem Pra Caruaru</string>
-
-    <string name="title_activity_minha_conta">Minha Conta</string>
-    <string name="title_activity_alterar">Alterar</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    >>>>>>> 6bd3a3fa7f1ae0ec5e52ac60fff87f8ecfa230aa
+    <string name="title_activity_expamdir_imagem">Expamdir Imagem</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="cadastre_se">Cadastre-se</string>
+    <string name="Listapontosturisticosjv">Lista de pontos turisticos ja visitados</string>
+    <string name="Listapontosturisticosav">Lista de pontos turisticos pendentes</string>
+    <string name="ver_fotos_ponto">Ver Fotos</string>
+    <string name="ver_obras_ponto">Ver Obras</string>
+    <string name="ver_gps_ponto">GPS</string>
+    <string name="add_lista">Adicionar</string>
+    <string name="digiteemail">Digite seu E-mail</string>
+    <string name="digitesenha">Digite seu Senha</string>
+    <string name="action_settings">Teste</string>
 </resources>

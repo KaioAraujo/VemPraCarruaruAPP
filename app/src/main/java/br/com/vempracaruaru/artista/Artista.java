@@ -1,7 +1,5 @@
 package br.com.vempracaruaru.artista;
 
-
-
 import java.io.Serializable;
 
 import br.com.vempracaruaru.pessoa.Pessoa;
@@ -19,8 +17,11 @@ public class Artista extends Pessoa implements Serializable{
 	private String			instagram;
 	private String			facebook;
 	private char			ativo;
-	
 
+	public Artista(int id, String nome, String tipo) {
+		super(id,nome);
+		this.tipo = tipo;
+	}
 
 	public Artista(int id, String nome, int idAdministrador, String nomeAdministrador, String historico, String tipo,
 			String foto, String telefone, String email, String twitter, String instagram, String facebook,

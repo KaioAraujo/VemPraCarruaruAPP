@@ -3,6 +3,8 @@ package br.com.vempracaruaru.Activitys;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
 
@@ -11,11 +13,11 @@ import com.example.joao.vempracaruaruapp.R;
 import br.com.vempracaruaru.Adapters.AdapterGaleriaObra;
 import br.com.vempracaruaru.obra.Obra;
 
+
 public class GaleriaObrasActivity extends AppCompatActivity {
 
     AdapterGaleriaObra adapter;
     Obra obra;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,5 +34,13 @@ public class GaleriaObrasActivity extends AppCompatActivity {
         adapter = new AdapterGaleriaObra(obra,this);
         galeria.setAdapter(adapter);
 
+        galeria.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent its = new Intent(getApplicationContext(), ExpandirImagensObraActivity.class);
+                its.putExtra("obra",obra);
+                startActivity(its);
+            }
+        });
     }
 }

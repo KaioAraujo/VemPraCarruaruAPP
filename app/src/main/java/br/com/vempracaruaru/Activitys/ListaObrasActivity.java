@@ -5,23 +5,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
-import br.com.vempracaruaru.Adapters.AdapterListaObras;
-import br.com.vempracaruaru.fachada.Fachada;
+import br.com.vempracaruaru.Adapters.AdapterListaObra;
 import br.com.vempracaruaru.obra.Obra;
 
-public class ListaObrasActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
+
+public class ListaObrasActivity extends AppCompatActivity implements OnItemClickListener{
 
     private ArrayList<Obra> obras;
-    private AdapterListaObras adapter;
+    private AdapterListaObra adapter;
     private ListView lista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         lista = new ListView(this);
         lista.setOnItemClickListener(this);
         setContentView(lista);
@@ -46,14 +48,14 @@ public class ListaObrasActivity extends AppCompatActivity implements AdapterView
         obras.add(new Obra(5,"Nome Artista 05","Teste5 Imagem","Ponto teste 05","isso aqui foi um teste5",listaFotos));
 
 
-        adapter = new AdapterListaObras(this,obras);
+        adapter = new AdapterListaObra(this,obras);
         lista.setAdapter(adapter);
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Obra obra = (Obra) parent.getItemAtPosition(position);
-        Intent its = new Intent(this,PerfilObraActivity.class);
+        Intent its = new Intent(this,MenuObraActivity.class);
         its.putExtra("obra",obra);
         startActivity(its);
     }

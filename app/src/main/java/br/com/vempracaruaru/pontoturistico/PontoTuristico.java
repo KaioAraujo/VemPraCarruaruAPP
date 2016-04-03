@@ -2,6 +2,7 @@ package br.com.vempracaruaru.pontoturistico;
 
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class PontoTuristico implements Serializable {
 	
@@ -20,11 +21,29 @@ public class PontoTuristico implements Serializable {
 	private char			ativo;
 	private String			foto;
 	private int 			quantidadeObras;
-	
+
+	// array das fotos do ponto
+
+	private ArrayList<Integer> listaFotoPonto;
+	public PontoTuristico(int id, String nome, String foto, ArrayList<Integer> listaFotoPonto){
+		this.id=id;
+		this.nome= nome;
+		this.foto=foto;
+		this.listaFotoPonto = listaFotoPonto;
+
+	}
+
+	public ArrayList<Integer> getListaFotoPonto(){
+		return listaFotoPonto;
+	}
+
+	public void setListaFotoPonto(ArrayList<Integer> listaFotoPonto){this.listaFotoPonto = listaFotoPonto;}
+	// fim do array
+
 	public PontoTuristico(int id, int idAdministrador,
-			String nomeAdministrador, String nome, String endereco, String latitude, String longitude,
-			String telefone, String email, String tempoVisitacao,
-			String horarioFuncionamento, String historicoDescricao, String foto, char ativo, int quantidadeObras) {
+						  String nomeAdministrador, String nome, String endereco, String latitude, String longitude,
+						  String telefone, String email, String tempoVisitacao,
+						  String horarioFuncionamento, String historicoDescricao, String foto, char ativo, int quantidadeObras) {
 		super();
 		this.id = id;
 		this.idAdministrador = idAdministrador;
