@@ -54,7 +54,7 @@
                 style="@style/button"
                 android:textSize="11sp"
                 android:layout_below="@+id/txv_info_nome"
-                android:layout_alignParentEnd="true" />
+                />
         </RelativeLayout>
     </FrameLayout>
 

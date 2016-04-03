@@ -10,7 +10,7 @@
     tools:context=".Activitys.Lista_Artista">
 
 
-    //OBS: cuidado com os ids que vc coloca eles estvão repetidos
+    <!--OBS: cuidado com os ids que vc coloca eles estvão repetidos -->
     <ImageView
         android:id="@+id/img_lista_artista"
         style="@style/imagem_lista"

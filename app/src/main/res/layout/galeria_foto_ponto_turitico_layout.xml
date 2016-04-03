@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".Acitivity.FotoPontoTuristicoActivity">
 
-    //mechi no layout
+    <!--mechi no layout-->
     <TextView
         android:id="@+id/txv_galeria_ponto"
         style="@style/texto_galeria"

@@ -14,8 +14,7 @@
         android:layout_width="72dp"
         android:layout_height="72dp"
         android:src="@drawable/pontoteste"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentTop="true" />
 
     <TextView
         android:id="@+id/txv_ponto_titulo"
@@ -46,7 +45,7 @@
         />
 
 
-    //mechi no layout
+    <!--mechi no layout-->
     <LinearLayout
         android:id="@+id/lnl_btn"
         android:layout_width="match_parent"

@@ -11,10 +11,10 @@
     tools:context="br.com.vempracaruaru.Activitys.LoginActivity"
     android:background="@drawable/fundo">
 
-    //OBS: cuidado com os ids que vc da tinha alguns repeditos
-    //vc esqueceu de fazer a logica das activitys mas tranquilo
-    //não tava pegando por conta do git
-    //(Seria chamar as telas e o onclick)
+    <!--OBS: cuidado com os ids que vc da tinha alguns repeditos
+    vc esqueceu de fazer a logica das activitys mas tranquilo
+    não tava pegando por conta do git
+    (Seria chamar as telas e o onclick) -->
 
     <ImageView
         android:id="@+id/logo"
