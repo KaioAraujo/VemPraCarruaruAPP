@@ -4,8 +4,9 @@ import java.io.Serializable;
 
 import br.com.vempracaruaru.pessoa.Pessoa;
 
-public class Usuario extends Pessoa implements Serializable {
-	
+public class Usuario extends Pessoa implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 	private String		email;
 	private String		localizacao;
 	private String		senha;
@@ -93,7 +94,7 @@ public class Usuario extends Pessoa implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Usuario [emial=" + email + ", localizacao=" + localizacao + ", senha=" + senha + ", userFacebook="
+		return "Usuario [id=" + super.getId() + ", nome=" + super.getNome() + ", email=" + email + ", localizacao=" + localizacao + ", senha=" + senha + ", userFacebook="
 				+ userFacebook + ", linkfacebook=" + linkfacebook + ", pontos=" + pontos + ", ativo=" + ativo + "]";
 	}
 	
