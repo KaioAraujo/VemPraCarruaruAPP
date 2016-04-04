@@ -40,12 +40,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         Intent its = new Intent(this,HomeActivity.class);
         switch (v.getId()){
+            //captura de cliques
+            //entrar
             case R.id.btn_entrar:
                 startActivity(its);
                 break;
+            //facebook
             case R.id.ibt_facebook:
                 startActivity(its);
                 break;
+            //cadastro
             case R.id.txv_cadastrese:
                 Intent itsCadastro = new Intent(this,CadastroActivity.class);
                 startActivity(itsCadastro);
