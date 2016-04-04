@@ -1,6 +1,8 @@
 package br.com.vempracaruaru.Activitys;
 
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,10 +24,14 @@ import java.net.URL;
 import com.example.joao.vempracaruaruapp.R;
 
 import br.com.vempracaruaru.usuario.Usuario;
+import br.com.vempracaruaru.util.ConfigSistema;
 import br.com.vempracaruaru.util.Solicitacao;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
+    public static ConfigSistema cfgs = new ConfigSistema();
+    public static Usuario usuarioRetorno = null;
+    private static Boolean retornoLogin = false;
     private String email;
     private String senha;
     private EditText emailEdt;
@@ -59,15 +65,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 senha = senhaEdt.getText().toString();
                 if (!email.equals("") && !senha.equals("")) {
                     try {
-                        login();
-                        Log.i("LoginActivity", "RETORNO:> Comunicação OK");
+                        login(its);
                     } catch (IOException e) {
                         e.printStackTrace();
                     } catch (ClassNotFoundException e) {
                         e.printStackTrace();
                     }
-                    //imprime log
-                    startActivity(its);
                 } else {
                     Toast.makeText(getApplicationContext(), "Digite os campos de email e senha!", Toast.LENGTH_LONG).show();
                 }
@@ -84,14 +87,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    public boolean login() throws IOException, ClassNotFoundException {
-        Boolean retorno = false;
-
+    public void login(final Intent its) throws IOException, ClassNotFoundException {
+        final Intent it = its;
         new Thread() {
             @Override
             public void run() {
                 try {
-                    URL url = new URL("http://192.168.1.104:8080/VemPraCaruaru/Android");
+                    URL url = new URL(cfgs.URL);
                     HttpURLConnection http = (HttpURLConnection) url.openConnection();
                     http.setRequestMethod("POST");
                     http.addRequestProperty("content-type", "application/binary");
@@ -108,14 +110,34 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     ObjectInputStream ois = new ObjectInputStream(http.getInputStream());
                     //recebe objeto
                     Serializable obTeste = (Serializable) ois.readObject();
-                    Usuario usuarioRetorno = (Usuario) obTeste;
+                    usuarioRetorno = (Usuario) obTeste;
                     //imprime log
-                    Log.i("LoginActivity", "RETORNO:> " + usuarioRetorno.toString());
+                    if (usuarioRetorno != null) {
+                        Log.i("LoginActivity", "RETORNO:> " + usuarioRetorno.toString());
+                        retornoLogin = true;
+                        startActivity(its);
+                        Message msg = handler.obtainMessage();
+                        msg.arg1 = 1;
+                        handler.sendMessage(msg);
+                    } else {
+                        Log.i("LoginActivity", "RETORNO:> Login inválido");
+                        Message msg = handler.obtainMessage();
+                        msg.arg1 = 2;
+                        handler.sendMessage(msg);
+                    }
                 } catch (Exception e) {
                     Log.e("LoginActivity", "Erro do TRY " + e.getMessage());
                 }
             }
         }.start();
-        return retorno;
     }
+    private final Handler handler = new Handler() {
+        public void handleMessage(Message msg) {
+            if(msg.arg1 == 1) {
+                Toast.makeText(getApplicationContext(), "ID: " + usuarioRetorno.getId() + "\nNome: " + usuarioRetorno.getNome() + "\nEmail: " + usuarioRetorno.getEmail() + "\nPontos: " + usuarioRetorno.getPontos(), Toast.LENGTH_LONG).show();
+            } else if(msg.arg1 == 2) {
+                Toast.makeText(getApplicationContext(), "Login inválido", Toast.LENGTH_LONG).show();
+            }
+        }
+    };
 }

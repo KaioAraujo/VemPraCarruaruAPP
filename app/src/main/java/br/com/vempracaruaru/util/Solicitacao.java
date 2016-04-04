@@ -5,7 +5,6 @@ import java.io.Serializable;
 public class Solicitacao implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    public static final String URL = "http://192.168.1.104:8080/VemPraCaruaru/Android";
 
     /*  Opção de solicitação de login padrão
      *  1º Parametro é o email
