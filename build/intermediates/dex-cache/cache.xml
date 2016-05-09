@@ -1,3 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="/home/joao/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.4.0_0c68d6d22e1c3bae0d2f6c2a89520514c6295bb4.jar" />
+    </item>
+    <item
+        jar="/home/joao/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.2.1/support-annotations-23.2.1.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="ccb693bc0774fcb637246f7360de25b4af7df318">
+        <dex dex="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/pre-dexed/debug/support-annotations-23.2.1_34aeedcbc1a1ab83fb1231e802951107f645c5ff.jar" />
+    </item>
+    <item
+        jar="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="cb86970df0f0f25f766d320b279c7858c1ca0003">
+        <dex dex="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/pre-dexed/debug/com.android.support-cardview-v7-23.2.1_2f7f96394efc7d4d9d260aa6372b656a1fcb88b4.jar" />
+    </item>
+    <item
+        jar="/home/joao/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-applinks/1.4.0/8ad21bf21784dacce5f2043afb97218cc377e835/bolts-applinks-1.4.0.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
+        <dex dex="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/pre-dexed/debug/bolts-applinks-1.4.0_328fac384f20c58eae36461f6a2a8b83bdd4d0d0.jar" />
+    </item>
+    <item
+        jar="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/exploded-aar/com.android.support/customtabs/23.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="0e5a66a941515d873a34065fe44fbba6ef422a1b">
+        <dex dex="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/pre-dexed/debug/com.android.support-customtabs-23.2.1_ef5aa8e68a713ce252800626767fbcd9badcaa87.jar" />
+    </item>
+    <item
+        jar="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="cbcc629cd19570a04161722c98dfd89bbf8cad5d">
+        <dex dex="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/pre-dexed/debug/instant-run_7d5488919167d94eab4e785d4f7b6e472c225677.jar" />
+    </item>
+    <item
+        jar="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="673d77a5bbddd766037f088e775df525c46407f0">
+        <dex dex="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-23.2.1_da9ffddc12e602a8ffd5591ba5d946be90525d78.jar" />
+    </item>
+    <item
+        jar="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="3be474b1b21b31cf2fa93fe6bd641ae108d96452">
+        <dex dex="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.2.1_6f38d2c73985520c99d626a01ac47a7f505e1dc4.jar" />
+    </item>
+    <item
+        jar="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="77dce0f494a65c84b3a852c61433b5ae65c7eadb">
+        <dex dex="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/pre-dexed/debug/instant-run-bootstrap_c85cb77c0169996c0c62b5448c65a3f156236e9d.jar" />
+    </item>
+    <item
+        jar="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="3469cb457f10f74c28cbc05f069b6c894f6cbdd0">
+        <dex dex="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-23.2.1_e5d09c4a1bd255f9ffc3f143ab887ea031639324.jar" />
+    </item>
+    <item
+        jar="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="e4d0cbb0b999604b349062f0214a0a228a7fd151">
+        <dex dex="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.2.1_045c0821763c2157e50686b1d547645907fafca3.jar" />
+    </item>
+    <item
+        jar="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars/libs/internal_impl-23.2.1.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="607a3d0b8013b4ccbfeb0b7cb293351994e021fb">
+        <dex dex="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/pre-dexed/debug/internal_impl-23.2.1_dc7a212cabaf58e77a679f0a96cb22bf3e7f565c.jar" />
+    </item>
+    <item
+        jar="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.11.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="86da97c30f50a67ddabe2cf7040713ad17153fce">
+        <dex dex="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/pre-dexed/debug/com.facebook.android-facebook-android-sdk-4.11.0_62474293ba2bbdcb5d6dfa080553e68e92c0b8f9.jar" />
+    </item>
+
+</items>

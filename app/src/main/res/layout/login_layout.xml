@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="br.com.vempracaruaru.Activitys.LoginActivity"
+    tools:context="br.com.vempracaruaru.activitys.LoginActivity"
     android:background="@drawable/fundo">
 
     <!--OBS: cuidado com os ids que vc da tinha alguns repeditos
@@ -73,15 +73,13 @@
         android:textStyle="bold"
         />
 
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="65dp"
-        android:id="@+id/ibt_facebook"
-        android:layout_below="@+id/txv_ou"
-        android:background="@drawable/img_facebook"
-        android:layout_marginBottom="10dp"
-        />
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/txv_ou" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -94,9 +92,8 @@
         android:shadowDy="1"
         android:shadowRadius="20"
         android:textSize="25dp"
-        android:layout_below="@id/ibt_facebook"
-        android:layout_centerHorizontal="true"
         android:textStyle="bold"
         android:clickable="true"
-        />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

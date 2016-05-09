@@ -10,14 +10,18 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
 
+        <!--passamos a class para iniciar o sdk do face (EntryPoint)-->
     <application
+        android:name="br.com.vempracaruaru.activitys.EntryPoint"
         android:allowBackup="true"
         android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <!-- passamos o id do fece que esta na string-->
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
 
-        <activity android:name="br.com.vempracaruaru.Activitys.LoginActivity" android:screenOrientation="portrait">
+        <activity android:name="br.com.vempracaruaru.activitys.LoginActivity" android:screenOrientation="portrait">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,46 +30,53 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="br.com.vempracaruaru.Activitys.AlterarActivity"
+            android:name="br.com.vempracaruaru.activitys.AlterarActivity"
             android:label="Alterar" />
         <activity
-            android:name="br.com.vempracaruaru.Activitys.ExpandirImagensObraActivity"
+            android:name="br.com.vempracaruaru.activitys.ExpandirImagensObraActivity"
             android:label="Obras" />
         <activity
-            android:name="br.com.vempracaruaru.Activitys.ExpandirImagensPontoActivity"
+            android:name="br.com.vempracaruaru.activitys.ExpandirImagensPontoActivity"
             android:label="Ponto Turísticos" />
         <activity
-            android:name="br.com.vempracaruaru.Activitys.GaleriaObrasActivity"
+            android:name="br.com.vempracaruaru.activitys.GaleriaObrasActivity"
             android:label="Obras" />
         <activity
-            android:name="br.com.vempracaruaru.Activitys.GaleriaPontoTuristicoActivity"
+            android:name="br.com.vempracaruaru.activitys.GaleriaPontoTuristicoActivity"
             android:label="Ponto Turísticos" />
-        <activity android:name="br.com.vempracaruaru.Activitys.HomeActivity" />
+        <activity android:name="br.com.vempracaruaru.activitys.HomeActivity" />
         <activity
-            android:name="br.com.vempracaruaru.Activitys.ListaArtistaActivity"
+            android:name="br.com.vempracaruaru.activitys.ListaArtistaActivity"
             android:label="Artistas" />
         <activity
-            android:name="br.com.vempracaruaru.Activitys.ListaObrasActivity"
+            android:name="br.com.vempracaruaru.activitys.ListaObrasActivity"
             android:label="Obras" />
         <activity
-            android:name="br.com.vempracaruaru.Activitys.ListaPontosTuristicosActivity"
+            android:name="br.com.vempracaruaru.activitys.ListaPontosTuristicosActivity"
             android:label="Ponto Turísticos" />
         <activity
-            android:name="br.com.vempracaruaru.Activitys.LocalizacaoGpsActivity"
+            android:name="br.com.vempracaruaru.activitys.LocalizacaoGpsActivity"
             android:label="Ponto Turísticos" />
         <activity
-            android:name="br.com.vempracaruaru.Activitys.MenuObraActivity"
+            android:name="br.com.vempracaruaru.activitys.MenuObraActivity"
             android:label="Obras" />
         <activity
-            android:name="br.com.vempracaruaru.Activitys.MenuPontoTuristicoActivity"
+            android:name="br.com.vempracaruaru.activitys.MenuPontoTuristicoActivity"
             android:label="Ponto Turísticos" />
         <activity
-            android:name="br.com.vempracaruaru.Activitys.MinhaContaActivity"
+            android:name="br.com.vempracaruaru.activitys.MinhaContaActivity"
             android:label="Minha Conta" />
         <activity
-            android:name="br.com.vempracaruaru.Activitys.PerfilArtistaActivity"
+            android:name="br.com.vempracaruaru.activitys.PerfilArtistaActivity"
             android:label="Artista" />
-        <activity android:name="br.com.vempracaruaru.Activitys.CadastroActivity"></activity>
+        <activity android:name="br.com.vempracaruaru.activitys.CadastroActivity"></activity>
+
+        <!-- activity do face-->
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
     </application>
 
 </manifest>
