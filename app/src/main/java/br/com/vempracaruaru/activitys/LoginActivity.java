@@ -1,6 +1,8 @@
 package br.com.vempracaruaru.activitys;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
@@ -46,7 +48,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private String id;
     private EditText emailEdt;
     private EditText senhaEdt;
-
+    private SharedPreferences sharedPref;
     //
     private LoginButton loginButton;
     private CallbackManager callbackManager;
@@ -54,6 +56,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_layout);
+
+        sharedPref = getPreferences(Context.MODE_PRIVATE);
+        boolean isLogged = sharedPref.getBoolean("logado", false);
+
+        if(isLogged) {
+            Intent its = new Intent(this,HomeActivity.class);
+            startActivity(its);
+        }
 
         emailEdt = (EditText) findViewById(R.id.edt_campo_email);
         senhaEdt =(EditText) findViewById(R.id.edt_campo_senha);
@@ -156,6 +166,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         Message msg = handler.obtainMessage();
                         msg.arg1 = 1;
                         handler.sendMessage(msg);
+
+                        sharedPref = getPreferences(Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPref.edit();
+                        editor.putBoolean("logado", true);
+                        editor.commit();
+
                     } else {
                         Log.i("LoginActivity", "RETORNO:> Login inválido");
                         Message msg = handler.obtainMessage();

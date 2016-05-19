@@ -1,5 +1,6 @@
 package br.com.vempracaruaru.activitys;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +10,8 @@ import android.widget.ImageButton;
 import com.example.joao.vempracaruaruapp.R;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         btnObras.setOnClickListener(this);
         btnConta.setOnClickListener(this);
     }
+
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        progressDialog.dismiss();
+//    }
 
     @Override
     public void onClick(View v) {

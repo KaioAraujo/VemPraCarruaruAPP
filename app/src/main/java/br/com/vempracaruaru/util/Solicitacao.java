@@ -13,9 +13,16 @@ public class Solicitacao implements Serializable {
     public static int iLoginPadrao = 1;
 
     /*  Opção de solicitação de cadastro de usuário
-     *  4º Parametro é ojeto a ser cadastrado
+     *  4º Parametro é ojeto a ser usado para fazer login e retornado os dados competos
      */
     public static int iUsuarioCadastro = 2;
+
+    /*  Opção de solicitação de artistas
+     *  Se quiser listar todos passar um objeto Integer = 0
+     *  Se quiser listar um especifico passar um objeto Integer = id
+     *  4º Parametro é ojeto a ser recuperado
+     */
+    public static int iArtistaListar = 3;
 
     // Tipo de solicitação que será feira a servlet
     private int iSolicitacao;

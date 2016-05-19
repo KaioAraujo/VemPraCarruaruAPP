@@ -6,6 +6,7 @@ import br.com.vempracaruaru.pessoa.Pessoa;
 
 public class Artista extends Pessoa implements Serializable{
 
+	private static final long serialVersionUID = 1L;
 	private int				idAdministrador;
 	private String			nomeAdministrador;
 	private String			historico;
