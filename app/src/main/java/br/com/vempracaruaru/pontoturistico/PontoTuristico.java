@@ -5,7 +5,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class PontoTuristico implements Serializable {
-	
+
+	private static final long serialVersionUID = 1L;
 	private int				id;
 	private int				idAdministrador;
 	private String			nomeAdministrador;

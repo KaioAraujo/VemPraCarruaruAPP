@@ -1,5 +1,6 @@
 package br.com.vempracaruaru.activitys;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -49,6 +50,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private EditText emailEdt;
     private EditText senhaEdt;
     private SharedPreferences sharedPref;
+    private ProgressDialog progressDialog;
     //
     private LoginButton loginButton;
     private CallbackManager callbackManager;
@@ -116,6 +118,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 senha = senhaEdt.getText().toString();
                 if (!email.equals("") && !senha.equals("")) {
                     try {
+                        progressDialog = new ProgressDialog(this);
+                        progressDialog.setTitle("Aguarde!");
+                        progressDialog.setMessage("Efetuando login...");
+                        progressDialog.show();
                         login(its);
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -163,9 +169,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         Log.i("LoginActivity", "RETORNO:> " + usuarioRetorno.toString());
                         retornoLogin = true;
                         startActivity(its);
-                        Message msg = handler.obtainMessage();
-                        msg.arg1 = 1;
-                        handler.sendMessage(msg);
+//                        Message msg = handler.obtainMessage();
+//                        msg.arg1 = 1;
+//                        handler.sendMessage(msg);
 
                         sharedPref = getPreferences(Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPref.edit();
@@ -173,10 +179,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         editor.commit();
 
                     } else {
+                        progressDialog.dismiss();
                         Log.i("LoginActivity", "RETORNO:> Login inválido");
-                        Message msg = handler.obtainMessage();
-                        msg.arg1 = 2;
-                        handler.sendMessage(msg);
+//                        Message msg = handler.obtainMessage();
+//                        msg.arg1 = 2;
+//                        handler.sendMessage(msg);
                     }
                 } catch (Exception e) {
                     Log.e("LoginActivity", "Erro do TRY " + e.getMessage());
@@ -205,6 +212,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             email = response.getJSONObject().getString("email");
                             nome = response.getJSONObject().getString("name");
                             Log.i("LoginFace","getInfoFace - Completed " + id + " - " + nome + " - " + email);
+                            sharedPref = getPreferences(Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPref.edit();
+                            editor.putBoolean("logado", true);
+                            editor.commit();
                             Intent its = new Intent(getApplicationContext(),HomeActivity.class);
                             startActivity(its);
                         }catch (Exception e){

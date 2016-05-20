@@ -5,6 +5,8 @@ import java.io.Serializable;
 public class Solicitacao implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    @SuppressWarnings("unused")
+    private static final String URL = "http://192.168.1.104:8080/VemPraCaruaru/Android";
 
     /*  Opção de solicitação de login padrão
      *  1º Parametro é o email
@@ -13,7 +15,7 @@ public class Solicitacao implements Serializable {
     public static int iLoginPadrao = 1;
 
     /*  Opção de solicitação de cadastro de usuário
-     *  4º Parametro é ojeto a ser usado para fazer login e retornado os dados competos
+     *  4º Parametro é ojeto a ser cadastrado
      */
     public static int iUsuarioCadastro = 2;
 
@@ -23,6 +25,20 @@ public class Solicitacao implements Serializable {
      *  4º Parametro é ojeto a ser recuperado
      */
     public static int iArtistaListar = 3;
+
+    /*  Opção de solicitação de obras
+     *  Se quiser listar todos passar um objeto Integer = 0
+     *  Se quiser listar um especifico passar um objeto Integer = id
+     *  4º Parametro é ojeto a ser recuperado
+     */
+    public static int iObraListar = 4;
+
+    /*  Opção de solicitação de Pontos Turistícos
+     *  Se quiser listar todos passar um objeto Integer = 0
+     *  Se quiser listar um especifico passar um objeto Integer = id
+     *  4º Parametro é ojeto a ser recuperado
+     */
+    public static int iPontoTuristicoListar = 5;
 
     // Tipo de solicitação que será feira a servlet
     private int iSolicitacao;

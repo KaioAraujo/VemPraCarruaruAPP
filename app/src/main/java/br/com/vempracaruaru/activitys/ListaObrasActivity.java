@@ -1,5 +1,6 @@
 package br.com.vempracaruaru.activitys;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,8 +10,11 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 import br.com.vempracaruaru.adapters.AdapterListaObra;
+import br.com.vempracaruaru.comunicacao.DownloadListarArtista;
+import br.com.vempracaruaru.comunicacao.DownloadListarObra;
 import br.com.vempracaruaru.obra.Obra;
 
 
@@ -19,37 +23,36 @@ public class ListaObrasActivity extends AppCompatActivity implements OnItemClick
     private ArrayList<Obra> obras;
     private AdapterListaObra adapter;
     private ListView lista;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Aguarde!");
+        progressDialog.setMessage("Carregando lista de obras...");
+        progressDialog.show();
+
         lista = new ListView(this);
         lista.setOnItemClickListener(this);
         setContentView(lista);
 
-        ArrayList<Integer> listaFotos = new ArrayList<>();
-        listaFotos.add(0);
-        listaFotos.add(1);
-        listaFotos.add(2);
-        listaFotos.add(3);
-        listaFotos.add(4);
-        listaFotos.add(5);
-        listaFotos.add(6);
-        listaFotos.add(7);
-        listaFotos.add(8);
-        listaFotos.add(9);
-
-        obras = new ArrayList<>();
-        obras.add(new Obra(1,"Nome Artista 01","Teste1 Imagem","Ponto teste 01","isso aqui foi um teste1",listaFotos));
-        obras.add(new Obra(2,"Nome Artista 02","Teste2 Imagem","Ponto teste 02","isso aqui foi um teste2",listaFotos));
-        obras.add(new Obra(3,"Nome Artista 03","Teste3 Imagem","Ponto teste 03","isso aqui foi um teste3",listaFotos));
-        obras.add(new Obra(4,"Nome Artista 04","Teste4 Imagem","Ponto teste 04","isso aqui foi um teste4",listaFotos));
-        obras.add(new Obra(5,"Nome Artista 05","Teste5 Imagem","Ponto teste 05","isso aqui foi um teste5",listaFotos));
+        try {
+            DownloadListarObra downloadObra = new DownloadListarObra(ListaObrasActivity.this);
+            downloadObra.execute(0);
+            obras = downloadObra.get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
 
 
         adapter = new AdapterListaObra(this,obras);
         lista.setAdapter(adapter);
+
+        progressDialog.dismiss();
     }
 
     @Override

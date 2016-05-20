@@ -1,5 +1,6 @@
 package br.com.vempracaruaru.activitys;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,10 +9,13 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 import android.widget.AdapterView.OnItemClickListener;
 
 import br.com.vempracaruaru.adapters.AdapterListaPonto;
+import br.com.vempracaruaru.comunicacao.DownloadListarObra;
+import br.com.vempracaruaru.comunicacao.DownloadListarPontoTuristico;
 import br.com.vempracaruaru.pontoturistico.PontoTuristico;
 
 public class ListaPontosTuristicosActivity extends AppCompatActivity implements OnItemClickListener{
@@ -22,37 +26,37 @@ public class ListaPontosTuristicosActivity extends AppCompatActivity implements 
     private ArrayList<PontoTuristico> pontoTuristico;
     private AdapterListaPonto adapterListaPonto;
     private ListView listaponto;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Aguarde!");
+        progressDialog.setMessage("Carregando lista de pontos turísticos...");
+        progressDialog.show();
 
         listaponto =  new ListView(this);
         //esqueceu de implementar onItemClivck a interface
         listaponto.setOnItemClickListener(this);
         setContentView(listaponto);
 
-        ArrayList<Integer> listaFotosPonto = new ArrayList<>();
-        listaFotosPonto.add(0);
-        listaFotosPonto.add(1);
-        listaFotosPonto.add(2);
-        listaFotosPonto.add(3);
-        listaFotosPonto.add(4);
-        listaFotosPonto.add(5);
-        listaFotosPonto.add(6);
-        listaFotosPonto.add(7);
-
-        pontoTuristico = new ArrayList<>();
-        pontoTuristico.add(new PontoTuristico(1,"Teste foto","Teste foto",listaFotosPonto));
-        pontoTuristico.add(new PontoTuristico(2,"Teste foto","Teste foto",listaFotosPonto));
-        pontoTuristico.add(new PontoTuristico(3,"Teste foto","Teste foto",listaFotosPonto));
-        pontoTuristico.add(new PontoTuristico(4,"Teste foto","Teste foto",listaFotosPonto));
-        pontoTuristico.add(new PontoTuristico(5,"Teste foto","Teste foto",listaFotosPonto));
-        pontoTuristico.add(new PontoTuristico(6,"Teste foto","Teste foto",listaFotosPonto));
+        try {
+            DownloadListarPontoTuristico downloadPontoTuristico = new DownloadListarPontoTuristico(ListaPontosTuristicosActivity.this);
+            downloadPontoTuristico.execute(0);
+            pontoTuristico = downloadPontoTuristico.get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
 
         //passou o array list errado
         adapterListaPonto = new AdapterListaPonto(this,pontoTuristico);
         listaponto.setAdapter(adapterListaPonto);
+
+        progressDialog.dismiss();
     }
 
     @Override
