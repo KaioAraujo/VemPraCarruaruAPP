@@ -7,13 +7,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.joao.vempracaruaruapp.R;
+import com.squareup.picasso.Picasso;
 
 import br.com.vempracaruaru.artista.Artista;
+import br.com.vempracaruaru.util.ConfigSistema;
 
 
 public class PerfilArtistaActivity extends AppCompatActivity {
 
-    Artista artista;
+    public static ConfigSistema cfgs = new ConfigSistema();
+    private Artista artista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +27,8 @@ public class PerfilArtistaActivity extends AppCompatActivity {
         artista = (Artista)  it.getSerializableExtra("artista");
 
         ImageView imgArista = (ImageView) findViewById(R.id.img_artista);
-        imgArista.setImageResource(R.drawable.azulao);
+        Picasso.with(getApplicationContext())
+                .load(cfgs.URL_IMAGENS + artista.getFoto()).into(imgArista);
 
         TextView titulo = (TextView) findViewById(R.id.txt_sub_titulo_artista);
         TextView subTitulo = (TextView) findViewById(R.id.txt_sub_titulo_artista);

@@ -1,6 +1,8 @@
 package br.com.vempracaruaru.adapters;
 
 import android.content.Context;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -14,7 +16,7 @@ import br.com.vempracaruaru.obra.Obra;
 /**
  * Created by joao on 29/03/16.
  */
-public class AdapterGaleriaSlideObra extends BaseAdapter{
+public class AdapterGaleriaSlideObra extends PagerAdapter{
 
     private Context ctx;
     private Obra obra;
@@ -30,24 +32,21 @@ public class AdapterGaleriaSlideObra extends BaseAdapter{
     }
 
     @Override
-    public Object getItem(int position) {
-        return obra.getListaFotos().get(position);
+    public boolean isViewFromObject(View view, Object object) {
+        return view.equals(object);
     }
 
     @Override
-    public long getItemId(int position) {
-        return position;
+    public void destroyItem(ViewGroup container, int position, Object object) {
+        ((ViewPager) container).removeView((ImageView) object);
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        ImageView img;
-        if(convertView == null) {
-          img  =new ImageView(ctx);
-        }else{
-            img = (ImageView) convertView;
-        }
-        img.setImageResource(R.drawable.teste);
-        return img;
+    public Object instantiateItem(ViewGroup pager, int position) {
+        ImageView imagem = new ImageView(ctx);
+        imagem.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        imagem.setImageResource(obra.getListaFotos().get(position));
+        ((ViewPager) pager).addView(imagem, 0);
+        return imagem;
     }
 }

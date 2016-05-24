@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".Activitys.Perfil_Artista">
+    tools:context="br.com.vempracaruaru.activitys.PerfilArtistaActivity">
 
 
         <ImageView
@@ -76,14 +76,19 @@
             android:layout_toRightOf="@+id/img_instagram"
             android:layout_toEndOf="@+id/img_instagram" />
 
-        <TextView
-            android:layout_marginTop="10dp"
-            android:id="@+id/txt_texto_principal_artista"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/img_artista"
-            android:text="Teste Artista"
-            android:textSize="15dp"
-            />
+            >
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/txt_texto_principal_artista"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Teste Artista"
+                    android:textSize="15dp"
+                    />
+        </ScrollView>
 
 </RelativeLayout>

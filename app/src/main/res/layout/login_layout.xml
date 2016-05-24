@@ -73,6 +73,7 @@
         android:textStyle="bold"
         />
 
+
     <com.facebook.login.widget.LoginButton
         android:id="@+id/login_button"
         android:layout_width="match_parent"

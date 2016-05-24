@@ -9,10 +9,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.joao.vempracaruaruapp.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 import br.com.vempracaruaru.obra.Obra;
+import br.com.vempracaruaru.util.ConfigSistema;
 
 
 /**
@@ -22,6 +24,7 @@ public class AdapterListaObra extends BaseAdapter{
 
     private Context ctx;
     private ArrayList<Obra> lista;
+    public static ConfigSistema cfgs = new ConfigSistema();
 
     public AdapterListaObra(Context ctx, ArrayList<Obra> lista) {
         this.ctx = ctx;
@@ -69,7 +72,8 @@ public class AdapterListaObra extends BaseAdapter{
 //            holder.imgObra.setImageResource(R.drawable.teste);
 //        }
 
-        holder.imgObra.setImageResource(R.drawable.teste);
+        Picasso.with(ctx)
+                .load(cfgs.URL_IMAGENS + obra.getFoto()).into(holder.imgObra);
         holder.txtObra.setText(obra.getNome()+"");
 
         return convertView;

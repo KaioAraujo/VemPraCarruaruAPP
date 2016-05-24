@@ -44,6 +44,8 @@ public class AdapterGaleriaPonto extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ImageView imageView;
+
+
         if (convertView == null) {
 
             imageView = new ImageView(context);

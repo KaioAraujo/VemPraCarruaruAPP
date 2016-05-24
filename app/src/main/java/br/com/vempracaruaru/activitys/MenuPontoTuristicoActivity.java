@@ -3,6 +3,7 @@ package br.com.vempracaruaru.activitys;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -11,8 +12,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.joao.vempracaruaruapp.R;
+import com.squareup.picasso.Picasso;
 
 import br.com.vempracaruaru.pontoturistico.PontoTuristico;
+import br.com.vempracaruaru.util.ConfigSistema;
 
 
 public class MenuPontoTuristicoActivity extends AppCompatActivity implements OnClickListener{
@@ -20,7 +23,8 @@ public class MenuPontoTuristicoActivity extends AppCompatActivity implements OnC
     //sugestão flavio como aqui tem varios botões implementa
     //a interface onclicklineste fica mais facil de programar
     //e mais legivel
-    PontoTuristico pontoTuristico;
+    public static ConfigSistema cfgs = new ConfigSistema();
+    private PontoTuristico pontoTuristico;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,17 +38,21 @@ public class MenuPontoTuristicoActivity extends AppCompatActivity implements OnC
         pontoTuristico = (PontoTuristico) itponto.getSerializableExtra("pontoTuristico");
 
         ImageView imgPonto = (ImageView) findViewById(R.id.imv_imagem_ponto);
-        imgPonto.setImageResource(R.drawable.pontoteste);
+        Picasso.with(getApplicationContext())
+                .load(cfgs.URL_IMAGENS + pontoTuristico.getFoto()).into(imgPonto);
 
         TextView textoTitulo = (TextView) findViewById(R.id.txv_ponto_titulo);
         textoTitulo.setText(pontoTuristico.getNome());
 
         TextView textoDescricao = (TextView) findViewById(R.id.txv_menu_descricao_ponto);
-        textoDescricao.setText(pontoTuristico.getEndereco());
-        textoDescricao.setText(pontoTuristico.getTelefone());
-        textoDescricao.setText(pontoTuristico.getEmail());
-        textoDescricao.setText(pontoTuristico.getHorarioFuncionamento());
-        textoDescricao.setText(pontoTuristico.getTempoVisitacao());
+        String descricao = "Endereço: " + pontoTuristico.getEndereco() +
+                            "\nTelefone: " + pontoTuristico.getTelefone() +
+                            "\nEmail: " + pontoTuristico.getEmail() +
+                            "\nHorario: " + pontoTuristico.getHorarioFuncionamento() +
+                            "\nTempo de visitção: " + pontoTuristico.getTempoVisitacao();
+
+        textoDescricao.setText(descricao);
+
 
         //esqueceu da descricao do ponto historico dele
         TextView textoHistorico = (TextView) findViewById(R.id.txv_historico_ponto);
@@ -83,6 +91,9 @@ public class MenuPontoTuristicoActivity extends AppCompatActivity implements OnC
                 break;
             case R.id.btn_ver_gps_ponto:
                 Intent itGps = new Intent(this,LocalizacaoGpsActivity.class);
+                itGps.putExtra("ponto", pontoTuristico);
+                Log.i("Mapa",pontoTuristico.getLatitude()+" - "+pontoTuristico.getLongitude());
+                itGps.putExtra("titulo",pontoTuristico.getNome());
                 startActivity(itGps);
                 break;
             case R.id.btn_add_lista:

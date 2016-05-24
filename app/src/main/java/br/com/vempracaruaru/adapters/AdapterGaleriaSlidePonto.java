@@ -1,6 +1,8 @@
 package br.com.vempracaruaru.adapters;
 
 import android.content.Context;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -14,7 +16,7 @@ import br.com.vempracaruaru.pontoturistico.PontoTuristico;
 /**
  * Created by Administrador on 01/04/2016.
  */
-public class AdapterGaleriaSlidePonto extends BaseAdapter{
+public class AdapterGaleriaSlidePonto extends PagerAdapter{
 
     Context context;
     PontoTuristico pontoTuristico;
@@ -25,29 +27,27 @@ public class AdapterGaleriaSlidePonto extends BaseAdapter{
      this.pontoTuristico = pontoTuristico;
     }
 
-
     @Override
-    public int getCount() {return pontoTuristico.getListaFotoPonto().size();
+    public int getCount() {
+        return pontoTuristico.getListaFotoPonto().size();
     }
 
     @Override
-    public Object getItem(int position) {return pontoTuristico.getListaFotoPonto().get(position);
+    public boolean isViewFromObject(View view, Object object) {
+        return view.equals(object);
     }
 
     @Override
-    public long getItemId(int position) {
-        return position;
+    public void destroyItem(ViewGroup container, int position, Object object) {
+        ((ViewPager) container).removeView((ImageView) object);
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        ImageView imageView;
-        if(convertView == null) {
-            imageView  =new ImageView(context);
-        }else{
-            imageView = (ImageView) convertView;
-        }
-        imageView.setImageResource(R.drawable.pontoteste);
-        return imageView;
+    public Object instantiateItem(ViewGroup pager, int position) {
+        ImageView imagem = new ImageView(context);
+        imagem.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        imagem.setImageResource(pontoTuristico.getListaFotoPonto().get(position));
+        ((ViewPager) pager).addView(imagem, 0);
+        return imagem;
     }
 }

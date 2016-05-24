@@ -9,12 +9,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.joao.vempracaruaruapp.R;
+import com.squareup.picasso.Picasso;
 
 import br.com.vempracaruaru.obra.Obra;
+import br.com.vempracaruaru.util.ConfigSistema;
 
 public class MenuObraActivity extends AppCompatActivity {
 
-    Obra obra;
+    public static ConfigSistema cfgs = new ConfigSistema();
+    private Obra obra;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +29,7 @@ public class MenuObraActivity extends AppCompatActivity {
 
         ImageView img = (ImageView) findViewById(R.id.img_obra_menu);
         //aqui eu passo a imagem para o imagem view
-        img.setImageResource(R.drawable.teste);
+        Picasso.with(getApplicationContext()).load(cfgs.URL_IMAGENS + obra.getFoto()).into(img);
 
         TextView titulo = (TextView) findViewById(R.id.txt_titulo_obra_menu);
         //aqui eu passo o titulo da obra

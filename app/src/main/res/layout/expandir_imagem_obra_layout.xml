@@ -3,14 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
-    tools:context=".ExpandirImagensActivity">
+    tools:context="br.com.vempracaruaru.activitys.ExpandirImagensObraActivity">
 
-    <Gallery
-        android:id="@+id/galeria_slide_obra"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        />
+   <android.support.v4.view.ViewPager
+       android:id="@+id/galeriaObra"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"/>
 
 </RelativeLayout>

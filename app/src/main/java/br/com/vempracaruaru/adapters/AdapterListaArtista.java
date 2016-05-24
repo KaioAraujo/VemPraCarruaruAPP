@@ -9,10 +9,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.joao.vempracaruaruapp.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 import br.com.vempracaruaru.artista.Artista;
+import br.com.vempracaruaru.util.ConfigSistema;
 
 
 /**
@@ -22,6 +24,7 @@ public class AdapterListaArtista extends BaseAdapter {
 
     private Context ctx;
     private ArrayList<Artista> lista;
+    public static ConfigSistema cfgs = new ConfigSistema();
 
     public AdapterListaArtista(Context ctx, ArrayList<Artista> lista) {
         this.ctx = ctx;
@@ -63,7 +66,8 @@ public class AdapterListaArtista extends BaseAdapter {
 
         //esqueceu de passar os dados para cada item da lista aqui falta as imgens vamos fazer
         //na proxima sprint
-        holder.imgArtista.setImageResource(R.drawable.azulao);
+        Picasso.with(ctx)
+                .load(cfgs.URL_IMAGENS + artista.getFoto()).into(holder.imgArtista);
         holder.txtArtista.setText(artista.getNome());
         holder.txtSubtitulo.setText(artista.getTipo());
 

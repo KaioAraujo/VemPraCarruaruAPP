@@ -9,10 +9,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.joao.vempracaruaruapp.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 import br.com.vempracaruaru.pontoturistico.PontoTuristico;
+import br.com.vempracaruaru.util.ConfigSistema;
 
 
 /**
@@ -22,7 +24,7 @@ public class AdapterListaPonto extends BaseAdapter{
 
     private Context ctx;
     private ArrayList<PontoTuristico> pontolist;
-
+    public static ConfigSistema cfgs = new ConfigSistema();
 
     public AdapterListaPonto(Context context, ArrayList<PontoTuristico> ponto) {
         this.ctx = context;
@@ -56,7 +58,8 @@ public class AdapterListaPonto extends BaseAdapter{
         }else {
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.imgponto.setImageResource(R.drawable.pontoteste);
+        Picasso.with(ctx)
+                .load(cfgs.URL_IMAGENS + pontoTuristico.getFoto()).into(holder.imgponto);
         holder.txtponto.setText(pontoTuristico.getNome());
 
         return convertView;

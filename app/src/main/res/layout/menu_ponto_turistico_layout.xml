@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="br.com.administrador.appvempracaruaru.MenuPontoTuristico">
+    tools:context="br.com.vempracaruaru.activitys.MenuPontoTuristicoActivity">
 
     <ImageView
         android:id="@+id/imv_imagem_ponto"
@@ -31,6 +31,7 @@
         tools:ignore="RtlCompat"
         />
 
+
     <TextView
         android:id="@+id/txv_menu_descricao_ponto"
         android:layout_width="match_parent"
@@ -42,6 +43,7 @@
         android:layout_below="@+id/imv_imagem_ponto"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:padding="5dp"
         />
 
 
@@ -99,12 +101,21 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/txv_historico_ponto"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Historia sobre o ponto Turistico"
         android:layout_below="@+id/lnl_btn"
-        android:layout_marginTop="10dp"
-        />
+        android:layout_marginTop="4dp"
+        >
+
+        <TextView
+            android:id="@+id/txv_historico_ponto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Historia sobre o ponto Turistico"
+            android:padding="5dp"
+            />
+
+    </ScrollView>
+
 </RelativeLayout>
