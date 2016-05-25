@@ -1,8 +1,12 @@
 package br.com.vempracaruaru.activitys;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,7 +17,7 @@ import br.com.vempracaruaru.artista.Artista;
 import br.com.vempracaruaru.util.ConfigSistema;
 
 
-public class PerfilArtistaActivity extends AppCompatActivity {
+public class PerfilArtistaActivity extends AppCompatActivity implements OnClickListener  {
 
     public static ConfigSistema cfgs = new ConfigSistema();
     private Artista artista;
@@ -38,5 +42,34 @@ public class PerfilArtistaActivity extends AppCompatActivity {
         subTitulo.setText(artista.getTipo());
         textoPrincipal.setText(artista.getHistorico());
 
+        ImageButton btnEmail = (ImageButton) findViewById(R.id.btn_email);
+        ImageButton btnFone = (ImageButton) findViewById(R.id.btn_fone);
+        ImageButton btnTwitter = (ImageButton) findViewById(R.id.btn_twitter);
+        ImageButton btnInstagram = (ImageButton) findViewById(R.id.btn_instagram);
+        ImageButton btnFace = (ImageButton) findViewById(R.id.btn_facebook);
+
+        btnEmail.setOnClickListener(this);
+        btnFone.setOnClickListener(this);
+        btnTwitter.setOnClickListener(this);
+        btnInstagram.setOnClickListener(this);
+        btnFace.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()){
+            case R.id.btn_email:
+                break;
+            case R.id.btn_fone:
+                break;
+            case R.id.btn_twitter:
+                break;
+            case R.id.btn_instagram:
+                break;
+            case R.id.btn_facebook:
+                break;
+        }
     }
 }
