@@ -1,2 +1,264 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="C:\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.4.0\support-annotations-23.4.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\support-annotations-23.4.0_fc18a0fdc80391aaf9a93e629f1a6f03cf6a9cf4.jar" />
+    </item>
+    <item
+        jar="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="3469cb457f10f74c28cbc05f069b6c894f6cbdd0">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-23.2.1_54f3e410f1b691a45faace4514949b2b72c8705d.jar" />
+    </item>
+    <item
+        jar="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="e167a34eaca0b31704212f43f9576ea84e05046f">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-wearable-8.4.0_d0e60845e3d82b86c68820bf20781cb81a2e2753.jar" />
+    </item>
+    <item
+        jar="C:\Users\Kaio César\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-applinks\1.4.0\8ad21bf21784dacce5f2043afb97218cc377e835\bolts-applinks-1.4.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\bolts-applinks-1.4.0_8c48db8c20ebeffe967fc07503f264cb3fc0bffd.jar" />
+    </item>
+    <item
+        jar="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="2d7fe76982677315c4dc4edfb459c8ca718a9d4c">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-gcm-8.4.0_41faa17df320c4fb42a099b18ab8959caf07e174.jar" />
+    </item>
+    <item
+        jar="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="1c9f35e952b212c843f7bd2c7eec8e82ad95602e">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-analytics-8.4.0_7e74851e51cf0028c62880d490ea2d31a726f4f9.jar" />
+    </item>
+    <item
+        jar="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="08d34b2d135c1cc96ab506fd8bf6916d1e2f391a">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-panorama-8.4.0_5fe2fc3b4c20532fc40aa2f3629eb608402ce2df.jar" />
+    </item>
+    <item
+        jar="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="e4d0cbb0b999604b349062f0214a0a228a7fd151">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.2.1_3a205ae4f7613eb76a097c795fa22fc17582a049.jar" />
+    </item>
+    <item
+        jar="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\exploded-aar\com.android.support\customtabs\23.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="2d1eaa9e0b98f8fc4c2b989d9b30d4f1480648ac">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\com.android.support-customtabs-23.4.0_7f36ed8089cabcb5370de4a04e7e2ec4b40f8a6b.jar" />
+    </item>
+    <item
+        jar="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.12.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="384a601bf7671716768cc8586f39816a08ce74c3">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\com.facebook.android-facebook-android-sdk-4.12.0_6bc651c146055ce93fda0e3dc313f2adf0151478.jar" />
+    </item>
+    <item
+        jar="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="9fe026fb4c7fce21bc5142f6e1bdf844f28061ac">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-appinvite-8.4.0_892a715818b26a209a30dd6ff285b155d1a1af3c.jar" />
+    </item>
+    <item
+        jar="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-measurement\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="613298b7aa012f121ce542881c0a599ebd8078f2">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-measurement-8.4.0_379c435f60fc51471366f1b2ad148294b9ea4aa8.jar" />
+    </item>
+    <item
+        jar="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="dfecc4d835cdabcdecf7e95f0d20a3ef1e9d8ef4">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-vision-8.4.0_83619a90553e4cfc243f4ee8c166e1f1104bdc07.jar" />
+    </item>
+    <item
+        jar="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8e673cdfadd8f2d98fdb2fda2285c30f6e449782">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-basement-8.4.0_012f9903617eab9426213c7dda56dca038c2e64f.jar" />
+    </item>
+    <item
+        jar="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="65d086ee9daaf87b5af62ad24471edafa433354c">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-appindexing-8.4.0_bda7e854800e2930b6ac1fcd66216a0feac4b848.jar" />
+    </item>
+    <item
+        jar="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\internal_impl-23.4.0_3c8f5488be9ff134046b7ae411460534bf2f9658.jar" />
+    </item>
+    <item
+        jar="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="966e5771a5a2ebfb31bf00d7cd6cd2546d245517">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-auth-8.4.0_df9cbf9559da7feb92b02caafb5e017f70520067.jar" />
+    </item>
+    <item
+        jar="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="c54246475c1bb64ac6857d1320364bfbfeda2c46">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-fitness-8.4.0_d26428dde273ad5276776b79139e28253d824e34.jar" />
+    </item>
+    <item
+        jar="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b82b8e847173c28efffcd291b2a0b1ae9ad17fa4">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-identity-8.4.0_8d41353b6f08bcbbe5479396b87a77e7cd0fb38c.jar" />
+    </item>
+    <item
+        jar="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="673d77a5bbddd766037f088e775df525c46407f0">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-23.2.1_5a7ffc28008f5ed1727cb99a04cb0722732cb5d8.jar" />
+    </item>
+    <item
+        jar="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="f2df436a8f02ce7e4d7d209671fc45f97c470f0e">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-wallet-8.4.0_fd38fb1ea8b251f783be77a9f6300996dcb91014.jar" />
+    </item>
+    <item
+        jar="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="0194a7409c40de94fb539d4ad9928ec5d47afeb7">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-safetynet-8.4.0_008ec976a5c37897c0b64841734b120d49369d49.jar" />
+    </item>
+    <item
+        jar="C:\Users\Kaio César\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\picasso-2.5.2_9a2c4136cbf949b90b9beb3fecc02d5f3edcd6f0.jar" />
+    </item>
+    <item
+        jar="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="551e78f21acf69ebfb489c0e79647824c838013e">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-cast-8.4.0_543385c176fcd0087edfbf666d78acd17a2c0a49.jar" />
+    </item>
+    <item
+        jar="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="fef2b3e4b6b1b0e5fe7b69fa137a5fa55a3182ab">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-base-8.4.0_73526b4f8939e8d58b1da09f5c9f2577f130386d.jar" />
+    </item>
+    <item
+        jar="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="3a364cc6b698d1b3b2d284f64618daaa7fe77ddf">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-games-8.4.0_6a3d2c2e095b50412ff5d4a006bfa2c6ec1bfb5e.jar" />
+    </item>
+    <item
+        jar="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a8412b654dab86d57bf90683367488211c8a81f1">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-location-8.4.0_bc968997373926f82060a0ba58a0b47d4ef87d6d.jar" />
+    </item>
+    <item
+        jar="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.4.0_230ef9c019c3c9bbdee0c8c9604a1df9f7eb7987.jar" />
+    </item>
+    <item
+        jar="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\23.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d358b3dd49a7c67844622dcbc9cf4339e13952ce">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\com.android.support-mediarouter-v7-23.0.0_53aed071be4ddc22b29a279a81daa2e13f956cfc.jar" />
+    </item>
+    <item
+        jar="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b5e7892fb0708e792e0e933c4c0a0ca0ac7831fb">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-ads-8.4.0_ddf185fbb0518f0bd1d05f66e3be1714e0be58fe.jar" />
+    </item>
+    <item
+        jar="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="1a78298e7724d5440d210bcb946b3493250d354d">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-plus-8.4.0_22627bd48c30a6eb2cd4af4db16ddb4b7a2c1d4d.jar" />
+    </item>
+    <item
+        jar="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="04de44f90606c77f3b28cf44861f306290505aac">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-maps-8.4.0_ac63ec5493463406eea537825983eaad4214e3e6.jar" />
+    </item>
+    <item
+        jar="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="9cad249cf62751a323d9af568caf12284b7d6062">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-nearby-8.4.0_1a6621f1f7bc99cd747bacc4bc05fb995511d0b2.jar" />
+    </item>
+    <item
+        jar="C:\Users\Kaio César\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\bolts-tasks-1.4.0_e02f381901e6ee9462cf378a8004f3811b91ab9c.jar" />
+    </item>
+    <item
+        jar="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d9ecde39b460470e655de6e47c05573d2d5a8bfb">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\com.android.support-cardview-v7-23.4.0_834c8099b8b55bfb068d113c27ec90660e7f5752.jar" />
+    </item>
+    <item
+        jar="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\23.0.0\jars\libs\internal_impl-23.0.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="03d38bb042efe3e5ce27ba66b729a9523c36d8fe">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.0_88c7a03d1179bffa1cd41ef800976f75927d69d2.jar" />
+    </item>
+    <item
+        jar="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b36f30ac5ee5d5214f4b1e2ac49f11889d58e71a">
+        <dex dex="D:\Google Drive\Codigos Fontes Android\VemPraCarruaruAPP\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-drive-8.4.0_a1bafcf2b14ae26403604f68b46c87173e9e7b06.jar" />
+    </item>
+
+</items>

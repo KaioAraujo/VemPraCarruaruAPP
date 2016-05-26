@@ -40,6 +40,20 @@ public class Solicitacao implements Serializable {
      */
     public static int iPontoTuristicoListar = 5;
 
+    /*  Opção de solicitação de Pontos Turistícos
+     *  Se quiser listar todos passar um objeto Integer = 0
+     *  Se quiser listar um especifico passar um objeto Integer = id
+     *  4º Parametro é ojeto a ser recuperado
+     */
+    public static int iFotoListar = 6;
+
+    /*  Opção de solicitação de obras
+     *  Se quiser listar todos passar um objeto Integer = 0
+     *  Se quiser listar um especifico passar um objeto Integer = id
+     *  4º Parametro é ojeto a ser recuperado
+     */
+    public static int iObraPontoListar = 7;
+
     // Tipo de solicitação que será feira a servlet
     private int iSolicitacao;
 
