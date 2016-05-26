@@ -3,14 +3,17 @@ package br.com.vempracaruaru.adapters;
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
 import com.example.joao.vempracaruaruapp.R;
+import com.squareup.picasso.Picasso;
 
 import br.com.vempracaruaru.obra.Obra;
+import br.com.vempracaruaru.util.ConfigSistema;
 
 
 /**
@@ -20,6 +23,7 @@ public class AdapterGaleriaSlideObra extends PagerAdapter{
 
     private Context ctx;
     private Obra obra;
+    public static ConfigSistema cfgs = new ConfigSistema();
 
     public AdapterGaleriaSlideObra(Context ctx, Obra obra) {
         this.ctx = ctx;
@@ -45,7 +49,8 @@ public class AdapterGaleriaSlideObra extends PagerAdapter{
     public Object instantiateItem(ViewGroup pager, int position) {
         ImageView imagem = new ImageView(ctx);
         imagem.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        imagem.setImageResource(obra.getListaFotos().get(position));
+        Picasso.with(ctx).load(cfgs.URL_IMAGENS+obra.getListaFotos().get(position)).into(imagem);
+        Log.i("link",cfgs.URL_IMAGENS+obra.getListaFotos().get(position));
         ((ViewPager) pager).addView(imagem, 0);
         return imagem;
     }

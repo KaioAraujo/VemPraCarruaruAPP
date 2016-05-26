@@ -45,6 +45,7 @@ public class DownloadListarFotoObra extends AsyncTask<Integer, String, ArrayList
     protected ArrayList<Foto> doInBackground(Integer... params) {
         Integer idReferencia = params[0];
         ArrayList<Foto> fotos = new ArrayList<Foto>();
+        Log.i("teste 2","download id: "+params[0]);
         try {
 
             URL url = new URL(cfgs.URL);
@@ -65,6 +66,7 @@ public class DownloadListarFotoObra extends AsyncTask<Integer, String, ArrayList
             //recebe objeto
             Serializable obTeste = (Serializable) ois.readObject();
             fotos = (ArrayList<Foto>) obTeste;
+            Log.i("teste 2","Download tamanho: "+fotos.size());
             //imprime log
             if (fotos != null) {
                 Log.i("DownloadListaFotoObra", "RETORNO:> " + fotos.size());
@@ -80,6 +82,7 @@ public class DownloadListarFotoObra extends AsyncTask<Integer, String, ArrayList
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+        Log.i("teste 2", "Download tamanho "+fotos.size());
         return fotos;
     }
 

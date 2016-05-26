@@ -1,15 +1,17 @@
 package br.com.vempracaruaru.adapters;
 
 import android.content.Context;
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
-import com.example.joao.vempracaruaruapp.R;
+import com.squareup.picasso.Picasso;
 
 import br.com.vempracaruaru.obra.Obra;
+import br.com.vempracaruaru.util.ConfigSistema;
 
 
 /**
@@ -19,6 +21,8 @@ public class AdapterGaleriaObra extends BaseAdapter {
 
     private Context ctx;
     private Obra obra;
+    public static ConfigSistema cfgs = new ConfigSistema();
+
 
     public AdapterGaleriaObra(Obra obra, Context ctx) {
         this.obra = obra;
@@ -54,7 +58,7 @@ public class AdapterGaleriaObra extends BaseAdapter {
             imageView = (ImageView) convertView;
         }
 
-        imageView.setImageResource(R.drawable.teste);
+        Picasso.with(ctx).load(cfgs.URL_IMAGENS+obra.getListaFotos().get(position).getReferencia()).into(imageView);
 
         return imageView;
     }

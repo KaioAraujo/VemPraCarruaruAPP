@@ -1,8 +1,12 @@
 package br.com.vempracaruaru.obra;
 
 
+import android.graphics.Bitmap;
+
 import java.io.Serializable;
 import java.util.ArrayList;
+
+import br.com.vempracaruaru.foto.Foto;
 
 public class Obra implements Serializable {
 
@@ -20,8 +24,8 @@ public class Obra implements Serializable {
 	private String			descricao;
 
 	//inicio teste
-	private ArrayList<Integer> listaFotos;
-	public Obra(int id, String nomeArtista, String nome, String nomePontoTuristico, String descricao, ArrayList<Integer> listaFotos) {
+	private ArrayList<Foto> listaFotos;
+	public Obra(int id, String nomeArtista, String nome, String nomePontoTuristico, String descricao, ArrayList<Foto> listaFotos) {
 		this.id = id;
 		this.nomeArtista = nomeArtista;
 		this.nome = nome;
@@ -30,11 +34,11 @@ public class Obra implements Serializable {
 		this.listaFotos = listaFotos;
 	}
 
-	public ArrayList<Integer> getListaFotos() {
+	public ArrayList<Foto> getListaFotos() {
 		return listaFotos;
 	}
 
-	public void setListaFotos(ArrayList<Integer> listaFotos) {
+	public void setListaFotos(ArrayList<Foto> listaFotos) {
 		this.listaFotos = listaFotos;
 	}
 
