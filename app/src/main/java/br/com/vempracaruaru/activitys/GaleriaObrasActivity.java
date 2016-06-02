@@ -54,18 +54,14 @@ public class GaleriaObrasActivity extends AppCompatActivity {
     private ArrayList<Foto> recuperarFotos(int id) {
         ArrayList<Foto> fotos = null;
         try {
-            Log.i("teste 2","galeria id: "+id);
             DownloadListarFotoObra download  = new DownloadListarFotoObra(this);
-            Log.i("teste 2","fazer download");
             download.execute(id);
             fotos = download.get();
-            Log.i("teste 2",""+fotos.size());
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-        Log.i("teste 2","galeria tamanho: "+fotos.size());
         return fotos;
     }
 }

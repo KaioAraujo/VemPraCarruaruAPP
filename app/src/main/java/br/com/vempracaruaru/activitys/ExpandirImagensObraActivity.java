@@ -16,7 +16,6 @@ public class ExpandirImagensObraActivity extends AppCompatActivity{
     AdapterGaleriaSlideObra adapter;
     ViewPager galeria;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -4,6 +4,8 @@ package br.com.vempracaruaru.pontoturistico;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import br.com.vempracaruaru.foto.Foto;
+
 public class PontoTuristico implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -25,8 +27,8 @@ public class PontoTuristico implements Serializable {
 
 	// array das fotos do ponto
 
-	private ArrayList<Integer> listaFotoPonto;
-	public PontoTuristico(int id, String nome, String foto, ArrayList<Integer> listaFotoPonto){
+	private ArrayList<Foto> listaFotoPonto;
+	public PontoTuristico(int id, String nome, String foto, ArrayList<Foto> listaFotoPonto){
 		this.id=id;
 		this.nome= nome;
 		this.foto=foto;
@@ -34,11 +36,11 @@ public class PontoTuristico implements Serializable {
 
 	}
 
-	public ArrayList<Integer> getListaFotoPonto(){
+	public ArrayList<Foto> getListaFotoPonto(){
 		return listaFotoPonto;
 	}
 
-	public void setListaFotoPonto(ArrayList<Integer> listaFotoPonto){this.listaFotoPonto = listaFotoPonto;}
+	public void setListaFotoPonto(ArrayList<Foto> listaFotoPonto){this.listaFotoPonto = listaFotoPonto;}
 	// fim do array
 
 	public PontoTuristico(int id, int idAdministrador,

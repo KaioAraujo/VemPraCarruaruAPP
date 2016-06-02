@@ -8,8 +8,10 @@ import android.widget.GridView;
 import android.widget.ImageView;
 
 import com.example.joao.vempracaruaruapp.R;
+import com.squareup.picasso.Picasso;
 
 import br.com.vempracaruaru.pontoturistico.PontoTuristico;
+import br.com.vempracaruaru.util.ConfigSistema;
 
 
 /**
@@ -21,6 +23,8 @@ public class AdapterGaleriaPonto extends BaseAdapter {
     //aqui recebe um ponto e pegamos a lista de fotos dele
     //com o getListaFotos
     private PontoTuristico ponto;
+    public static ConfigSistema cfgs = new ConfigSistema();
+
 
     public AdapterGaleriaPonto(Context context, PontoTuristico ponto) {
         this.context = context;
@@ -57,7 +61,7 @@ public class AdapterGaleriaPonto extends BaseAdapter {
             imageView = (ImageView) convertView;
         }
 
-        imageView.setImageResource(R.drawable.pontoteste);
+        Picasso.with(context).load(cfgs.URL_IMAGENS+ponto.getListaFotoPonto().get(position).getImagem()).into(imageView);
 
         return imageView;
     }

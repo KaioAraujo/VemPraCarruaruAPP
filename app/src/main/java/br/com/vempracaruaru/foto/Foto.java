@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Foto implements Serializable{
 
+	private static final long serialVersionUID = 1L;
 	private int			id;
 	private int			idAdministrador;
 	private	int			idReferencia;

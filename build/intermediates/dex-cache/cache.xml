@@ -93,6 +93,13 @@
         <dex dex="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-8.4.0_0f6439b054900aea1181772bb6c21935914a3e7a.jar" />
     </item>
     <item
+        jar="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.12.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="26645b518694e20a97fc19a6a3c3933c0cc41bc1">
+        <dex dex="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/pre-dexed/debug/com.facebook.android-facebook-android-sdk-4.12.1_92d9276249a71f0227ca87bcc831b9cbceef98eb.jar" />
+    </item>
+    <item
         jar="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/8.4.0/jars/classes.jar"
         jumboMode="true"
         revision="23.0.2"
@@ -131,7 +138,7 @@
         jar="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="8b43b07c600cca708df6bd380ebd1ccb0fafb7e3">
+        sha1="31d068a02dd5219022874da6b7fbcc3d3847426a">
         <dex dex="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/pre-dexed/debug/instant-run_7d5488919167d94eab4e785d4f7b6e472c225677.jar" />
     </item>
     <item
@@ -152,7 +159,7 @@
         jar="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="aa396124edaeaf0ce9c1d0789022b3d1d84baf00">
+        sha1="7e1e3e1499f7e6d8640bf4dfed61803a88343db6">
         <dex dex="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/pre-dexed/debug/instant-run-bootstrap_c85cb77c0169996c0c62b5448c65a3f156236e9d.jar" />
     </item>
     <item
@@ -259,13 +266,6 @@
         revision="23.0.2"
         sha1="dfecc4d835cdabcdecf7e95f0d20a3ef1e9d8ef4">
         <dex dex="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-vision-8.4.0_4a136a6926ba76bb5a097a6b0691a936ee7ddd66.jar" />
-    </item>
-    <item
-        jar="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.12.0/jars/classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="384a601bf7671716768cc8586f39816a08ce74c3">
-        <dex dex="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/pre-dexed/debug/com.facebook.android-facebook-android-sdk-4.12.0_13254474678430ae74aeda336828204f221dd344.jar" />
     </item>
     <item
         jar="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.4.0/jars/classes.jar"

@@ -63,15 +63,6 @@ public class AdapterListaObra extends BaseAdapter{
             holder = (ViewHolder) convertView.getTag();
         }
 
-//        File image = new File("/storage/emulated/0/01.jpeg");
-//
-//        if(image.exists() == true) {
-//            Bitmap bitmapImage = BitmapFactory.decodeFile(image.getAbsolutePath());
-//            holder.imgObra.setImageBitmap(bitmapImage);
-//        }else {
-//            holder.imgObra.setImageResource(R.drawable.teste);
-//        }
-
         Picasso.with(ctx)
                 .load(cfgs.URL_IMAGENS + obra.getFoto()).into(holder.imgObra);
         holder.txtObra.setText(obra.getNome()+"");
