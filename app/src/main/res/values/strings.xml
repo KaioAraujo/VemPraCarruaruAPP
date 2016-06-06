@@ -2,7 +2,7 @@
     <!-- id do fecebook -->
     <string name="facebook_app_id">630511167099022</string>
 
-    <!-- id do fecebook -->
+    <!-- tab -->
 
     <string-array name="titulo_tab">
         <item>TAB 1</item>
@@ -27,4 +27,5 @@
     <string name="digiteemail">Digite seu E-mail</string>
     <string name="digitesenha">Digite seu Senha</string>
     <string name="action_settings">Teste</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>

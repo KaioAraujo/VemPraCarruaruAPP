@@ -59,7 +59,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(itsMinhaConta);
                 break;
             case R.id.teste:
-                Intent teste = new Intent(this,MenuPontoActivity.class);
+                Intent teste = new Intent(this,MainActivity.class);
                 startActivity(teste);
                 break;
         }

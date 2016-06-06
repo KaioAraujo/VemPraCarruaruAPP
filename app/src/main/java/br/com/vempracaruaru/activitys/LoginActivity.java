@@ -178,6 +178,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         editor.putBoolean("logado", true);
                         editor.commit();
 
+                        finish();
+
                     } else {
                         progressDialog.dismiss();
                         Log.i("LoginActivity", "RETORNO:> Login inválido");
@@ -218,6 +220,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             editor.commit();
                             Intent its = new Intent(getApplicationContext(),HomeActivity.class);
                             startActivity(its);
+
+                            finish();
                         }catch (Exception e){
                             e.getStackTrace();
                         }
