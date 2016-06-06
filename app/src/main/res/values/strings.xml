@@ -2,6 +2,13 @@
     <!-- id do fecebook -->
     <string name="facebook_app_id">630511167099022</string>
 
+    <!-- id do fecebook -->
+
+    <string-array name="titulo_tab">
+        <item>TAB 1</item>
+        <item>TAB 2</item>
+        <item>TAB 3</item>
+    </string-array>
 
     <string name="app_name">Vem Pra Caruaru App</string>
     <string name="ver_fotos">Ver Fotos</string>

@@ -46,4 +46,12 @@
         android:layout_below="@id/ibt_obras"
         android:background="@drawable/btn_minha_conta" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/teste"
+        android:layout_below="@id/ibt_minha_conta"
+        android:text="teste"
+        />
+
 </RelativeLayout>

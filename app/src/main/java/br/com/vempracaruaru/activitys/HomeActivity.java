@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.example.joao.vempracaruaruapp.R;
@@ -22,11 +23,14 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         ImageButton btnArtista = (ImageButton) findViewById(R.id.ibt_artistas);
         ImageButton btnObras = (ImageButton) findViewById(R.id.ibt_obras);
         ImageButton btnConta = (ImageButton) findViewById(R.id.ibt_minha_conta);
+        Button btnTeste = (Button) findViewById(R.id.teste);
 
         btnPonto.setOnClickListener(this);
         btnArtista.setOnClickListener(this);
         btnObras.setOnClickListener(this);
         btnConta.setOnClickListener(this);
+        btnTeste.setOnClickListener(this);
+
     }
 
 //    @Override
@@ -53,6 +57,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.ibt_minha_conta:
                 Intent itsMinhaConta = new Intent(this,MinhaContaActivity.class);
                 startActivity(itsMinhaConta);
+                break;
+            case R.id.teste:
+                Intent teste = new Intent(this,MenuPontoActivity.class);
+                startActivity(teste);
                 break;
         }
     }

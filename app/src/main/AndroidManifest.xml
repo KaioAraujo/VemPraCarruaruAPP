@@ -3,18 +3,17 @@
     package="com.example.joao.vempracaruaruapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <uses-feature
         android:glEsVersion="0x00020000"
-        android:required="true"/>
+        android:required="true" />
 
-    <!--passamos a class para iniciar o sdk do face (EntryPoint)-->
+    <!-- passamos a class para iniciar o sdk do face (EntryPoint) -->
     <application
         android:name="br.com.vempracaruaru.activitys.EntryPoint"
         android:allowBackup="true"
@@ -22,22 +21,24 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <!-- passamos o id do fece que esta na string-->
-        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
 
+        <!-- passamos o id do fece que esta na string -->
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDSneD1IoxaWypr7jWD15jdRLnYU-BNeI0  "/>
+            android:value="AIzaSyDSneD1IoxaWypr7jWD15jdRLnYU-BNeI0  " />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version"
-            />
+            android:value="@integer/google_play_services_version" />
 
-        <activity android:name="br.com.vempracaruaru.activitys.LoginActivity" android:screenOrientation="portrait">
-
+        <activity
+            android:name="br.com.vempracaruaru.activitys.LoginActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -84,14 +85,15 @@
         <activity
             android:name="br.com.vempracaruaru.activitys.PerfilArtistaActivity"
             android:label="Artista" />
-        <activity android:name="br.com.vempracaruaru.activitys.CadastroActivity"></activity>
+        <activity android:name="br.com.vempracaruaru.activitys.CadastroActivity" />
 
-        <!-- activity do face-->
+        <!-- activity do face -->
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity android:name="br.com.vempracaruaru.activitys.MenuPontoActivity"></activity>
     </application>
 
 </manifest>
