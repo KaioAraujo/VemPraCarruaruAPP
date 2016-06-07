@@ -5,6 +5,7 @@ import java.io.Serializable;
 
 public class Lista implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 	private int 						idUsuario;
 	private String 						nomeUsuario;
 	private int 						idPontoTuristico;

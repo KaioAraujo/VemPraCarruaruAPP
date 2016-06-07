@@ -220,7 +220,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             editor.commit();
                             Intent its = new Intent(getApplicationContext(),HomeActivity.class);
                             startActivity(its);
-
                             finish();
                         }catch (Exception e){
                             e.getStackTrace();
@@ -238,5 +237,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        finish();
     }
 }
