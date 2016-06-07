@@ -176,9 +176,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         sharedPref = getPreferences(Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPref.edit();
                         editor.putBoolean("logado", true);
-                        editor.putString("email", usuarioRetorno.getEmail());
-                        editor.putString("nome", usuarioRetorno.getNome());
-                        editor.putInt("id", usuarioRetorno.getId());
                         editor.commit();
 
                         finish();
@@ -220,9 +217,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             sharedPref = getPreferences(Context.MODE_PRIVATE);
                             SharedPreferences.Editor editor = sharedPref.edit();
                             editor.putBoolean("logado", true);
-                            editor.putString("email", usuarioRetorno.getEmail());
-                            editor.putString("nome", usuarioRetorno.getNome());
-                            editor.putInt("id", usuarioRetorno.getId());
                             editor.commit();
                             Intent its = new Intent(getApplicationContext(),HomeActivity.class);
                             startActivity(its);

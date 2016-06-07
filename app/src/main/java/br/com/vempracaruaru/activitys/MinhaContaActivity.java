@@ -5,11 +5,18 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.joao.vempracaruaruapp.R;
+
+import java.util.concurrent.ExecutionException;
+
+import br.com.vempracaruaru.comunicacao.DownloadListarUsuario;
+import br.com.vempracaruaru.usuario.Usuario;
 
 public class MinhaContaActivity extends AppCompatActivity {
 
@@ -21,11 +28,23 @@ public class MinhaContaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.minha_conta_layout);
 
-        sharedPref = getPreferences(Context.MODE_PRIVATE);
-        String nome = sharedPref.getString("email","email");
+            Usuario usuario = null;
+//        sharedPref = getPreferences(Context.MODE_PRIVATE);
+//        String nome = sharedPref.getString("email","email");
 
-        TextView txtNome = (TextView) findViewById(R.id.txv_info_nome);
-        txtNome.setText(nome);
+
+        try {
+            DownloadListarUsuario download = new DownloadListarUsuario(MinhaContaActivity.this);
+            download.execute("kaio_web@hotmail.com");
+            usuario = download.get();
+            Log.i("MinhaContaActivity","teste: "+(usuario == null));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+        }
+
+        //TextView txtNome = (TextView) findViewById(R.id.txv_info_nome);
+        //txtNome.setText(""+usuario.getNome());
 
         Button btnAlterar = (Button) findViewById(R.id.btn_alterar_senha);
         btnAlterar.setOnClickListener(new View.OnClickListener() {
