@@ -50,6 +50,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private EditText emailEdt;
     private EditText senhaEdt;
     private SharedPreferences sharedPref;
+    private SharedPreferences sharedPrefEmail;
     private ProgressDialog progressDialog;
     //
     private LoginButton loginButton;
@@ -178,6 +179,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         editor.putBoolean("logado", true);
                         editor.commit();
 
+                        sharedPrefEmail = getSharedPreferences("LOGIN", 0);
+                        SharedPreferences.Editor editorEmail = sharedPrefEmail.edit();
+                        editorEmail.putString("email", email);
+                        editorEmail.commit();
+
                         finish();
 
                     } else {
@@ -218,6 +224,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             SharedPreferences.Editor editor = sharedPref.edit();
                             editor.putBoolean("logado", true);
                             editor.commit();
+
+                            sharedPrefEmail = getSharedPreferences("LOGIN", 0);
+                            SharedPreferences.Editor editorEmail = sharedPrefEmail.edit();
+                            editorEmail.putString("email", email);
+                            editorEmail.commit();
+
                             Intent its = new Intent(getApplicationContext(),HomeActivity.class);
                             startActivity(its);
                             finish();

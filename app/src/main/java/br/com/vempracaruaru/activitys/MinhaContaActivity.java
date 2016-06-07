@@ -22,7 +22,8 @@ import br.com.vempracaruaru.usuario.Usuario;
 
 public class MinhaContaActivity extends AppCompatActivity {
 
-    private SharedPreferences sharedPref;
+    private SharedPreferences sharedPrefEmail;
+    private String isEmail;
 
 
     @Override
@@ -30,14 +31,19 @@ public class MinhaContaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.minha_conta_layout);
 
+        sharedPrefEmail = getSharedPreferences("LOGIN", 0);
+        isEmail = sharedPrefEmail.getString("email", "");
+        Log.i("LoginActivity", "RETORNO EMAIL NA MINHA CONTA:> " + isEmail);
+
             Usuario usuario = null;
-//        sharedPref = getPreferences(Context.MODE_PRIVATE);
-//        String nome = sharedPref.getString("email","email");
+            sharedPrefEmail = getSharedPreferences("LOGIN", 0);
+            isEmail = sharedPrefEmail.getString("email", "");
+            Log.i("LoginActivity", "RETORNO EMAIL NA MINHA CONTA:> " + isEmail);
 
 
         try {
             DownloadListarUsuario download = new DownloadListarUsuario(MinhaContaActivity.this);
-            download.execute("kaio_web@hotmail.com");
+            download.execute(isEmail);
             usuario = download.get();
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -45,7 +51,10 @@ public class MinhaContaActivity extends AppCompatActivity {
         }
 
         TextView txtNome = (TextView) findViewById(R.id.txv_info_nome);
+        TextView txtPontuacao = (TextView) findViewById(R.id.txv_info_pontuacao);
         txtNome.setText(""+usuario.getNome());
+        txtPontuacao.setText("Pontuação: "+usuario.getPontos());
+
 
         Button btnAlterar = (Button) findViewById(R.id.btn_alterar_senha);
         btnAlterar.setOnClickListener(new View.OnClickListener() {
