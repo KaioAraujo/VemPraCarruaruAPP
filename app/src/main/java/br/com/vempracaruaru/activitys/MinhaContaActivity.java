@@ -7,7 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -17,6 +19,7 @@ import com.example.joao.vempracaruaruapp.R;
 
 import java.util.concurrent.ExecutionException;
 
+import br.com.vempracaruaru.adapters.AdapterMinhaLista;
 import br.com.vempracaruaru.comunicacao.DownloadListarUsuario;
 import br.com.vempracaruaru.usuario.Usuario;
 
@@ -64,5 +67,12 @@ public class MinhaContaActivity extends AppCompatActivity {
                 startActivity(its);
             }
         });
+
+
+        ListView listaCheck = (ListView) findViewById(R.id.lista);
+        listaCheck.setAdapter(new AdapterMinhaLista(getApplicationContext(),usuario.getId()));
+
+
     }
+
 }

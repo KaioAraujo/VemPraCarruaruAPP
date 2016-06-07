@@ -63,14 +63,10 @@ public class MenuPontoTuristicoActivity extends AppCompatActivity implements OnC
         Button btnFotos = (Button) findViewById(R.id.btn_ver_fotos_ponto);
         Button btnObras = (Button) findViewById(R.id.btn_ver_obras_ponto);
         Button btnGps = (Button) findViewById(R.id.btn_ver_gps_ponto);
-        Button btnAdd = (Button) findViewById(R.id.btn_add_lista);
         //aqui vc passa o onclik que vc implementou ou seja ele mesmno
         btnFotos.setOnClickListener(this);
         btnObras.setOnClickListener(this);
         btnGps.setOnClickListener(this);
-        btnAdd.setOnClickListener(this);
-
-
     }
 
     @Override
@@ -95,9 +91,6 @@ public class MenuPontoTuristicoActivity extends AppCompatActivity implements OnC
                 Log.i("Mapa",pontoTuristico.getLatitude()+" - "+pontoTuristico.getLongitude());
                 itGps.putExtra("titulo",pontoTuristico.getNome());
                 startActivity(itGps);
-                break;
-            case R.id.btn_add_lista:
-                Toast.makeText(this, "Item Adicionado a Sua Lista", Toast.LENGTH_LONG).show();
                 break;
         }
     }
