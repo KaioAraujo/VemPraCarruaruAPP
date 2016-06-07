@@ -60,39 +60,25 @@
 
 
     <TextView
-        android:paddingTop="15dp"
-        android:layout_width="match_parent"
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Listapontosturisticosjv"
         android:id="@+id/txv_lista_pontos_turisticos_a_visitar"
         android:textColor="#0600ff"
         android:textStyle="bold"
-        android:layout_below="@id/idshadow"/>
-
-
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/ltv_a_visitar"
-        android:layout_below="@id/txv_lista_pontos_turisticos_a_visitar"
+        android:layout_below="@id/idshadow"
+        android:layout_centerHorizontal="true"
         />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/Listapontosturisticosav"
-        android:id="@+id/txv_lista_pontos_turisticos_ja_visitados"
-        android:layout_below="@id/ltv_a_visitar"
-        android:textColor="#ff7049"
-        android:textStyle="bold"
-        />
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioGroup"
+            >
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/ltv_visitados"
-        android:layout_below="@id/txv_lista_pontos_turisticos_ja_visitados"
-        />
+        </RadioGroup>
+
 
     <ScrollView
         android:layout_width="wrap_content"
