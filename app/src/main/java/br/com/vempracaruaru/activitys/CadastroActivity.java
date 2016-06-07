@@ -54,10 +54,6 @@ public class CadastroActivity extends AppCompatActivity {
         btnCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progressDialog = new ProgressDialog(CadastroActivity.this);
-                progressDialog.setTitle("Aguarde!");
-                progressDialog.setMessage("Alterando a senha");
-                progressDialog.show();
                 Intent its = new Intent(getApplicationContext(),HomeActivity.class);
                 nome = edtNome.getText().toString();
                 email = edtEmail.getText().toString();
@@ -68,6 +64,10 @@ public class CadastroActivity extends AppCompatActivity {
                     if (senha.equals(confirmarSenha.toString())) {
 
                         try {
+                            progressDialog = new ProgressDialog(CadastroActivity.this);
+                            progressDialog.setTitle("Aguarde!");
+                            progressDialog.setMessage("Alterando a senha");
+                            progressDialog.show();
                             usuario = new Usuario(0, nome, email, "", senha, "", "", 0, 'S');
                             cadastro(its);
                         } catch (IOException e) {
@@ -81,7 +81,6 @@ public class CadastroActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(getApplicationContext(),"Verifique os dados digitados",Toast.LENGTH_LONG).show();
                 }
-                progressDialog.dismiss();
             }
         });
     }
@@ -120,16 +119,19 @@ public class CadastroActivity extends AppCompatActivity {
                         SharedPreferences.Editor editorEmail = sharedPrefEmail.edit();
                         editorEmail.putString("email", email);
                         editorEmail.commit();
+                        progressDialog.dismiss();
                         finish();
                     } else {
                         Log.i("LoginActivity", "RETORNO:> Cadastro não efetuado!");
                         Message msg = handler.obtainMessage();
                         msg.arg1 = 2;
                         handler.sendMessage(msg);
+                        progressDialog.dismiss();
                     }
 
                 } catch (Exception e) {
                     Log.e("LoginActivity", "Erro do TRY " + e.getMessage());
+                    progressDialog.dismiss();
                 }
             }
         }.start();

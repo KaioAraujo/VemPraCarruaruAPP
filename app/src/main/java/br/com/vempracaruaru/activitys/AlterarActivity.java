@@ -1,5 +1,6 @@
 package br.com.vempracaruaru.activitys;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Handler;
@@ -36,6 +37,7 @@ public class AlterarActivity extends AppCompatActivity {
     private String senhaConfirmacao;
     private SharedPreferences sharedPrefEmail;
     private String isEmail;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,8 +74,13 @@ public class AlterarActivity extends AppCompatActivity {
                 senhaConfirmacao = edtConfimarSenha.getText().toString();
 
                 if (senha.equals(senhaConfirmacao.toString())) {
+
                     usuario.setSenha(senha);
                     try {
+                        progressDialog = new ProgressDialog(AlterarActivity.this);
+                        progressDialog.setTitle("Aguarde!");
+                        progressDialog.setMessage("Alterando a senha");
+                        progressDialog.show();
                         alterar(its);
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -118,14 +125,17 @@ public class AlterarActivity extends AppCompatActivity {
                         Message msg = handler.obtainMessage();
                         msg.arg1 = 1;
                         handler.sendMessage(msg);
+                        progressDialog.dismiss();
                         finish();
                     } else {
                         Log.i("LoginActivity", "RETORNO SENHA ALTERADA:> Senha não alterada!");
                         Message msg = handler.obtainMessage();
                         msg.arg1 = 2;
                         handler.sendMessage(msg);
+                        progressDialog.dismiss();
                     }
                 } catch (Exception e) {
+                    progressDialog.dismiss();
                     Log.e("LoginActivity", "Erro do TRY " + e.getMessage());
                 }
             }
