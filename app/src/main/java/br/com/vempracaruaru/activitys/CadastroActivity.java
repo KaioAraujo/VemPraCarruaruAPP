@@ -1,6 +1,9 @@
 package br.com.vempracaruaru.activitys;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
@@ -34,6 +37,8 @@ public class CadastroActivity extends AppCompatActivity {
     private String confirmarSenha;
     private Usuario usuario = null;
     public static ArrayList<Usuario> listaUsuario = new ArrayList<>();
+    private ProgressDialog progressDialog;
+    private SharedPreferences sharedPrefEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,16 +54,19 @@ public class CadastroActivity extends AppCompatActivity {
         btnCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                progressDialog = new ProgressDialog(CadastroActivity.this);
+                progressDialog.setTitle("Aguarde!");
+                progressDialog.setMessage("Alterando a senha");
+                progressDialog.show();
                 Intent its = new Intent(getApplicationContext(),HomeActivity.class);
                 nome = edtNome.getText().toString();
                 email = edtEmail.getText().toString();
                 senha = edtSenha.getText().toString();
-                confirmarSenha = edtSenha.getText().toString();
+                confirmarSenha = edtConfimarSenha.getText().toString();
 
                 if (!nome.equals("") && !email.equals("") && !senha.equals("") && !confirmarSenha.equals("")) {
                     if (senha.equals(confirmarSenha.toString())) {
-                        Toast.makeText(getApplicationContext(),"Efetudando cadastro do usuário!",Toast.LENGTH_LONG).show();
+
                         try {
                             usuario = new Usuario(0, nome, email, "", senha, "", "", 0, 'S');
                             cadastro(its);
@@ -73,6 +81,7 @@ public class CadastroActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(getApplicationContext(),"Verifique os dados digitados",Toast.LENGTH_LONG).show();
                 }
+                progressDialog.dismiss();
             }
         });
     }
@@ -107,12 +116,18 @@ public class CadastroActivity extends AppCompatActivity {
                         Message msg = handler.obtainMessage();
                         msg.arg1 = 1;
                         handler.sendMessage(msg);
+                        sharedPrefEmail = getSharedPreferences("LOGIN", 0);
+                        SharedPreferences.Editor editorEmail = sharedPrefEmail.edit();
+                        editorEmail.putString("email", email);
+                        editorEmail.commit();
+                        finish();
                     } else {
                         Log.i("LoginActivity", "RETORNO:> Cadastro não efetuado!");
                         Message msg = handler.obtainMessage();
                         msg.arg1 = 2;
                         handler.sendMessage(msg);
                     }
+
                 } catch (Exception e) {
                     Log.e("LoginActivity", "Erro do TRY " + e.getMessage());
                 }
