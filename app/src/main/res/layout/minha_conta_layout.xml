@@ -26,8 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="5dp"
-                android:paddingLeft="5dp"
-                android:paddingTop="5dp"
+                android:layout_margin="8dp"
                 android:text="AQUI VEM O NOME DO CARA"
                 android:textColor="@android:color/black"
                 android:textSize="16dp"
@@ -35,25 +34,25 @@
             <TextView
                 android:id="@+id/txv_info_pontuacao"
                 android:layout_below="@id/txv_info_nome"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="27dp"
-                android:paddingLeft="5dp"
-                android:paddingTop="5dp"
+                android:layout_margin="8dp"
                 android:text="PONTUAÇAO"
                 android:textColor="@android:color/black"
                 android:textSize="12dp"
                 />
 
             <Button
-                android:layout_marginBottom="5dp"
-                android:layout_marginRight="5dp"
                 android:layout_width="100dp"
-                android:layout_height="25dp"
+                android:layout_height="30dp"
                 android:text="Alterar Senha"
                 android:id="@+id/btn_alterar_senha"
                 style="@style/button"
                 android:textSize="11sp"
                 android:layout_below="@+id/txv_info_nome"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="8dp"
                 />
         </RelativeLayout>
     </FrameLayout>

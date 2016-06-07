@@ -176,6 +176,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         sharedPref = getPreferences(Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPref.edit();
                         editor.putBoolean("logado", true);
+                        editor.putString("email", usuarioRetorno.getEmail());
+                        editor.putString("nome", usuarioRetorno.getNome());
+                        editor.putInt("id", usuarioRetorno.getId());
                         editor.commit();
 
                         finish();
@@ -185,7 +188,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         Log.i("LoginActivity", "RETORNO:> Login inválido");
 //                        Message msg = handler.obtainMessage();
 //                        msg.arg1 = 2;
-//                        hanler.sendMessage(msg);
+//                        handler.sendMessage(msg);
                     }
                 } catch (Exception e) {
                     Log.e("LoginActivity", "Erro do TRY " + e.getMessage());
@@ -217,6 +220,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             sharedPref = getPreferences(Context.MODE_PRIVATE);
                             SharedPreferences.Editor editor = sharedPref.edit();
                             editor.putBoolean("logado", true);
+                            editor.putString("email", usuarioRetorno.getEmail());
+                            editor.putString("nome", usuarioRetorno.getNome());
+                            editor.putInt("id", usuarioRetorno.getId());
                             editor.commit();
                             Intent its = new Intent(getApplicationContext(),HomeActivity.class);
                             startActivity(its);
@@ -242,6 +248,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onResume() {
         super.onResume();
-//        finish();
+       // finish();
     }
 }
