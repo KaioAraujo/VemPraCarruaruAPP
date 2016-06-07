@@ -185,7 +185,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         Log.i("LoginActivity", "RETORNO:> Login inválido");
 //                        Message msg = handler.obtainMessage();
 //                        msg.arg1 = 2;
-//                        handler.sendMessage(msg);
+//                        hanler.sendMessage(msg);
                     }
                 } catch (Exception e) {
                     Log.e("LoginActivity", "Erro do TRY " + e.getMessage());
@@ -242,6 +242,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onResume() {
         super.onResume();
-        finish();
+//        finish();
     }
 }

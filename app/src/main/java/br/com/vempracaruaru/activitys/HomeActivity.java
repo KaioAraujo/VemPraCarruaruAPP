@@ -23,13 +23,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         ImageButton btnArtista = (ImageButton) findViewById(R.id.ibt_artistas);
         ImageButton btnObras = (ImageButton) findViewById(R.id.ibt_obras);
         ImageButton btnConta = (ImageButton) findViewById(R.id.ibt_minha_conta);
-        Button btnTeste = (Button) findViewById(R.id.teste);
 
         btnPonto.setOnClickListener(this);
         btnArtista.setOnClickListener(this);
         btnObras.setOnClickListener(this);
         btnConta.setOnClickListener(this);
-        btnTeste.setOnClickListener(this);
 
     }
 
@@ -58,10 +56,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 Intent itsMinhaConta = new Intent(this,MinhaContaActivity.class);
                 startActivity(itsMinhaConta);
                 break;
-            case R.id.teste:
-                Intent teste = new Intent(this,MainActivity.class);
-                startActivity(teste);
-                break;
+
         }
     }
 }
