@@ -74,6 +74,16 @@ public class Solicitacao implements Serializable {
      */
     public static int iSenhaAlterar = 11;
 
+    /*  Opção de solicitação de usuario passando o id dele como parametro
+     *  4º Parametro é ojeto a ser recuperado
+     */
+    public static int iListaAdicionar = 12;
+
+    /*  Opção de solicitação de usuario passando o id dele como parametro
+     *  4º Parametro é ojeto a ser recuperado
+     */
+    public static int iListaRemover = 13;
+
     // Tipo de solicitação que será feira a servlet
     private int iSolicitacao;
 

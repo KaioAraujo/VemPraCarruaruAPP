@@ -45,45 +45,60 @@
         </activity>
         <activity
             android:name="br.com.vempracaruaru.activitys.AlterarActivity"
-            android:label="Alterar" />
+            android:label="Alterar"
+            android:screenOrientation="portrait" />
         <activity
             android:name="br.com.vempracaruaru.activitys.ExpandirImagensObraActivity"
-            android:label="Obras" />
+            android:label="Obras"
+            android:screenOrientation="portrait" />
         <activity
             android:name="br.com.vempracaruaru.activitys.ExpandirImagensPontoActivity"
-            android:label="Ponto Turísticos" />
+            android:label="Ponto Turísticos"
+            android:screenOrientation="portrait" />
         <activity
             android:name="br.com.vempracaruaru.activitys.GaleriaObrasActivity"
-            android:label="Obras" />
+            android:label="Obras"
+            android:screenOrientation="portrait" />
         <activity
             android:name="br.com.vempracaruaru.activitys.GaleriaPontoTuristicoActivity"
-            android:label="Ponto Turísticos" />
-        <activity android:name="br.com.vempracaruaru.activitys.HomeActivity" />
+            android:label="Ponto Turísticos"
+            android:screenOrientation="portrait" />
+        <activity android:name="br.com.vempracaruaru.activitys.HomeActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name="br.com.vempracaruaru.activitys.ListaArtistaActivity"
-            android:label="Artistas" />
+            android:label="Artistas"
+            android:screenOrientation="portrait" />
         <activity
             android:name="br.com.vempracaruaru.activitys.ListaObrasActivity"
-            android:label="Obras" />
+            android:label="Obras"
+            android:screenOrientation="portrait" />
         <activity
             android:name="br.com.vempracaruaru.activitys.ListaPontosTuristicosActivity"
-            android:label="Ponto Turísticos" />
+            android:label="Ponto Turísticos"
+            android:screenOrientation="portrait" />
         <activity
             android:name="br.com.vempracaruaru.activitys.LocalizacaoGpsActivity"
-            android:label="Ponto Turísticos" />
+            android:label="Ponto Turísticos"
+            android:screenOrientation="portrait" />
         <activity
             android:name="br.com.vempracaruaru.activitys.MenuObraActivity"
-            android:label="Obras" />
+            android:label="Obras"
+            android:screenOrientation="portrait" />
         <activity
             android:name="br.com.vempracaruaru.activitys.MenuPontoTuristicoActivity"
-            android:label="Ponto Turísticos" />
+            android:label="Ponto Turísticos"
+            android:screenOrientation="portrait" />
         <activity
             android:name="br.com.vempracaruaru.activitys.MinhaContaActivity"
-            android:label="Minha Conta" />
+            android:label="Minha Conta"
+            android:screenOrientation="portrait" />
         <activity
             android:name="br.com.vempracaruaru.activitys.PerfilArtistaActivity"
-            android:label="Artista" />
-        <activity android:name="br.com.vempracaruaru.activitys.CadastroActivity" />
+            android:label="Artista"
+            android:screenOrientation="portrait" />
+        <activity android:name="br.com.vempracaruaru.activitys.CadastroActivity"
+            android:screenOrientation="portrait" />
 
         <!-- activity do face -->
         <activity

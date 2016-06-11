@@ -21,6 +21,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.concurrent.ExecutionException;
 
 import com.example.joao.vempracaruaruapp.R;
 import com.facebook.AccessToken;
@@ -34,6 +35,7 @@ import com.facebook.login.widget.LoginButton;
 
 import org.json.JSONObject;
 
+import br.com.vempracaruaru.comunicacao.DownloadListarUsuario;
 import br.com.vempracaruaru.usuario.Usuario;
 import br.com.vempracaruaru.util.ConfigSistema;
 import br.com.vempracaruaru.util.Solicitacao;
@@ -43,6 +45,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public static ConfigSistema cfgs = new ConfigSistema();
     public static Usuario usuarioRetorno = null;
     private static Boolean retornoLogin = false;
+    private Usuario usuario = null;
     private String email;
     private String senha;
     private String nome;
@@ -51,6 +54,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private EditText senhaEdt;
     private SharedPreferences sharedPref;
     private SharedPreferences sharedPrefEmail;
+    private SharedPreferences sharedPrefUsuario;
     private ProgressDialog progressDialog;
     //
     private LoginButton loginButton;
@@ -183,6 +187,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         SharedPreferences.Editor editorEmail = sharedPrefEmail.edit();
                         editorEmail.putString("email", email);
                         editorEmail.commit();
+
+                        try {
+                            DownloadListarUsuario download = new DownloadListarUsuario(LoginActivity.this);
+                            download.execute(email);
+                            usuario = download.get();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        } catch (ExecutionException e) {
+                        }
+
+                        sharedPrefUsuario = getSharedPreferences("USUARIO", 0);
+                        SharedPreferences.Editor editorUsuario = sharedPrefUsuario.edit();
+                        editorUsuario.putInt("idUsuario", usuario.getId());
+                        editorUsuario.commit();
 
                         finish();
 
