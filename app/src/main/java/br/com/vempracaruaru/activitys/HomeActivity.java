@@ -71,7 +71,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     private void scan() {
         IntentIntegrator integrator = new IntentIntegrator(this);
-        integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
+        integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
         integrator.setPrompt("Scan");
         integrator.setCameraId(0);
         integrator.setBeepEnabled(false);
@@ -85,8 +85,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         if(result != null){
             if(result.getContents() == null){
-                Log.d("Main","scan cancelado");
-                Toast.makeText(this,"cancelado: "+result.getContents(),Toast.LENGTH_LONG).show();
+//                Log.d("Main","scan cancelado");
+//                Toast.makeText(this,"cancelado: "+result.getContents(),Toast.LENGTH_LONG).show();
             }else {
                 Log.d("Main","scanned");
                 Toast.makeText(this,"scanned: "+result.getContents(),Toast.LENGTH_LONG).show();

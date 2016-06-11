@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ExpandableListView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -22,23 +23,20 @@ public class MinhaContaActivity extends AppCompatActivity {
 
     private SharedPreferences sharedPrefEmail;
     private String isEmail;
-    private SharedPreferences sharedPrefUsuario;
-    private int isId;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.minha_conta_layout);
 
-        Usuario usuario = null;
         sharedPrefEmail = getSharedPreferences("LOGIN", 0);
         isEmail = sharedPrefEmail.getString("email", "");
         Log.i("LoginActivity", "RETORNO EMAIL NA MINHA CONTA:> " + isEmail);
 
-        sharedPrefUsuario = getSharedPreferences("USUARIO", 0);
-        isId = sharedPrefUsuario.getInt("idUsuario", 0);
-        Log.i("LoginActivity", "RETORNO ID NA MINHA CONTA:> " + isId);
+            Usuario usuario = null;
+            sharedPrefEmail = getSharedPreferences("LOGIN", 0);
+            isEmail = sharedPrefEmail.getString("email", "");
+            Log.i("LoginActivity", "RETORNO EMAIL NA MINHA CONTA:> " + isEmail);
 
 
         try {
@@ -66,7 +64,7 @@ public class MinhaContaActivity extends AppCompatActivity {
         });
 
 
-        ListView listaCheck = (ListView) findViewById(R.id.lista);
+        ExpandableListView listaCheck = (ExpandableListView) findViewById(R.id.lista);
         listaCheck.setAdapter(new AdapterMinhaLista(getApplicationContext(),usuario.getId()));
 
 

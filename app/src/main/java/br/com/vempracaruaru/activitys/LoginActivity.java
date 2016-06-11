@@ -248,6 +248,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             editorEmail.putString("email", email);
                             editorEmail.commit();
 
+                            try {
+                                DownloadListarUsuario download = new DownloadListarUsuario(LoginActivity.this);
+                                download.execute(email);
+                                usuario = download.get();
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            } catch (ExecutionException e) {
+                            }
+
                             Intent its = new Intent(getApplicationContext(),HomeActivity.class);
                             startActivity(its);
                             finish();

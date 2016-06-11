@@ -32,49 +32,6 @@
             android:layout_alignLeft="@+id/txt_titulo_artista"
             android:layout_alignStart="@+id/txt_titulo_artista" />
 
-        <ImageButton
-            android:id="@+id/btn_email"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/email_icon"
-            android:layout_below="@+id/txt_sub_titulo_artista"
-            android:layout_alignLeft="@+id/txt_sub_titulo_artista"/>
-
-        <ImageButton
-            android:id="@+id/btn_fone"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/fone_icon"
-            android:layout_alignTop="@+id/btn_email"
-            android:layout_toRightOf="@+id/btn_email"
-            android:layout_toEndOf="@+id/btn_email" />
-
-        <ImageButton
-            android:id="@+id/btn_twitter"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/twitter_icon"
-            android:layout_alignTop="@+id/btn_fone"
-            android:layout_toRightOf="@+id/btn_fone"
-            android:layout_toEndOf="@+id/btn_fone" />
-
-        <ImageButton
-            android:id="@+id/btn_instagram"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/instagram_icon"
-            android:layout_alignTop="@+id/btn_twitter"
-            android:layout_toRightOf="@+id/btn_twitter"
-            android:layout_toEndOf="@+id/btn_twitter" />
-
-        <ImageButton
-            android:id="@+id/btn_facebook"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/facebook_icon"
-            android:layout_alignTop="@+id/btn_instagram"
-            android:layout_toRightOf="@+id/btn_instagram"
-            android:layout_toEndOf="@+id/btn_instagram" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -87,6 +44,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Teste Artista"
+                    android:padding="10dp"
                     android:textSize="15dp"
                     />
         </ScrollView>

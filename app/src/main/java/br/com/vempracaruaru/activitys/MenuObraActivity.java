@@ -3,6 +3,7 @@ package br.com.vempracaruaru.activitys;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -37,8 +38,16 @@ public class MenuObraActivity extends AppCompatActivity {
 
         TextView subTitulo = (TextView) findViewById(R.id.txt_sub_titulo);
         //aqui eu passo o sub-titulo da obra
-        subTitulo.setText("Localização: " + obra.getNomePontoTuristico() + "/n" +
-                "Artista: " + obra.getNomeArtista());
+        String textoPerfil;
+        Log.i("MenuObraActivity",obra.getNome());
+        if(obra.getNomeArtista() != null){
+            textoPerfil = "Localização: " + obra.getNomePontoTuristico() +
+                    "\nArtista: "+obra.getNomeArtista();
+        }else{
+            textoPerfil = "Localização: " + obra.getNomePontoTuristico() + "\n" +
+                    "Artista: Artista indefinido";
+        }
+        subTitulo.setText(textoPerfil);
 
         TextView texto = (TextView) findViewById(R.id.txt_texto_menu);
         //aqui eu passo o texto da obra

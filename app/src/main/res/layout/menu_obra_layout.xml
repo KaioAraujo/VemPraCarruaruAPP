@@ -16,7 +16,8 @@
         />
     <TextView
         android:id="@+id/txt_titulo_obra_menu"
-        style="@style/titulo"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         android:layout_toRightOf="@id/img_obra_menu"
         android:text="@string/texto"
         />
@@ -45,6 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/texto"
+            android:padding="8dp"
             android:textSize="15dp"
             />
 

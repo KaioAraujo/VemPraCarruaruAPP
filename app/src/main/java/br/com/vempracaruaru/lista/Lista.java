@@ -22,7 +22,8 @@ public class Lista implements Serializable {
 		this.visitado = visitado;
 	}
 
-	public Lista() {
+	public Lista(int idUsuario, String nomeUsuario, int idPontoTuristico,
+			String nomePontoTuristico, String dataHora, char visitado) {
 		super();
 		this.idUsuario = idUsuario;
 		this.nomeUsuario = nomeUsuario;

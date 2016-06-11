@@ -1,11 +1,13 @@
 package br.com.vempracaruaru.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.BaseExpandableListAdapter;
 import android.widget.CheckBox;
 import android.widget.ListAdapter;
 import android.widget.TextView;
@@ -25,11 +27,12 @@ import br.com.vempracaruaru.lista.Lista;
 /**
  * Created by joao on 07/06/16.
  */
-public class AdapterMinhaLista extends BaseAdapter {
+public class AdapterMinhaLista extends BaseExpandableListAdapter {
 
     private Context ctx;
     private int id;
     private Map<String,List<Lista>> listas = new HashMap<>();
+    private ArrayList<String> keys;
 
 
     public AdapterMinhaLista(Context ctx, int id) {
@@ -37,6 +40,7 @@ public class AdapterMinhaLista extends BaseAdapter {
         this.id = id;
        recuperarPontosJaVisitados(id);
        recuperarPontosNaovisitados(id);
+        this.keys = new ArrayList<String>(listas.keySet());
     }
 
     private void recuperarPontosNaovisitados(int id) {
@@ -47,7 +51,7 @@ public class AdapterMinhaLista extends BaseAdapter {
             download.execute(id);
             pontosNaovisitados = download.get();
             if(pontosNaovisitados !=null){
-                listas.put("não",pontosNaovisitados);
+                listas.put("PontoNaovisitado",pontosNaovisitados);
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -64,7 +68,7 @@ public class AdapterMinhaLista extends BaseAdapter {
             download.execute(id);
             pontosJaVisitados = download.get();
             if(pontosJaVisitados !=null) {
-               listas.put("ja",pontosJaVisitados);
+               listas.put("jaVisitados",pontosJaVisitados);
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -73,46 +77,72 @@ public class AdapterMinhaLista extends BaseAdapter {
         }
     }
 
+
     @Override
-    public int getCount() {
+    public Object getGroup(int groupPosition) {
+        return keys.get(groupPosition);
+    }
+
+    @Override
+    public int getGroupCount() {
+        return listas.size();
+    }
+
+
+    @Override
+    public long getGroupId(int groupPosition) {
+        return groupPosition;
+    }
+
+    @Override
+    public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
+        if(convertView == null){
+            convertView = LayoutInflater.from(
+                    parent.getContext()).inflate(android.R.layout.simple_expandable_list_item_1,null);
+        }
+        TextView txt = (TextView)convertView.findViewById(android.R.id.text1);
+        txt.setTextColor(Color.WHITE);
+        txt.setBackgroundColor(Color.RED);
+        txt.setText(keys.get(groupPosition));
+        return convertView;
+    }
+
+    @Override
+    public Object getChild(int groupPosition, int childPosition) {
+        return listas.get(keys.get(groupPosition)).get(childPosition);
+    }
+
+
+    @Override
+    public long getChildId(int groupPosition, int childPosition) {
         return 0;
     }
 
     @Override
-    public Object getItem(int position) {
-        return position;
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-//
-//        Lista item = new Lista("","");
-//
-//        ViewHolder holder = null;
-//        if(convertView == null){//View nova temos que criala
-//            convertView = LayoutInflater.from(ctx).inflate(R.layout.item_layout,null);
-//            holder = new ViewHolder();
-//            holder.checkBox = (CheckBox) convertView.findViewById(R.id.checkItem);
-//            holder.titulo = (TextView) convertView.findViewById(R.id.textoItem);
-//            convertView.setTag(holder);
-//        }else{
-//            holder = (ViewHolder) convertView.getTag();
-//        }
-//
-//        holder.titulo.setText(item.getNomePontoTuristico());
-//        if('S' == item.getVisitado()){
-//            holder.checkBox.setChecked(true);
-//        }
-
+    public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
+        if (convertView == null){
+            convertView = LayoutInflater.
+                    from(parent.getContext()).
+                    inflate(android.R.layout.simple_expandable_list_item_1,null);
+        }
+        TextView txt = (TextView) convertView.findViewById(android.R.id.text1);
+        txt.setText(listas.get(keys.get(groupPosition)).get(childPosition).getNomePontoTuristico());
         return convertView;
     }
-    static class ViewHolder{
-        CheckBox checkBox;
-        TextView titulo;
+
+    @Override
+    public int getChildrenCount(int groupPosition) {
+        return listas.get(keys.get(groupPosition)).size();
+    }
+
+
+    @Override
+    public boolean hasStableIds() {
+        return true;
+    }
+
+    @Override
+    public boolean isChildSelectable(int groupPosition, int childPosition) {
+        return true;
     }
 }
