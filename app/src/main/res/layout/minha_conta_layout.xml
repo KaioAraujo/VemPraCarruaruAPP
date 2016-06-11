@@ -57,22 +57,9 @@
         </RelativeLayout>
     </FrameLayout>
 
-
-
-    <TextView
-        android:layout_marginTop="15dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Listapontosturisticosjv"
-        android:id="@+id/txv_lista_pontos_turisticos_a_visitar"
-        android:textColor="#0600ff"
-        android:textStyle="bold"
-        android:layout_below="@id/idshadow"
-        android:layout_centerHorizontal="true"
-        />
-
     <ExpandableListView
-        android:layout_below="@id/txv_lista_pontos_turisticos_a_visitar"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/idshadow"
         android:id="@+id/lista"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">

@@ -27,13 +27,15 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         ImageButton btnArtista = (ImageButton) findViewById(R.id.ibt_artistas);
         ImageButton btnObras = (ImageButton) findViewById(R.id.ibt_obras);
         ImageButton btnConta = (ImageButton) findViewById(R.id.ibt_minha_conta);
-        Button btnScan = (Button) findViewById(R.id.btnScan);
+        ImageButton btnScan = (ImageButton) findViewById(R.id.ibt_scan);
+        ImageButton btnSair = (ImageButton) findViewById(R.id.ibt_sair);
 
         btnPonto.setOnClickListener(this);
         btnArtista.setOnClickListener(this);
         btnObras.setOnClickListener(this);
         btnConta.setOnClickListener(this);
         btnScan.setOnClickListener(this);
+        btnSair.setOnClickListener(this);
 
     }
 
@@ -62,8 +64,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 Intent itsMinhaConta = new Intent(this,MinhaContaActivity.class);
                 startActivity(itsMinhaConta);
                 break;
-            case R.id.btnScan:
+            case R.id.ibt_scan:
                 scan();
+                break;
+            case R.id.ibt_sair:
+                Toast.makeText(this,"Saindo",Toast.LENGTH_LONG).show();
                 break;
 
         }

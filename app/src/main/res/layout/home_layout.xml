@@ -1,5 +1,10 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<RelativeLayout
+    android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
@@ -8,16 +13,17 @@
     android:background="@drawable/fundo">
 
 
+
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:background="@drawable/logo"
         android:layout_centerHorizontal="true" />
 
     <ImageButton
         android:layout_width="wrap_content"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:id="@+id/ibt_pontos_turisticos"
         android:layout_below="@id/logo"
         android:background="@drawable/btn_pontos_turisticos" />
@@ -25,7 +31,7 @@
 
     <ImageButton
         android:layout_width="wrap_content"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:id="@+id/ibt_artistas"
         android:layout_below="@id/ibt_pontos_turisticos"
         android:background="@drawable/btn_artistas" />
@@ -33,7 +39,7 @@
 
     <ImageButton
         android:layout_width="wrap_content"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:id="@+id/ibt_obras"
         android:layout_below="@id/ibt_artistas"
         android:background="@drawable/btn_obras" />
@@ -41,18 +47,23 @@
 
     <ImageButton
         android:layout_width="wrap_content"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:id="@+id/ibt_minha_conta"
         android:layout_below="@id/ibt_obras"
         android:background="@drawable/btn_minha_conta" />
 
-    <Button
-        android:id="@+id/btnScan"
-        android:layout_width="match_parent"
-        android:layout_height="560dp"
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:id="@+id/ibt_scan"
         android:layout_below="@id/ibt_minha_conta"
-        android:background="@color/cor_button"
-        android:text="scan"
-        />
+        android:background="@drawable/btn_qr_code" />
 
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:id="@+id/ibt_sair"
+        android:layout_below="@id/ibt_scan"
+        android:background="@drawable/btn_sair" />
 </RelativeLayout>
+</ScrollView>

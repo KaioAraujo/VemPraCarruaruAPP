@@ -51,7 +51,7 @@ public class AdapterMinhaLista extends BaseExpandableListAdapter {
             download.execute(id);
             pontosNaovisitados = download.get();
             if(pontosNaovisitados !=null){
-                listas.put("PontoNaovisitado",pontosNaovisitados);
+                listas.put("N",pontosNaovisitados);
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -68,7 +68,7 @@ public class AdapterMinhaLista extends BaseExpandableListAdapter {
             download.execute(id);
             pontosJaVisitados = download.get();
             if(pontosJaVisitados !=null) {
-               listas.put("jaVisitados",pontosJaVisitados);
+               listas.put("S",pontosJaVisitados);
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -100,10 +100,16 @@ public class AdapterMinhaLista extends BaseExpandableListAdapter {
             convertView = LayoutInflater.from(
                     parent.getContext()).inflate(android.R.layout.simple_expandable_list_item_1,null);
         }
-        TextView txt = (TextView)convertView.findViewById(android.R.id.text1);
+
+        TextView txt = (TextView) convertView.findViewById(android.R.id.text1);
         txt.setTextColor(Color.WHITE);
         txt.setBackgroundColor(Color.RED);
-        txt.setText(keys.get(groupPosition));
+        if(keys.get(groupPosition).equals("N")){
+            txt.setText("Pontos não visitados ("+listas.get("N").size()+")");
+        }else{
+            txt.setText("Pontos já visitados ("+listas.get("S").size()+")");
+
+        }
         return convertView;
     }
 
