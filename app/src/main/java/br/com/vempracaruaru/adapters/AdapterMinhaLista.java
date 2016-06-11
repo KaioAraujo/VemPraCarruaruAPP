@@ -13,6 +13,9 @@ import android.widget.TextView;
 import com.example.joao.vempracaruaruapp.R;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 import br.com.vempracaruaru.comunicacao.DownloadListarListaAVisitar;
@@ -26,9 +29,7 @@ public class AdapterMinhaLista extends BaseAdapter {
 
     private Context ctx;
     private int id;
-    private ArrayList<Lista> pontosJaVisitados;
-    private ArrayList<Lista> pontosNaovisitados;
-    private ArrayList<Lista> lista = new ArrayList<>();
+    private Map<String,List<Lista>> listas = new HashMap<>();
 
 
     public AdapterMinhaLista(Context ctx, int id) {
@@ -39,20 +40,14 @@ public class AdapterMinhaLista extends BaseAdapter {
     }
 
     private void recuperarPontosNaovisitados(int id) {
-        pontosNaovisitados = null;
+        ArrayList <Lista> pontosNaovisitados = null;
 
         try {
             DownloadListarListaAVisitar download = new DownloadListarListaAVisitar(ctx);
             download.execute(id);
             pontosNaovisitados = download.get();
-            Log.i("AdapterMinhaLista","não visitado");
-            Log.i("AdapterMinhaLista","teste: " +(lista == null));
             if(pontosNaovisitados !=null){
-                for (Lista item: pontosNaovisitados) {
-                    item.setVisitado('N');
-                    lista.add(item);
-                    Log.i("AdapterMinhaLista","teste: " +item.toString());
-                }
+                listas.put("não",pontosNaovisitados);
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -62,20 +57,14 @@ public class AdapterMinhaLista extends BaseAdapter {
     }
 
     private void recuperarPontosJaVisitados(int id) {
-        pontosJaVisitados = null;
+        ArrayList<Lista>pontosJaVisitados = null;
 
         try {
             DownloadListarListaVisitado download = new DownloadListarListaVisitado(ctx);
             download.execute(id);
-            lista = download.get();
-            Log.i("AdapterMinhaLista","ja visitado");
-            Log.i("AdapterMinhaLista","teste: " +(lista == null));
+            pontosJaVisitados = download.get();
             if(pontosJaVisitados !=null) {
-                for (Lista item : pontosJaVisitados) {
-                    item.setVisitado('S');
-                    lista.add(item);
-                    Log.i("AdapterMinhaLista","teste: " +item.toString());
-                }
+               listas.put("ja",pontosJaVisitados);
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -86,12 +75,12 @@ public class AdapterMinhaLista extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return lista.size();
+        return 0;
     }
 
     @Override
     public Object getItem(int position) {
-        return lista.get(position);
+        return position;
     }
 
     @Override
@@ -101,24 +90,24 @@ public class AdapterMinhaLista extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
-        Lista item = lista.get(position);
-
-        ViewHolder holder = null;
-        if(convertView == null){//View nova temos que criala
-            convertView = LayoutInflater.from(ctx).inflate(R.layout.item_layout,null);
-            holder = new ViewHolder();
-            holder.checkBox = (CheckBox) convertView.findViewById(R.id.checkItem);
-            holder.titulo = (TextView) convertView.findViewById(R.id.textoItem);
-            convertView.setTag(holder);
-        }else{
-            holder = (ViewHolder) convertView.getTag();
-        }
-
-        holder.titulo.setText(item.getNomePontoTuristico());
-        if('S' == item.getVisitado()){
-            holder.checkBox.setChecked(true);
-        }
+//
+//        Lista item = new Lista("","");
+//
+//        ViewHolder holder = null;
+//        if(convertView == null){//View nova temos que criala
+//            convertView = LayoutInflater.from(ctx).inflate(R.layout.item_layout,null);
+//            holder = new ViewHolder();
+//            holder.checkBox = (CheckBox) convertView.findViewById(R.id.checkItem);
+//            holder.titulo = (TextView) convertView.findViewById(R.id.textoItem);
+//            convertView.setTag(holder);
+//        }else{
+//            holder = (ViewHolder) convertView.getTag();
+//        }
+//
+//        holder.titulo.setText(item.getNomePontoTuristico());
+//        if('S' == item.getVisitado()){
+//            holder.checkBox.setChecked(true);
+//        }
 
         return convertView;
     }

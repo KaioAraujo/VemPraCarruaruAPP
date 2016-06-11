@@ -71,12 +71,12 @@
         android:layout_centerHorizontal="true"
         />
 
-    <ListView
+    <ExpandableListView
         android:layout_below="@id/txv_lista_pontos_turisticos_a_visitar"
         android:id="@+id/lista"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-    </ListView>
+    </ExpandableListView>
 
 
     <ScrollView
