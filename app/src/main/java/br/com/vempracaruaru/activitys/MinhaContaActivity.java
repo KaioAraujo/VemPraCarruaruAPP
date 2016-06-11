@@ -29,10 +29,6 @@ public class MinhaContaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.minha_conta_layout);
 
-        sharedPrefEmail = getSharedPreferences("LOGIN", 0);
-        isEmail = sharedPrefEmail.getString("email", "");
-        Log.i("LoginActivity", "RETORNO EMAIL NA MINHA CONTA:> " + isEmail);
-
             Usuario usuario = null;
             sharedPrefEmail = getSharedPreferences("LOGIN", 0);
             isEmail = sharedPrefEmail.getString("email", "");
