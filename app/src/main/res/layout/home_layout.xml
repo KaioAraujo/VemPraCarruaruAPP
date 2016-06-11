@@ -46,4 +46,13 @@
         android:layout_below="@id/ibt_obras"
         android:background="@drawable/btn_minha_conta" />
 
+    <Button
+        android:id="@+id/btnScan"
+        android:layout_width="match_parent"
+        android:layout_height="560dp"
+        android:layout_below="@id/ibt_minha_conta"
+        android:background="@color/cor_button"
+        android:text="scan"
+        />
+
 </RelativeLayout>
