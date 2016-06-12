@@ -59,7 +59,11 @@ public class DownloadListarObra extends AsyncTask<Integer, String, ArrayList<Obr
             //abre canal de saída
             ObjectOutputStream oos = new ObjectOutputStream(http.getOutputStream());
             //envia objeto
-            oos.writeObject(new Solicitacao(Solicitacao.iObraListar, "", "", "", idObra));
+            if (idObra == 0) {
+                oos.writeObject(new Solicitacao(Solicitacao.iObraListar, "", "", "", idObra));
+            } else {
+                oos.writeObject(new Solicitacao(Solicitacao.iObraPontoListar, "", "", "", idObra));
+            }
             //abre canal de leitura
             ObjectInputStream ois = new ObjectInputStream(http.getInputStream());
             //recebe objeto

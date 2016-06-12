@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -16,6 +17,7 @@ import br.com.vempracaruaru.adapters.AdapterListaObra;
 import br.com.vempracaruaru.comunicacao.DownloadListarArtista;
 import br.com.vempracaruaru.comunicacao.DownloadListarObra;
 import br.com.vempracaruaru.obra.Obra;
+import br.com.vempracaruaru.pontoturistico.PontoTuristico;
 
 
 public class ListaObrasActivity extends AppCompatActivity implements OnItemClickListener{
@@ -29,6 +31,9 @@ public class ListaObrasActivity extends AppCompatActivity implements OnItemClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Intent intent = getIntent();
+        PontoTuristico ponto = (PontoTuristico) intent.getSerializableExtra("ponto");
+
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Aguarde!");
         progressDialog.setMessage("Carregando lista de obras...");
@@ -40,7 +45,12 @@ public class ListaObrasActivity extends AppCompatActivity implements OnItemClick
 
         try {
             DownloadListarObra downloadObra = new DownloadListarObra(ListaObrasActivity.this);
+            if(ponto == null){
             downloadObra.execute(0);
+            }else{
+                Log.i("ListaObra","id: "+ponto.getId());
+             downloadObra.execute(ponto.getId());
+            }
             obras = downloadObra.get();
         } catch (InterruptedException e) {
             e.printStackTrace();

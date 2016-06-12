@@ -75,7 +75,7 @@
         jar="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="89688e3bd823f725f3c455f0784d4fe7c6cc3a31">
+        sha1="3a24c5965768e1fc4337b52dd023b925c23fa43a">
         <dex dex="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_7d5488919167d94eab4e785d4f7b6e472c225677/classes.dex" />
     </item>
     <item
@@ -222,7 +222,7 @@
         jar="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="07134b263f16f3ec6fd17ab10e2eb365702d5fbe">
+        sha1="c06de96ff0cb25ab1c874c736ebca53b159a92b4">
         <dex dex="/home/joao/git/VemPraCarruaruAPP/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_c85cb77c0169996c0c62b5448c65a3f156236e9d/classes.dex" />
     </item>
     <item

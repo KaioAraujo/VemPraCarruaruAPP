@@ -119,6 +119,7 @@ public class MenuPontoTuristicoActivity extends AppCompatActivity implements OnC
                 break;
             case R.id.btn_ver_obras_ponto:
                 Intent itObras = new Intent(this,ListaObrasActivity.class);
+                itObras.putExtra("ponto",pontoTuristico);
                 startActivity(itObras);
                 break;
             case R.id.btn_ver_gps_ponto:
