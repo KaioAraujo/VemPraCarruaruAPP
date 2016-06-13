@@ -30,53 +30,15 @@ import br.com.vempracaruaru.lista.Lista;
 public class AdapterMinhaLista extends BaseExpandableListAdapter {
 
     private Context ctx;
-    private int id;
-    private Map<String,List<Lista>> listas = new HashMap<>();
+    private Map<String,List<Lista>> listas;
     private ArrayList<String> keys;
 
 
-    public AdapterMinhaLista(Context ctx, int id) {
+    public AdapterMinhaLista(Context ctx, Map<String,List<Lista>> lista) {
         this.ctx = ctx;
-        this.id = id;
-       recuperarPontosJaVisitados(id);
-       recuperarPontosNaovisitados(id);
+        this.listas = lista;
         this.keys = new ArrayList<String>(listas.keySet());
     }
-
-    private void recuperarPontosNaovisitados(int id) {
-        ArrayList <Lista> pontosNaovisitados = null;
-
-        try {
-            DownloadListarListaAVisitar download = new DownloadListarListaAVisitar(ctx);
-            download.execute(id);
-            pontosNaovisitados = download.get();
-            if(pontosNaovisitados !=null){
-                listas.put("N",pontosNaovisitados);
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void recuperarPontosJaVisitados(int id) {
-        ArrayList<Lista>pontosJaVisitados = null;
-
-        try {
-            DownloadListarListaVisitado download = new DownloadListarListaVisitado(ctx);
-            download.execute(id);
-            pontosJaVisitados = download.get();
-            if(pontosJaVisitados !=null) {
-               listas.put("S",pontosJaVisitados);
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
-    }
-
 
     @Override
     public Object getGroup(int groupPosition) {
@@ -104,6 +66,7 @@ public class AdapterMinhaLista extends BaseExpandableListAdapter {
         TextView txt = (TextView) convertView.findViewById(android.R.id.text1);
         txt.setTextColor(Color.WHITE);
         txt.setBackgroundColor(Color.RED);
+        txt.setTextSize(28);
         if(keys.get(groupPosition).equals("N")){
             txt.setText("Pontos não visitados ("+listas.get("N").size()+")");
         }else{
@@ -133,6 +96,7 @@ public class AdapterMinhaLista extends BaseExpandableListAdapter {
         }
         TextView txt = (TextView) convertView.findViewById(android.R.id.text1);
         txt.setText(listas.get(keys.get(groupPosition)).get(childPosition).getNomePontoTuristico());
+        txt.setTextSize(20);
         return convertView;
     }
 
@@ -140,7 +104,6 @@ public class AdapterMinhaLista extends BaseExpandableListAdapter {
     public int getChildrenCount(int groupPosition) {
         return listas.get(keys.get(groupPosition)).size();
     }
-
 
     @Override
     public boolean hasStableIds() {
