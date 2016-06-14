@@ -33,10 +33,10 @@ public class ListaMarcarJaVisitado extends AsyncTask<Integer, String, Lista> {
     @Override
     protected void onPreExecute() {
 
-        progressDialog = new ProgressDialog(context);
-        progressDialog.setTitle("Aguarde!");
-        progressDialog.setMessage("Marcando Ponto Turístico como visitado...");
-        progressDialog.show();
+//        progressDialog = new ProgressDialog(context);
+//        progressDialog.setTitle("Aguarde!");
+//        progressDialog.setMessage("Marcando Ponto Turístico como visitado...");
+//        progressDialog.show();
         super.onPreExecute();
     }
 
@@ -87,7 +87,7 @@ public class ListaMarcarJaVisitado extends AsyncTask<Integer, String, Lista> {
     @Override
     protected void onPostExecute(Lista lista) {
 //        progressDialog.setMessage("Finalizado!");
-        progressDialog.dismiss();
+//        progressDialog.dismiss();
         super.onPostExecute(lista);
     }
 }

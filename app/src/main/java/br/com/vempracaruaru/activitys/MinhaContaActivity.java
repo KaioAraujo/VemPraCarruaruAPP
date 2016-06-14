@@ -25,6 +25,7 @@ import br.com.vempracaruaru.adapters.AdapterMinhaLista;
 import br.com.vempracaruaru.comunicacao.DownloadListarListaAVisitar;
 import br.com.vempracaruaru.comunicacao.DownloadListarListaVisitado;
 import br.com.vempracaruaru.comunicacao.DownloadListarUsuario;
+import br.com.vempracaruaru.comunicacao.ListaMarcarJaVisitado;
 import br.com.vempracaruaru.lista.Lista;
 import br.com.vempracaruaru.pontoturistico.PontoTuristico;
 import br.com.vempracaruaru.usuario.Usuario;
@@ -33,6 +34,7 @@ public class MinhaContaActivity extends AppCompatActivity{
 
     private SharedPreferences sharedPrefEmail;
     private String isEmail;
+    private Usuario usuario;
     private Map<String,List<Lista>> listas = new HashMap<>();
     private ArrayList<Lista> pontosJaVisitados = null;
 
@@ -41,11 +43,10 @@ public class MinhaContaActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.minha_conta_layout);
 
-        Usuario usuario = null;
+        usuario = null;
         sharedPrefEmail = getSharedPreferences("LOGIN", 0);
         isEmail = sharedPrefEmail.getString("email", "");
         Log.i("LoginActivity", "RETORNO EMAIL NA MINHA CONTA:> " + isEmail);
-
 
         try {
             DownloadListarUsuario download = new DownloadListarUsuario(MinhaContaActivity.this);
@@ -82,10 +83,27 @@ public class MinhaContaActivity extends AppCompatActivity{
                                         int groupPosition, int childPosition, long id) {
                 // TODO Auto-generated method stub
                 if(groupPosition == 0){
-                    Toast.makeText(getApplicationContext(),
-                            listas.get("N").get(childPosition).getNomePontoTuristico(),
+                    try {
+                        ListaMarcarJaVisitado marca = new ListaMarcarJaVisitado(getApplicationContext());
+                        marca.execute(listas.get("N").get(childPosition).getIdPontoTuristico(),usuario.getId());
+                        Lista teste = marca.get();
+                        recuperarPontosJaVisitados(usuario.getId());
+                        recuperarPontosNaovisitados(usuario.getId());
+                        listaCheck.setAdapter(new AdapterMinhaLista(getApplicationContext(), listas));
+                        if(teste != null){
+                            Toast.makeText(getApplicationContext(),"Concluido com sucesso",
                                 Toast.LENGTH_SHORT)
                                 .show();
+                        }else{
+                            Toast.makeText(getApplicationContext(),"Erro",
+                                    Toast.LENGTH_SHORT)
+                                    .show();
+                        }
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    }
                 }else{
                 Toast.makeText(getApplicationContext(),
                     listas.get("S").get(childPosition).getNomePontoTuristico(),

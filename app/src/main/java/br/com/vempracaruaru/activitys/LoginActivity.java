@@ -56,23 +56,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private SharedPreferences sharedPrefEmail;
     private SharedPreferences sharedPrefUsuario;
     private ProgressDialog progressDialog;
-    private String isEmail = null;
     //
     private LoginButton loginButton;
     private CallbackManager callbackManager;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_layout);
 
-        sharedPrefEmail = getSharedPreferences("LOGIN", 0);
-        isEmail = sharedPrefEmail.getString("email", null);
+        sharedPref = getPreferences(Context.MODE_PRIVATE);
+        boolean isLogged = sharedPref.getBoolean("logado", false);
 
-        if(isEmail != null) {
-            Intent its = new Intent(getApplicationContext(),HomeActivity.class);
+        if(isLogged) {
+            Intent its = new Intent(this,HomeActivity.class);
             startActivity(its);
-            finish();
         }
 
         emailEdt = (EditText) findViewById(R.id.edt_campo_email);
@@ -174,8 +171,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     usuarioRetorno = (Usuario) obTeste;
                     //imprime log
                     if (usuarioRetorno != null) {
-                        Log.i("LoginActivity", "RETORNO:> " + usuarioRetorno.toString());
-                        retornoLogin = true;
+                        try {
+                            DownloadListarUsuario download = new DownloadListarUsuario(LoginActivity.this);
+                            download.execute(email);
+                            usuario = download.get();
+
+                            Log.i("LoginActivity", "RETORNO:> " + usuarioRetorno.toString());
+                            retornoLogin = true;
+
+                            Message msg = handler.obtainMessage();
+                            msg.arg1 = 1;
+                            handler.sendMessage(msg);
 
                             sharedPref = getPreferences(Context.MODE_PRIVATE);
                             SharedPreferences.Editor editor = sharedPref.edit();
@@ -189,13 +195,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                             sharedPrefUsuario = getSharedPreferences("USUARIO", 0);
                             SharedPreferences.Editor editorUsuario = sharedPrefUsuario.edit();
-                            editorUsuario.putInt("idUsuario", usuarioRetorno.getId());
+                            editorUsuario.putInt("idUsuario", usuario.getId());
                             editorUsuario.commit();
 
-                        startActivity(its);
+                            startActivity(its);
 
-                        finish();
-
+                            finish();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        } catch (ExecutionException e) {
+                        }
                     } else {
                         progressDialog.dismiss();
                         Log.i("LoginActivity", "RETORNO:> Login inválido");
@@ -205,6 +214,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     }
                 } catch (Exception e) {
                     Log.e("LoginActivity", "Erro do TRY " + e.getMessage());
+                    Message msg = handler.obtainMessage();
+                    msg.arg1 = 2;
+                    handler.sendMessage(msg);
                 }
             }
         }.start();
@@ -212,7 +224,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private final Handler handler = new Handler() {
         public void handleMessage(Message msg) {
             if(msg.arg1 == 1) {
-                Toast.makeText(getApplicationContext(), "ID: " + usuarioRetorno.getId() + "\nNome: " + usuarioRetorno.getNome() + "\nEmail: " + usuarioRetorno.getEmail() + "\nPontos: " + usuarioRetorno.getPontos(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Seja bem vindo ao Vem Pra Caruaru!", Toast.LENGTH_LONG).show();
             } else if(msg.arg1 == 2) {
                 Toast.makeText(getApplicationContext(), "Login inválido", Toast.LENGTH_LONG).show();
             }
@@ -229,29 +241,41 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             id = response.getJSONObject().getString("id");
                             email = response.getJSONObject().getString("email");
                             nome = response.getJSONObject().getString("name");
-                            Log.i("LoginFace","getInfoFace - Completed " + id + " - " + nome + " - " + email);
-                            sharedPref = getPreferences(Context.MODE_PRIVATE);
-                            SharedPreferences.Editor editor = sharedPref.edit();
-                            editor.putBoolean("logado", true);
-                            editor.commit();
-
-                            sharedPrefEmail = getSharedPreferences("LOGIN", 0);
-                            SharedPreferences.Editor editorEmail = sharedPrefEmail.edit();
-                            editorEmail.putString("email", email);
-                            editorEmail.commit();
+                            Log.i("LoginFace", "getInfoFace - Completed " + id + " - " + nome + " - " + email);
 
                             try {
                                 DownloadListarUsuario download = new DownloadListarUsuario(LoginActivity.this);
                                 download.execute(email);
                                 usuario = download.get();
+                                if (usuario != null){
+                                    sharedPref = getPreferences(Context.MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = sharedPref.edit();
+                                    editor.putBoolean("logado", true);
+                                    editor.commit();
+
+                                    sharedPrefEmail = getSharedPreferences("LOGIN", 0);
+                                    SharedPreferences.Editor editorEmail = sharedPrefEmail.edit();
+                                    editorEmail.putString("email", email);
+                                    editorEmail.commit();
+
+                                    sharedPrefUsuario = getSharedPreferences("USUARIO", 0);
+                                    SharedPreferences.Editor editorUsuario = sharedPrefUsuario.edit();
+                                    editorUsuario.putInt("idUsuario", usuario.getId());
+                                    editorUsuario.commit();
+
+                                    Intent its = new Intent(getApplicationContext(),HomeActivity.class);
+                                    startActivity(its);
+                                    finish();
+                                } else {
+                                    usuario = new Usuario(0, nome, email, "", id, "", id, 0, 'S');
+                                    Intent its = new Intent(getApplicationContext(),HomeActivity.class);
+                                    cadastro(its);
+                                }
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             } catch (ExecutionException e) {
                             }
 
-                            Intent its = new Intent(getApplicationContext(),HomeActivity.class);
-                            startActivity(its);
-                            finish();
                         }catch (Exception e){
                             e.getStackTrace();
                         }
@@ -268,5 +292,82 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+       // finish();
+    }
+
+    public void cadastro(final Intent its) throws IOException, ClassNotFoundException {
+        final Intent it = its;
+        new Thread() {
+            @Override
+            public void run() {
+                try {
+                    URL url = new URL(cfgs.URL);
+                    HttpURLConnection http = (HttpURLConnection) url.openConnection();
+                    http.setRequestMethod("POST");
+                    http.addRequestProperty("content-type", "application/binary");
+                    http.setDoInput(true);
+                    http.setDoOutput(true);
+                    http.setConnectTimeout(20000);
+                    http.connect();
+
+                    //abre canal de saída
+                    ObjectOutputStream oos = new ObjectOutputStream(http.getOutputStream());
+                    //envia objeto
+                    oos.writeObject(new Solicitacao(Solicitacao.iUsuarioCadastro, "", "", "", usuario));
+                    //abre canal de leitura
+                    ObjectInputStream ois = new ObjectInputStream(http.getInputStream());
+                    //recebe objeto
+                    Serializable obTeste = (Serializable) ois.readObject();
+                    usuario = (Usuario) obTeste;
+                    //imprime log
+                    if (usuario != null) {
+
+                        Log.i("LoginActivity", "RETORNO:> " + usuario.toString());
+                        Message msg = handler.obtainMessage();
+                        msg.arg1 = 1;
+                        handler.sendMessage(msg);
+
+                        sharedPref = getPreferences(Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPref.edit();
+                        editor.putBoolean("logado", true);
+                        editor.commit();
+
+                        sharedPrefEmail = getSharedPreferences("LOGIN", 0);
+                        SharedPreferences.Editor editorEmail = sharedPrefEmail.edit();
+                        editorEmail.putString("email", email);
+                        editorEmail.commit();
+
+                        sharedPrefUsuario = getSharedPreferences("USUARIO", 0);
+                        SharedPreferences.Editor editorUsuario = sharedPrefUsuario.edit();
+                        editorUsuario.putInt("idUsuario", usuario.getId());
+                        editorUsuario.commit();
+
+                        progressDialog.dismiss();
+
+                        startActivity(its);
+                        finish();
+                    } else {
+                        Log.i("LoginActivity", "RETORNO:> Cadastro não efetuado!");
+                        Message msg = handler.obtainMessage();
+                        msg.arg1 = 2;
+                        handler.sendMessage(msg);
+                        progressDialog.dismiss();
+                    }
+
+                } catch (Exception e) {
+                    Log.e("LoginActivity", "Erro do TRY " + e.getMessage());
+                    Message msg = handler.obtainMessage();
+                    msg.arg1 = 2;
+                    handler.sendMessage(msg);
+
+                    progressDialog.dismiss();
+                }
+            }
+        }.start();
     }
 }

@@ -1,7 +1,6 @@
 package br.com.vempracaruaru.activitys;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
@@ -23,10 +22,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private SharedPreferences sharedPrefUsuario;
     private String isEmail;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.home_layout);
 
         ImageButton btnPonto = (ImageButton) findViewById(R.id.ibt_pontos_turisticos);
@@ -74,7 +73,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 scan();
                 break;
             case R.id.ibt_sair:
-
                 sharedPrefEmail = getSharedPreferences("LOGIN", 0);
                 SharedPreferences.Editor editorEmail = sharedPrefEmail.edit();
                 editorEmail.putString("email", null);
@@ -87,7 +85,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
                 Intent itsLogin = new Intent(this,LoginActivity.class);
                 startActivity(itsLogin);
-
                 break;
 
         }
@@ -117,19 +114,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             }
         }else{
             super.onActivityResult(requestCode,resultCode,data);
-        }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        sharedPrefEmail = getSharedPreferences("LOGIN", 0);
-        isEmail = sharedPrefEmail.getString("email", null);
-
-        if(isEmail == null) {
-            Intent intent = new Intent(Intent.ACTION_MAIN);
-            finish();
         }
     }
 }

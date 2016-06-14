@@ -38,7 +38,9 @@ public class CadastroActivity extends AppCompatActivity {
     private Usuario usuario = null;
     public static ArrayList<Usuario> listaUsuario = new ArrayList<>();
     private ProgressDialog progressDialog;
+    private SharedPreferences sharedPref;
     private SharedPreferences sharedPrefEmail;
+    private SharedPreferences sharedPrefUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,15 +113,29 @@ public class CadastroActivity extends AppCompatActivity {
                     //imprime log
                     if (usuario != null) {
                         Log.i("LoginActivity", "RETORNO:> " + usuario.toString());
-                        startActivity(its);
                         Message msg = handler.obtainMessage();
                         msg.arg1 = 1;
                         handler.sendMessage(msg);
+
+                        sharedPref = getPreferences(Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPref.edit();
+                        editor.putBoolean("logado", true);
+                        editor.commit();
+
                         sharedPrefEmail = getSharedPreferences("LOGIN", 0);
                         SharedPreferences.Editor editorEmail = sharedPrefEmail.edit();
                         editorEmail.putString("email", email);
                         editorEmail.commit();
+
+                        sharedPrefUsuario = getSharedPreferences("USUARIO", 0);
+                        SharedPreferences.Editor editorUsuario = sharedPrefUsuario.edit();
+                        editorUsuario.putInt("idUsuario", usuario.getId());
+                        editorUsuario.commit();
+
                         progressDialog.dismiss();
+
+                        startActivity(its);
+
                         finish();
                     } else {
                         Log.i("LoginActivity", "RETORNO:> Cadastro não efetuado!");
