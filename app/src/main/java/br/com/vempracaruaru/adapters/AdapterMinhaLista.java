@@ -66,7 +66,7 @@ public class AdapterMinhaLista extends BaseExpandableListAdapter {
         TextView txt = (TextView) convertView.findViewById(android.R.id.text1);
         txt.setTextColor(Color.WHITE);
         txt.setBackgroundColor(Color.RED);
-        txt.setTextSize(28);
+        txt.setTextSize(24);
         if(keys.get(groupPosition).equals("N")){
             txt.setText("Pontos não visitados ("+listas.get("N").size()+")");
         }else{
