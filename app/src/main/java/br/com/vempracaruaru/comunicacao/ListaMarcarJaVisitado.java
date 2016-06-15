@@ -48,6 +48,7 @@ public class ListaMarcarJaVisitado extends AsyncTask<Integer, String, Lista> {
         Lista lista = new Lista(idUsuario,idPonto,"",'S');
         try {
 
+            Log.i("RETORNO","idPonto: " + idPonto+" idUsuario: " + idUsuario);
             URL url = new URL(cfgs.URL);
             HttpURLConnection http = null;
             http = (HttpURLConnection) url.openConnection();
@@ -68,9 +69,10 @@ public class ListaMarcarJaVisitado extends AsyncTask<Integer, String, Lista> {
             lista = (Lista) obTeste;
             //imprime log
             if (lista != null) {
-                Log.i("ListaMarcarJaVisitado", "RETORNO:> " + lista.toString());
+                Log.i("ListaMarcarJaVisitado", "RETORNO lista:> " + lista.toString());
             } else {
                 Log.i("ListaMarcarJaVisitado", "RETORNO:> Não foi possível marcar a lista!");
+                Log.i("ListaMarcarJaVisitado", "RETORNO:> " + lista);
             }
         } catch (ProtocolException e) {
             e.printStackTrace();
