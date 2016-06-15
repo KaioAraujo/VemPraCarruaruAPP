@@ -15,13 +15,25 @@ import com.example.joao.vempracaruaruapp.R;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
+
+import br.com.vempracaruaru.artista.Artista;
+import br.com.vempracaruaru.comunicacao.DownloadListarArtista;
+import br.com.vempracaruaru.comunicacao.DownloadListarObra;
+import br.com.vempracaruaru.comunicacao.DownloadListarPontoTuristico;
+import br.com.vempracaruaru.obra.Obra;
+import br.com.vempracaruaru.pontoturistico.PontoTuristico;
+
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ProgressDialog progressDialog;
     private SharedPreferences sharedPrefEmail;
     private SharedPreferences sharedPrefUsuario;
     private String isEmail;
-
+    private ArrayList<Artista> artistas;
+    private ArrayList<Obra> obras;
+    private ArrayList<PontoTuristico> pontos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +56,16 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        progressDialog.dismiss();
-//    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        sharedPrefEmail = getSharedPreferences("LOGIN", 0);
+        String isEmail = sharedPrefEmail.getString("email", null);
+
+        if(isEmail == null) {
+            finish();
+        }
+    }
 
     @Override
     public void onClick(View v) {
@@ -109,11 +126,81 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 //                Log.d("Main","scan cancelado");
 //                Toast.makeText(this,"cancelado: "+result.getContents(),Toast.LENGTH_LONG).show();
             }else {
-                Log.d("Main","scanned");
-                Toast.makeText(this,"scanned: "+result.getContents(),Toast.LENGTH_LONG).show();
+                String retorno = result.getContents();
+                String id = retorno.substring(retorno.indexOf('=') + 1);
+                if (retorno.contains("artistasDetalhes.jsp")){
+
+                    try {
+                        DownloadListarArtista downloadArtista = new DownloadListarArtista(HomeActivity.this);
+                        downloadArtista.execute(Integer.parseInt("" + id));
+                        artistas = downloadArtista.get();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    }
+                    Log.d("SCANNER", "TAMANHO DO ARRAY " + artistas.size());
+                    Log.d("SCANNER", "DADOS DO ARTISTA " + artistas.get(0).toString());
+                    Intent its = new Intent(this, PerfilArtistaActivity.class);
+                    Artista artista = artistas.get(0);
+                    Log.d("SCANNER", "DADOS DO ARTISTA 2 " + artista);
+                    its.putExtra("artista", artista);
+                    startActivity(its);
+                } else if (retorno.contains("obrasDetalhes.jsp")) {
+                    try {
+                        DownloadListarObra downloadObra = new DownloadListarObra(HomeActivity.this);
+                        downloadObra.execute(0);
+                        obras = downloadObra.get();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    }
+                    Log.d("SCANNER", "TAMANHO DO ARRAY " + obras.size());
+                    Log.d("SCANNER", "DADOS DO OBRA " + obras.get(0).toString());
+                    Intent its = new Intent(this, MenuObraActivity.class);
+                    Obra obra = null;
+
+                    for (Obra obra1 : obras) {
+                        if (obra1.getId() == Integer.parseInt("" + id)) {
+                            obra = obra1;
+                            break;
+                        }
+                    }
+
+                    Log.d("SCANNER", "DADOS DO OBRA 2 " + obra);
+                    its.putExtra("obra", obra);
+                    startActivity(its);
+
+                } else if (retorno.contains("pontosTuristicosDetalhes.jsp")) {
+
+                    try {
+                        DownloadListarPontoTuristico downloadPonto = new DownloadListarPontoTuristico(HomeActivity.this);
+                        downloadPonto.execute(Integer.parseInt("" + id));
+                        pontos = downloadPonto.get();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    }
+                    Log.d("SCANNER", "TAMANHO DO ARRAY " + pontos.size());
+                    Log.d("SCANNER", "DADOS DO PONTO " + pontos.get(0).toString());
+                    Intent its = new Intent(this, MenuPontoTuristicoActivity.class);
+                    PontoTuristico ponto = pontos.get(0);
+                    Log.d("SCANNER", "DADOS DO PONTO 2 " + ponto);
+                    its.putExtra("pontoTuristico", ponto);
+                    startActivity(its);
+
+                } else {
+                    Toast.makeText(this,"QR CODE inválido!!!",Toast.LENGTH_LONG).show();
+                }
             }
         }else{
-            super.onActivityResult(requestCode,resultCode,data);
+            super.onActivityResult(requestCode, resultCode, data);
         }
+    }
+
+    public void cadastro(String url){
+
     }
 }

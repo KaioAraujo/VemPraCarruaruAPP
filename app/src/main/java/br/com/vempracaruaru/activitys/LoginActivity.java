@@ -52,7 +52,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private String id;
     private EditText emailEdt;
     private EditText senhaEdt;
-    private SharedPreferences sharedPref;
     private SharedPreferences sharedPrefEmail;
     private SharedPreferences sharedPrefUsuario;
     private ProgressDialog progressDialog;
@@ -64,12 +63,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_layout);
 
-        sharedPref = getPreferences(Context.MODE_PRIVATE);
-        boolean isLogged = sharedPref.getBoolean("logado", false);
+        sharedPrefEmail = getSharedPreferences("LOGIN", 0);
+        String isEmail = sharedPrefEmail.getString("email", null);
 
-        if(isLogged) {
+        if(isEmail != null) {
             Intent its = new Intent(this,HomeActivity.class);
             startActivity(its);
+            finish();
         }
 
         emailEdt = (EditText) findViewById(R.id.edt_campo_email);
@@ -183,11 +183,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             msg.arg1 = 1;
                             handler.sendMessage(msg);
 
-                            sharedPref = getPreferences(Context.MODE_PRIVATE);
-                            SharedPreferences.Editor editor = sharedPref.edit();
-                            editor.putBoolean("logado", true);
-                            editor.commit();
-
                             sharedPrefEmail = getSharedPreferences("LOGIN", 0);
                             SharedPreferences.Editor editorEmail = sharedPrefEmail.edit();
                             editorEmail.putString("email", email);
@@ -217,6 +212,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     Message msg = handler.obtainMessage();
                     msg.arg1 = 2;
                     handler.sendMessage(msg);
+                    progressDialog.dismiss();
                 }
             }
         }.start();
@@ -248,10 +244,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 download.execute(email);
                                 usuario = download.get();
                                 if (usuario != null){
-                                    sharedPref = getPreferences(Context.MODE_PRIVATE);
-                                    SharedPreferences.Editor editor = sharedPref.edit();
-                                    editor.putBoolean("logado", true);
-                                    editor.commit();
 
                                     sharedPrefEmail = getSharedPreferences("LOGIN", 0);
                                     SharedPreferences.Editor editorEmail = sharedPrefEmail.edit();
@@ -297,7 +289,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onResume() {
         super.onResume();
-       // finish();
     }
 
     public void cadastro(final Intent its) throws IOException, ClassNotFoundException {
@@ -331,11 +322,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         Message msg = handler.obtainMessage();
                         msg.arg1 = 1;
                         handler.sendMessage(msg);
-
-                        sharedPref = getPreferences(Context.MODE_PRIVATE);
-                        SharedPreferences.Editor editor = sharedPref.edit();
-                        editor.putBoolean("logado", true);
-                        editor.commit();
 
                         sharedPrefEmail = getSharedPreferences("LOGIN", 0);
                         SharedPreferences.Editor editorEmail = sharedPrefEmail.edit();
